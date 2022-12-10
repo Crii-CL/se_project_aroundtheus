@@ -1,0 +1,17 @@
+.elements {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas:
+    "header header header"
+    "profile_image title profile__button"
+    "block block block"
+    "block block block";
+}
+
+.elements__block {
+  grid-area: block;
+}
+
+.elements__image {
+}
