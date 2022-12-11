@@ -1,4 +1,8 @@
 .profile {
+  display: grid;
+  grid-template-columns: 880px;
+  grid-template-rows: repeat(2, 60px);
+  grid-template-areas: "";
 }
 
 .profile__name {
@@ -7,8 +11,11 @@
 .profile__image {
 }
 
-.profile__edit-button {
+.profile__image_edit-button {
 }
 
-.profile__image_edit-button {
+.profile__image_add-button {
+}
+
+.profile__edit-button {
 }

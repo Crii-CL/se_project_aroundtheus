@@ -4,12 +4,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width-device-width, initial-scale=1" />
     <title>Around the US</title>
-    <link rel="stylesheet" href="../se_project_aroundtheus/pages/index.css" />
-    <link rel="icon" href="../se_project_aroundtheus/favicon.ico" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="icon" href="./favicon.ico" />
   </head>
   <body>
     <div class="page">
-      <header class="header"></header>
+      <header class="header">
+        <h1>
+          <img
+            src="./images/header__title.svg"
+            alt="header logo"
+            class="header__title"
+          />
+        </h1>
+        <div class="header__line"></div>
+      </header>
       <main class="main">
         <section class="profile">
           <div>
@@ -30,47 +39,60 @@
                 class="profile__image_edit-button"
               />
             </button>
+            <button class="profile__add-button">
+              <img
+                src="./images/add__button.svg"
+                alt="add button"
+                class="profile__image_add-button"
+              />
+            </button>
           </div>
         </section>
-        <section class="elements">
-          <div class="elements__block">
-            <img
-              src="./images/yosemite-valley.png"
-              alt=""
-              class="elements__image"
-            />
-          </div>
-          <div class="elements__block">
-            <img
-              src="./images/lake-louise.png"
-              alt=""
-              class="elements__image"
-            />
-          </div>
-          <div class="elements__block">
-            <img
-              src="./images/bald-mountains.png"
-              alt=""
-              class="elements__image"
-            />
-          </div>
-          <div class="elements__block">
-            <img src="./images/latemar.png" alt="" class="elements__image" />
-          </div>
-          <div class="elements__block">
-            <img
-              src="./images/vanoise-national-park.png"
-              alt=""
-              class="elements__image"
-            />
-          </div>
-          <div class="elements__block">
-            <img
-              src="./images/lago-di-braies.png"
-              alt=""
-              class="elements__image"
-            />
-          </div>
+        <section class="cards">
+          <ul class="card__list">
+            <li class="card">
+              <img
+                src="./images/yosemite-valley.png"
+                alt="yosemite valley"
+                class="card__image"
+              />
+            </li>
+            <li class="card">
+              <img
+                src="./images/lake-louise.png"
+                alt="lake louise"
+                class="card__image"
+              />
+            </li>
+            <li class="card">
+              <img
+                src="./images/bald-mountains.png"
+                alt="bald mountains"
+                class="card__image"
+              />
+            </li>
+            <li class="card">
+              <img
+                src="./images/latemar.png"
+                alt="latemar"
+                class="card__image"
+              />
+            </li>
+            <li class="card">
+              <img
+                src="./images/vanoise-national-park.png"
+                alt="vanoise national park"
+                class="card__image"
+              />
+            </li>
+            <li class="card">
+              <img
+                src="./images/lago-di-braies.png"
+                alt="lago di lago-di-braies"
+                class="card__image"
+              />
+            </li>
+          </ul>
         </section>
       </main>
       <footer class="footer"></footer>

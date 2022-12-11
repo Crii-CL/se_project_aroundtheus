@@ -1,11 +1,10 @@
 @import url(../vendor/normalize.css);
-@import url(../blocks/Main-Page/Elements.css);
-@import url(../blocks/Main-Page/Profile.css);
-@import url(../blocks/Main-Page/Footer.css);
-@import url(..blocks/Mobile/Elements.css);
-@import url(../blocks/Mobile/Profile.css);
-@import url(../blocks/Mobile/Header.css);
-@import url(../blocks/Mobile/Footer.css);
+@import url(../blocks/Main-Page/page.css);
+@import url(../blocks/Main-Page/cards.css);
+@import url(../blocks/Main-Page/card.css);
+@import url(../blocks/Main-Page/profile.css);
+@import url(../blocks/Main-Page/footer.css);
+@import url(../blocks/Main-Page/header.css);
 @import url(../fonts/fonts.css);
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
