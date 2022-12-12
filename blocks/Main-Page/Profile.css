@@ -11,11 +11,11 @@
 
 .profile__titles {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 120px 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
   grid-template-areas:
-    "title button"
-    "subtitle subtitle";
+    "image title button"
+    "image subtitle subtitle";
 }
 
 .profile__title {
@@ -27,6 +27,7 @@
   font-size: 42px;
   line-height: 48px;
   margin: 0;
+  text-align: center;
 }
 
 .profile__subtitle {
@@ -39,8 +40,7 @@
 }
 
 .profile__image {
-  grid-template-columns: 168.75;
-  grid-template-rows: 127.5;
+  grid-area: image;
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -56,6 +56,7 @@
   grid-area: button;
   width: 24px;
   height: 24px;
+  align-self: center;
 
   background-color: #000;
   border: 1px solid #fff;
@@ -68,9 +69,6 @@
 }
 
 .profile__add-button {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: row;
   margin: 0;
   width: 150px;
   height: 50px;
