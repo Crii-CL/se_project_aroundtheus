@@ -2,9 +2,26 @@
 }
 
 .card__list {
+  display: grid;
+  grid-column-gap: 17px;
+  grid-row-gap: 20px;
+  grid-template-columns: repeat(3, 282px);
+  grid-template-rows: 1fr 1fr;
+
   list-style: none;
   padding-left: 0;
 }
 
 .card__image {
+  width: 282px;
+}
+
+.card__caption {
+  border: solid 1px #fff;
+  background-color: #fff;
+  font-family: Inter, Arial, sans-serif;
+  font-weight: 1000;
+}
+.card__heart {
+  height: 18px;
 }
