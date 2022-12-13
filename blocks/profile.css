@@ -11,23 +11,22 @@
 
 .profile__titles {
   display: grid;
-  grid-template-columns: 120px 1fr 1fr;
-  grid-template-rows: 2fr 1fr;
+  grid-template-columns: 120px 373px 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 30px;
   grid-template-areas:
-    "image title button"
-    "image subtitle subtitle";
+    "image title edit add"
+    "image subtitle subtitle add";
 }
 
 .profile__title {
   grid-area: title;
-  padding-bottom: 16px;
   font-family: Inter, Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 42px;
   line-height: 48px;
   margin: 0;
-  text-align: center;
 }
 
 .profile__subtitle {
@@ -53,7 +52,7 @@
 }
 
 .profile__edit-button {
-  grid-area: button;
+  grid-area: edit;
   width: 24px;
   height: 24px;
   align-self: center;
@@ -69,9 +68,12 @@
 }
 
 .profile__add-button {
+  grid-area: add;
   margin: 0;
   width: 150px;
   height: 50px;
+  grid-row-start: 1;
+  grid-row-end: 2;
 
   background-color: #000;
   border: 2px solid #fff;
