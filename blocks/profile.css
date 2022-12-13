@@ -11,12 +11,11 @@
 
 .profile__titles {
   display: grid;
-  grid-template-columns: 120px 373px 1fr 1fr;
+  grid-template-columns: 120px 30px 373px 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  grid-gap: 30px;
   grid-template-areas:
-    "image title edit add"
-    "image subtitle subtitle add";
+    "image . title edit add"
+    "image . subtitle subtitle add";
 }
 
 .profile__title {
