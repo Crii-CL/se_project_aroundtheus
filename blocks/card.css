@@ -17,11 +17,15 @@
 }
 
 .card__caption {
-  border: solid 1px #fff;
+  border: solid 0px #fff;
   background-color: #fff;
   font-family: Inter, Arial, sans-serif;
-  font-weight: 1000;
+  font-weight: 900;
+  font-size: 24px;
+  padding-bottom: 15px;
+  border-radius: 4%;
+  line-height: 45px;
 }
 .card__heart {
-  height: 18px;
+  line-height: 18px;
 }
