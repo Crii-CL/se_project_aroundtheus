@@ -1,5 +1,13 @@
 .footer {
+  width: 880px;
+  padding-top: 67px;
+  margin: 0 auto;
 }
 
 .footer__copyright {
+  color: gray;
+  font-family: Inter, Arial, sans-serif;
+
+  display: flex;
+  justify-content: flex-start;
 }
