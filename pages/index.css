@@ -14,7 +14,7 @@
   .page {
     display: flex;
     flex-direction: column;
-    min-width: 768px;
+    height: ;
   }
 
   .cards {
