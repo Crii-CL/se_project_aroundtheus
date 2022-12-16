@@ -19,15 +19,30 @@
   }
 
   .profile__content {
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     grid-template-areas:
-      "image"
-      ". ."
-      "title  edit"
-      "subtitle"
-      "."
-      "add";
+      "image image"
+      "title edit"
+      "subtitle ."
+      "add add";
+  }
+
+  .profile__image {
+    padding-bottom: 26.25px;
+    grid-column: span 2;
+  }
+
+  .profile__title {
+    padding-bottom: 14px;
+  }
+
+  .profile__edit {
+    padding-left: 10px;
+  }
+
+  .profile__subtitle {
+    padding-bottom: 36px;
   }
 
   .card__list {
