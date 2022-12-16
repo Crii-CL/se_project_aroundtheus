@@ -16,15 +16,15 @@
   }
 
   .profile__content {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(6, 1fr);
     grid-template-areas:
-    "image" 
-    ". ." 
-    "title  edit" 
-    "subtitle" 
-    "." 
-    "add" ;
+      "image"
+      ". ."
+      "title  edit"
+      "subtitle"
+      "."
+      "add";
   }
 
   .card__list {
@@ -32,7 +32,14 @@
     grid-template-rows: repeat(6, 1fr);
   }
 
-  .
+  .card {
+    font-size: 30px;
+  }
+
+  .card__heart {
+    height: 22px;
+    align-self: center;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1280px) {
