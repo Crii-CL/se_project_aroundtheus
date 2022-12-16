@@ -1,6 +1,5 @@
 .profile {
   width: 880px;
-  height: 120px;
   padding: 40px 200px 51px 200px;
   margin: 0;
 }
@@ -9,7 +8,7 @@
   color: #fff;
 }
 
-.profile__titles {
+.profile__content {
   display: grid;
   grid-template-columns: 120px 30px 373px 1fr 1fr;
   grid-template-rows: 25% 1fr 1fr;
