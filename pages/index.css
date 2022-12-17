@@ -70,7 +70,12 @@
 
   .profile__edit-button {
     justify-self: center;
-    padding-top: ;
+    margin-top: 36px;
+  }
+
+  .profile__image_edit-button {
+    width: 7.5;
+    height: 7.5;
   }
 
   .profile__add-button {
