@@ -15,14 +15,29 @@
     flex-direction: column;
   }
 
+  .header {
+    padding: 45px 0 38.32px 0;
+    width: 320px;
+  }
+
+  .header__title {
+    padding-left: 27px;
+  }
+
+  .header__line {
+    width: 320px;
+  }
+
+  .main {
+  }
+
   .profile {
   }
 
   .profile__content {
-    width: 286px;
+    width: 282px;
     grid-template-columns: 1fr 1fr 1fr 55px;
-    /* grid-template-rows: repeat(4, 1fr); */
-    grid-template-rows: 1fr 1fr 1fr 50px;
+    grid-template-rows: auto;
 
     grid-template-areas:
       "image image image image"
@@ -43,18 +58,19 @@
     align-self: center;
     justify-self: end;
     font-size: 22px;
-    scale: 110%;
+    padding-top: 26.25px;
   }
 
   .profile__subtitle {
     margin: 0;
     justify-self: center;
     font-size: 14px;
+    padding-bottom: 36px;
   }
 
   .profile__edit-button {
     justify-self: center;
-    scale: 70%;
+    padding-top: ;
   }
 
   .profile__add-button {
@@ -63,18 +79,29 @@
     justify-self: center;
   }
 
+  .cards {
+    max-width: 320px;
+  }
+
   .card__list {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(6, 1fr);
+    width: 282px;
+    margin: 0 auto;
   }
 
   .card {
-    font-size: 30px;
+    font-size: 22px;
   }
 
   .card__heart {
     height: 22px;
     align-self: center;
+  }
+
+  .footer {
+    width: 282px;
+    padding: 48px 0 36px 0;
   }
 }
 
