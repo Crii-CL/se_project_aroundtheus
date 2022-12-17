@@ -2,6 +2,7 @@
   width: 880px;
   padding: 40px 200px 51px 200px;
   margin: 0;
+  box-sizing: border-box;
 }
 
 .profile__info {
@@ -48,7 +49,6 @@
   grid-area: edit;
   width: 24px;
   height: 24px;
-  /* align-self: center; */
 
   background-color: #000;
   border: 1px solid #fff;
