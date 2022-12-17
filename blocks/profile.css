@@ -10,12 +10,12 @@
 
 .profile__content {
   display: grid;
-  grid-template-columns: 120px 30px 373px 1fr 1fr;
+  grid-template-columns: 120px 373px 1fr 1fr;
   grid-template-rows: 25% 1fr 1fr;
   grid-template-areas:
-    "image . title edit ."
-    "image . subtitle . ."
-    "image . . . .";
+    "image . . add"
+    "image title edit add"
+    "image subtitle . add";
 }
 
 .profile__title {
@@ -25,8 +25,7 @@
   font-weight: 500;
   font-size: 42px;
   line-height: 48px;
-  margin: 0;
-  grid-row-start: 2;
+  margin: 0 0 0 35px;
 }
 
 .profile__subtitle {
@@ -35,8 +34,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
-  margin: 0;
-  grid-row-start: 3;
+  margin: 0 0 0 35px;
 }
 
 .profile__image {
@@ -46,21 +44,15 @@
   border-radius: 50%;
 }
 
-.profile__image_edit-button {
-}
-
-.profile__image_add-button {
-}
-
 .profile__edit-button {
   grid-area: edit;
   width: 24px;
   height: 24px;
   align-self: center;
-  grid-row-start: 2;
 
   background-color: #000;
   border: 1px solid #fff;
+  box-sizing: border-box;
 
   transition: 0.3s ease-in-out;
 }
@@ -74,8 +66,8 @@
   margin: 0;
   width: 150px;
   height: 50px;
-  grid-row-start: 2;
-  grid-row-end: 2;
+  justify-self: end;
+  align-self: center;
 
   background-color: #000;
   border: 2px solid #fff;
@@ -86,4 +78,10 @@
 
 .profile__add-button:hover {
   opacity: 0.7;
+}
+
+.profile__image_edit-button {
+}
+
+.profile__image_add-button {
 }
