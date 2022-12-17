@@ -43,6 +43,7 @@
     align-self: center;
     justify-self: end;
     font-size: 22px;
+    scale: 110%;
   }
 
   .profile__subtitle {
@@ -53,6 +54,7 @@
 
   .profile__edit-button {
     justify-self: center;
+    scale: 70%;
   }
 
   .profile__add-button {
