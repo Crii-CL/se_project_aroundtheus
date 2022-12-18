@@ -13,7 +13,8 @@
   .page {
     display: flex;
     flex-direction: column;
-    width: calc(100% - 40px);
+    width: calc(100% - 38px);
+    margin: 0 19px;
   }
 
   .header {
@@ -23,16 +24,18 @@
 
   .header__title {
     padding-left: 27px;
+    width: calc(100% - 0px);
   }
 
   .header__line {
-    width: 320px;
+    width: calc(100% - 38px);
+    margin: 0 19px;
   }
 
   .profile {
     padding: 0 0 51px 0;
     margin: 0 auto;
-    max-width: 320px;
+    width: calc(100% - 38px);
   }
 
   .profile__content {
@@ -71,7 +74,7 @@
 
   .profile__edit-button {
     justify-self: center;
-    margin-top: 39px;
+    margin-top: 21px;
     width: 18px;
     height: 18px;
     padding: 0;
@@ -90,7 +93,7 @@
   }
 
   .cards {
-    max-width: 320px;
+    width: calc(100% - 38px);
   }
 
   .card__list {
@@ -110,10 +113,10 @@
   }
 
   .footer {
-    width: 282px;
+    margin: 0 19px;
+    width: calc(100% - 38px);
     padding: 48px 0 36px 0;
   }
-}
 
 @media screen and (min-width: 768px) and (max-width: 1280px) {
   /* tablet */
@@ -121,6 +124,17 @@
   .page {
     display: flex;
     flex-direction: column;
+    /* width: calc(100% - 30px); */
+    margin: ;
+  }
+
+  .profile__edit-button {
+    margin-top: 4px;
+  }
+
+  .profile__add-button {
+    margin-top: 5px;
+    align-self: center;
   }
 
   .cards {
