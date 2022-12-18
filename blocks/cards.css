@@ -1,4 +1,4 @@
 .cards {
-  width: 880px;
+  max-width: fit-content;
   margin: 0 auto;
 }

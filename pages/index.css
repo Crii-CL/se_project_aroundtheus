@@ -19,7 +19,7 @@
 
   .header {
     padding: 45px 0 38.32px 0;
-    width: calc(100% - 38px);
+    margin: 0 auto;
   }
 
   .header__title {
@@ -27,8 +27,7 @@
   }
 
   .header__line {
-    width: calc(100% - 38px);
-    margin: 0 19px;
+    width: calc(100%);
   }
 
   .profile {
@@ -90,7 +89,8 @@
   }
 
   .cards {
-    width: calc(100% - 38px);
+    /* width: calc(100% - 38px); */
+    width: auto;
     /* margin: 0 19px; */
   }
 
@@ -112,7 +112,7 @@
 
   .footer {
     margin: 0 19px;
-    /* width: calc(100% - 38px); */
+
     padding: 48px 0 36px 0;
   }
 }
@@ -136,11 +136,12 @@
 
   .cards {
     text-align: center;
+    /* width: 282px; */
   }
 
   .card__list {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 282px);
+    justify-content: center;
   }
 
   .card__image {
@@ -155,5 +156,6 @@
 }
 
 @media screen and (min-width: 1280px) {
-  /* desktop */
+  .footer {
+  }
 }
