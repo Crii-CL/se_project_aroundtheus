@@ -32,6 +32,9 @@
 
 .card__title {
   margin: 0 0 0 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .card__like-button {

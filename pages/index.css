@@ -92,9 +92,7 @@
   }
 
   .cards {
-    /* width: calc(100% - 38px); */
     width: auto;
-    /* margin: 0 19px; */
   }
 
   .card__list {
@@ -172,7 +170,4 @@
 }
 
 @media screen and (min-width: 1280px) {
-  /* .page__content {
-    width: calc(100% - 38px);
-  } */
 }
