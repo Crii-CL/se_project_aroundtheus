@@ -121,9 +121,21 @@
     flex-direction: column;
   }
 
+  .header {
+  }
+
+  .header__line {
+    width: 880px;
+  }
+
   .page__content {
-    width: calc(100% - 38px);
+    max-width: 880px;
     margin: 0 auto;
+  }
+
+  .profile {
+    padding: 40px 0 51px 0;
+    width: 880px;
   }
 
   .profile__edit-button {
@@ -141,7 +153,6 @@
 
   .card__list {
     grid-template-columns: repeat(2, 282px);
-    justify-content: center;
   }
 
   .card__image {
@@ -156,7 +167,7 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .page__content {
+  /* .page__content {
     width: calc(100% - 38px);
-  }
+  } */
 }

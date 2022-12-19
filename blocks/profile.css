@@ -1,7 +1,5 @@
 .profile {
   padding: 40px 200px 51px 200px;
-  margin: 0;
-  box-sizing: border-box;
 }
 
 .profile__info {
@@ -49,7 +47,7 @@
   width: 24px;
   height: 24px;
   align-self: center;
-  margin-top: 5px;
+  margin-top: 4px;
 
   background-color: #000;
   border: 1px solid #fff;
