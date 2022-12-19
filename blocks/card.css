@@ -10,14 +10,16 @@
   width: 282px;
 }
 
+p {
+  margin: 0;
+}
+
 .card__list {
   display: grid;
   grid-column-gap: 17px;
   grid-row-gap: 20px;
   grid-template-columns: repeat(3, 1fr);
   margin: 0 auto;
-  max-width: fit-content;
-
   list-style: none;
   padding-left: 0;
 }
