@@ -22,11 +22,10 @@
 
   .header {
     padding: 45px 0 38.32px 0;
-    margin: 0 auto;
   }
 
   .header__line {
-    width: calc(100%);
+    max-width: calc(100%);
   }
 
   .profile {
@@ -133,7 +132,6 @@
 
   .cards {
     text-align: center;
-    /* width: 282px; */
   }
 
   .card__list {
