@@ -24,6 +24,10 @@
     padding: 45px 0 38.32px 0;
   }
 
+  .header__title {
+    padding-left: 27px;
+  }
+
   .header__line {
     max-width: 100vw;
   }
