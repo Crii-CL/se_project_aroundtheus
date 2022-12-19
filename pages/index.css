@@ -25,13 +25,14 @@
   }
 
   .header__line {
-    max-width: calc(100%);
+    max-width: 100vw;
   }
 
   .profile {
     padding: 0 0 51px 0;
     margin: 0 auto;
   }
+
   .profile__content {
     width: 282px;
     grid-template-columns: 1fr 1fr 1fr 55px;
