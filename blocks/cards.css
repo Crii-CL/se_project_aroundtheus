@@ -2,3 +2,13 @@
   max-width: fit-content;
   margin: 0 auto;
 }
+
+.cards__list {
+  display: grid;
+  grid-column-gap: 17px;
+  grid-row-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
+  list-style: none;
+  padding-left: 0;
+}

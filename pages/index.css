@@ -97,7 +97,7 @@
     width: auto;
   }
 
-  .card__list {
+  .cards__list {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(6, 1fr);
     width: 282px;
@@ -151,7 +151,7 @@
     text-align: center;
   }
 
-  .card__list {
+  .cards__list {
     grid-template-columns: repeat(2, 282px);
   }
 
