@@ -8,7 +8,7 @@
 
 .profile__content {
   display: grid;
-  grid-template-columns: 120px 391px 1fr 1fr;
+  grid-template-columns: 120px 1fr 1fr 1fr;
   grid-template-rows: 25% 1fr 1fr;
   grid-template-areas:
     "image . . add"
@@ -49,7 +49,6 @@
   height: 24px;
   align-self: center;
   margin-top: 4px;
-  margin-left: 18px;
 
   background-color: #000;
   border: 1px solid #fff;
