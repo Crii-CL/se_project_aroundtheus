@@ -10,10 +10,6 @@
   width: 282px;
 }
 
-/* p {
-  margin: 0;
-} */
-
 .card__list {
   display: grid;
   grid-column-gap: 17px;
