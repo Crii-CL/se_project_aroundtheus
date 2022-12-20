@@ -43,7 +43,7 @@
   border-radius: 50%;
 }
 
-.profile__edit-button {
+.profile__edit {
   grid-area: edit;
   width: 24px;
   height: 24px;
@@ -60,7 +60,7 @@
   opacity: 0.7;
 }
 
-.profile__add-button {
+.profile__add {
   grid-area: add;
   width: 150px;
   height: 50px;
@@ -79,8 +79,8 @@
   opacity: 0.7;
 }
 
-.profile__edit-button_image {
+.profile__edit_image {
 }
 
-.profile__add-button_image {
+.profile__add_image {
 }
