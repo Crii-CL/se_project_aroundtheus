@@ -22,9 +22,12 @@
 
   .header {
     padding: 45px 0 38.32px 0;
+    margin: 0 auto;
+    width: 320px;
+    margin-bottom: 38.25px;
   }
 
-  .header__title {
+  .header__logo {
     padding-left: 27px;
   }
 
@@ -118,7 +121,7 @@
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1280px) {
+@media screen and (min-width: 768px) and (max-width: 1279px) {
   /* tablet */
 
   .page {
@@ -127,9 +130,6 @@
   }
 
   .header {
-  }
-
-  .header__line {
     width: 880px;
   }
 

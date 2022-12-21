@@ -4,22 +4,16 @@
   margin: 0 auto;
   padding: 45px 0 0 0;
   max-width: 880px;
+  border-bottom: 1px solid #545454;
+  padding-bottom: 41px;
+}
 }
 
-.header__title {
+.header__logo {
   width: 173px;
   height: 33px;
   left: 200px;
   top: 45px;
   margin: 0;
   padding-bottom: 45px;
-}
-
-.header__logo {
-}
-
-.header__line {
-  width: 880px;
-  opacity: 0.7;
-  border: 1px solid #545454;
 }
