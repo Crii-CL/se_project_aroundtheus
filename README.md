@@ -21,6 +21,6 @@ The way you'll do this at work is by exporting images directly from Figma — we
 Good luck and have fun!
 
 
-Hi my name is Critopher Campos López and I am a student at Practicum. This project is called se_project_abouttheus, and it requires you to create the layouts for the webpage designed on Figma. In this project where we implement media queries to make different layouts depending on the screen size; we also utilized grids to make setting the cards in place way easier than usin flexbox. 
+Hi my name is Critopher Campos López and I am a student at Practicum. This project is called se_project_abouttheus, and it requires you to create the layouts for the webpage designed on Figma. In this project I implemented media queries to make different layouts depending on the screen size; we also utilized grids to make setting the cards in place way easier than using flexbox. 
 
-Github Link: https://github.com/Crii-CL/se_project_aroundtheus.git
+Git Pages Link: https://crii-cl.github.io/se_project_aroundtheus/
