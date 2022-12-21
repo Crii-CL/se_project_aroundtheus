@@ -19,3 +19,8 @@ This project is made so all the elements are displayed correctly on popular scre
 The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
   
 Good luck and have fun!
+
+
+Hi my name is Critopher Campos López and I am a student at Practicum. This project is called se_project_abouttheus, and it requires you to create the layouts for the webpage designed on Figma. In this project where we implement media queries to make different layouts depending on the screen size; we also utilized grids to make setting the cards in place way easier than usin flexbox. 
+
+Github Link: https://github.com/Crii-CL/se_project_aroundtheus.git
