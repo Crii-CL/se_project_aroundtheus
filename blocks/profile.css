@@ -47,7 +47,7 @@
   align-self: center;
   margin-top: 4px;
 
-  background-color: #000;
+  background-color: transparent;
   border: 1px solid #fff;
 
   transition: 0.3s ease-in-out;
@@ -65,7 +65,7 @@
   align-self: center;
   margin-top: 10px;
 
-  background-color: #000;
+  background-color: transparent;
   border: 2px solid #fff;
   border-radius: 2px;
 
