@@ -1,6 +1,7 @@
 .profile {
   padding: 40px 200px 51px 200px;
   color: #fff;
+  box-sizing: border-box;
 }
 
 .profile__content {
@@ -121,7 +122,7 @@
     justify-self: end;
     font-size: 22px;
     padding-top: 26.25px;
-    width: auto;
+    max-width: 196px;
   }
 
   .profile__subtitle {
