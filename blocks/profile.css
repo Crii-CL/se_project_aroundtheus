@@ -57,7 +57,7 @@
   background-color: transparent;
   border: 1px solid #fff;
 
-  transition: 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .profile__edit:hover {
@@ -76,7 +76,7 @@
   border: 2px solid #fff;
   border-radius: 2px;
 
-  transition: 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .profile__add:hover {
@@ -154,9 +154,9 @@
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1279px) {
+@media screen and (min-width: 767px) and (max-width: 1279px) {
   .profile {
-    padding: 40px 0 51px 0;
+    padding: 40px 20px 51px 20px;
   }
 
   .profile__edit {
