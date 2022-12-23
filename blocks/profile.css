@@ -155,7 +155,7 @@
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .profile {
-    padding: 40px 20px 51px 20px;
+    padding: 40px 0 51px 0;
   }
 
   .profile__edit {
