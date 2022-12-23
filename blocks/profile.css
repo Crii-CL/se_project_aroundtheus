@@ -98,7 +98,7 @@
 
   .profile__content {
     width: 282px;
-    grid-template-columns: 1fr 1fr 1fr 55px;
+    grid-template-columns: 1fr 1fr 1fr 38px;
     grid-template-rows: auto;
 
     grid-template-areas:
@@ -121,7 +121,7 @@
     justify-self: end;
     font-size: 22px;
     padding-top: 26.25px;
-    width: auto;
+    max-width: 196px;
   }
 
   .profile__subtitle {
@@ -129,6 +129,7 @@
     justify-self: center;
     font-size: 14px;
     padding-bottom: 36px;
+    max-width: 320px;
   }
 
   .profile__edit {
@@ -160,6 +161,5 @@
 
   .profile__edit {
     margin-top: 4px;
-    margin: ;
   }
 }
