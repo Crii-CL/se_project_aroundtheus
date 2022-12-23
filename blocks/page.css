@@ -8,6 +8,12 @@
   margin: 0 auto;
 }
 
+@media screen and (max-width: 1279px) {
+  .page__content {
+    max-width: 880px;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .page {
     display: flex;
@@ -17,11 +23,5 @@
   .page__content {
     width: calc(100% - 38px);
     margin: 0 19px;
-  }
-}
-
-@media screen and (max-width: 1279px) {
-  .page__content {
-    max-width: 880px;
   }
 }

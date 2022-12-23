@@ -89,6 +89,15 @@
 
 .profile__add-image {
 }
+@media screen and (max-width: 1279px) {
+  .profile {
+    padding: 40px 0 51px 0;
+  }
+
+  .profile__edit {
+    margin-top: 4px;
+  }
+}
 
 @media screen and (max-width: 767px) {
   .profile {
@@ -151,15 +160,5 @@
     width: 282px;
     justify-self: center;
     margin-top: 0;
-  }
-}
-
-@media screen and (max-width: 1279px) {
-  .profile {
-    padding: 40px 0 51px 0;
-  }
-
-  .profile__edit {
-    margin-top: 4px;
   }
 }

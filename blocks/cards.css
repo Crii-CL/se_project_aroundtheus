@@ -12,6 +12,15 @@
   list-style: none;
   padding-left: 0;
 }
+@media screen and (max-width: 1279px) {
+  .cards {
+    text-align: center;
+  }
+
+  .cards__list {
+    grid-template-columns: repeat(2, 282px);
+  }
+}
 
 @media screen and (max-width: 767px) {
   .cards {
@@ -23,15 +32,5 @@
     grid-template-rows: repeat(6, 1fr);
     width: 282px;
     margin: 0 auto;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1279px) {
-  .cards {
-    text-align: center;
-  }
-
-  .cards__list {
-    grid-template-columns: repeat(2, 282px);
   }
 }
