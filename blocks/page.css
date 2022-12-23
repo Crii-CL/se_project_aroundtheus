@@ -8,7 +8,7 @@
   margin: 0 auto;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .page {
     display: flex;
     flex-direction: column;

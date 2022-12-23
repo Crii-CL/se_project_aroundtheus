@@ -45,7 +45,7 @@
   opacity: 0.5;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .card__like-button {
     width: 21px;
     height: 18px;
