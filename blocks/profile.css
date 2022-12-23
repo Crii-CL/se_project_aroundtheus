@@ -90,7 +90,7 @@
 .profile__add-image {
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .profile {
     padding: 0 0 36px 0;
     margin: 0 auto;
@@ -160,5 +160,6 @@
 
   .profile__edit {
     margin-top: 4px;
+    margin: ;
   }
 }
