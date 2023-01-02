@@ -1,11 +1,35 @@
 .form {
+  background-color: #fff;
+  width: 430px;
+  height: 330px;
+}
+
+.form__title {
+  margin: 34px 64px 54px 36px;
 }
 
 .form__fieldset {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  gap: 43px;
+  margin: 0 36px 0 36px;
+  padding: 0;
 }
 
 .form_label {
 }
 
 .form__input {
+  border: none;
+  border-bottom: 1px #000;
+}
+
+.form__button {
+  height: 50px;
+  color: #fff;
+  background-color: #000;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
 }

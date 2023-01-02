@@ -3,10 +3,6 @@
 
 .modal__container {
   display: none;
-}
-
-.modal__container_opened {
-  display: flex;
   flex-direction: column;
   position: fixed;
   top: 50%;
@@ -16,5 +12,9 @@
   transform: translate(-50%, -50%);
   align-items: center;
   justify-content: center;
+}
+
+.modal__container_opened {
+  display: flex;
   background: rgba(0, 0, 0, 0.5);
 }
