@@ -44,3 +44,11 @@
   border-radius: 2px;
   padding: 0;
 }
+
+.form__button_close-icon {
+  background: transparent;
+  border: none;
+  position: absolute;
+  left: 71%;
+  top: 365px;
+}
