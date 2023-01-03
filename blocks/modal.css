@@ -12,9 +12,12 @@
   transform: translate(-50%, -50%);
   align-items: center;
   justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .modal__container_opened {
   display: flex;
-  background: rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 768px) {
 }
