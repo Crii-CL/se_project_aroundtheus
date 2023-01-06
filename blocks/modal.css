@@ -22,7 +22,7 @@
 .modal__form {
 }
 
-.modal__opened {
+.modal_opened {
   display: flex;
 }
 
