@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width-device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Around the US</title>
     <link rel="stylesheet" href="./pages/index.css" />
     <link rel="icon" href="./favicon.ico" />
@@ -29,14 +29,18 @@
             />
             <h1 class="profile__title">Jaques Cousteau</h1>
             <p class="profile__subtitle">Explorer</p>
-            <button class="profile__edit" type="button">
+            <button
+              class="profile__edit-button"
+              id="profile-edit-button"
+              type="button"
+            >
               <img
                 src="./images/edit-button.svg"
                 alt="edit button"
                 class="profile__edit-image"
               />
             </button>
-            <button class="profile__add" type="button">
+            <button class="profile__add-button" type="button">
               <img
                 src="./images/add__button.svg"
                 alt="add button"
@@ -162,9 +166,9 @@
           </ul>
         </section>
         <section>
-          <div class="modal modal__opened">
+          <div class="modal" id="#profile-edit-modal">
             <div class="modal__container">
-              <button class="modal__close">
+              <button class="modal__close" id="#profile-edit-close">
                 <img src="./images/Close Icon.svg" />
               </button>
               <form class="modal__form">

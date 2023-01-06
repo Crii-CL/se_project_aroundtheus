@@ -24,3 +24,15 @@ const initialCards = [
     link: "https://code.s3.yandex.net/web-code/lago.jpg",
   },
 ];
+
+const profileEditButton = document.querySelector("#profile-edit-button");
+const profileEditModal = document.querySelector("#profile-edit-modal");
+const profileEditClose = document.querySelector("#profile-edit-close");
+
+profileEditButton.addEventListener("click", () => {
+  profileEditModal.classList.add("modal_opened");
+});
+
+profileEditClose.addEventListener("click", () => {
+  profileEditClose.classlist.remove("modal_opened");
+});
