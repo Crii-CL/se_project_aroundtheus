@@ -59,7 +59,7 @@
   transition: 0.3s ease-in-out;
 }
 
-.profile__edit:hover {
+.profile__edit-button:hover {
   opacity: 0.6;
 }
 
@@ -78,7 +78,7 @@
   transition: 0.3s ease-in-out;
 }
 
-.profile__add:hover {
+.profile__add-button:hover {
   opacity: 0.6;
 }
 
@@ -94,7 +94,7 @@
     padding: 40px 0 51px 0;
   }
 
-  .profile__edit {
+  .profile__edit-button {
     margin-top: 4px;
   }
 }
@@ -141,7 +141,7 @@
     max-width: 320px;
   }
 
-  .profile__edit {
+  .profile__edit-button {
     justify-self: center;
     margin-top: 24px;
     width: 18px;
@@ -156,7 +156,7 @@
     padding: 1px 1px 2px 2px;
   }
 
-  .profile__add {
+  .profile__add-button {
     width: 282px;
     justify-self: center;
     margin-top: 0;
