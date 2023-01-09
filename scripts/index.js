@@ -55,13 +55,6 @@ profileEditClose.addEventListener("click", () => {
 });
 
 modalSaveBtn.addEventListener("click", handleProfileEditSubmit);
-/* -------------------------------------------------------------------------- */
-/*                                  Functions                                 */
-/* -------------------------------------------------------------------------- */
-
-function closePopup() {
-  profileEditModal.classList.remove("modal_opened");
-}
 
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
@@ -74,12 +67,20 @@ function handleProfileEditSubmit(e) {
   closePopup();
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                  Functions                                 */
+/* -------------------------------------------------------------------------- */
+
+function closePopup() {
+  profileEditModal.classList.remove("modal_opened");
+}
+
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
-  const cardAltEL = cardElement.querySelector();
-  cardImageEl.textContent = cardData.name;
+  cardImageEl.alt = cardData.name;
+  cardImageEl.src = cardData.link;
   cardTitleEl.textContent = cardData.name;
   return cardElement;
 }
