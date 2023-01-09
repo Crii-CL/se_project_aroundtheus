@@ -25,6 +25,9 @@ const initialCards = [
   },
 ];
 
+/* -------------------------------------------------------------------------- */
+/*                                  Variables                                 */
+/* -------------------------------------------------------------------------- */
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileEditClose = document.querySelector("#profile-edit-close");
@@ -34,6 +37,11 @@ const profileTitleInput = document.querySelector("#profile-title-input");
 const profileSubtitleInput = document.querySelector("#profile-subtitle-input");
 const modalSaveBtn = document.querySelector(".modal__form_button");
 const cardTemplate = document.querySelector("#card-template");
+// const cardElement = document.querySelector("#")
+
+/* -------------------------------------------------------------------------- */
+/*                               Event Listeners                              */
+/* -------------------------------------------------------------------------- */
 
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
@@ -45,14 +53,25 @@ profileEditClose.addEventListener("click", () => {
   profileEditModal.classList.remove("modal_opened");
 });
 
-function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
-  profileTitle.textContent = profileTitleInput.value;
-  profileSubtitle.textContent = profileSubtitleInput.value;
+modalSaveBtn.addEventListener("click", handleProfileEditSubmit);
+/* -------------------------------------------------------------------------- */
+/*                                  Functions                                 */
+/* -------------------------------------------------------------------------- */
+
+function closePopup() {
   profileEditModal.classList.remove("modal_opened");
 }
 
-modalSaveBtn.addEventListener("click", handleProfileFormSubmit);
+/* -------------------------------------------------------------------------- */
+/*                               Event Handlers                               */
+/* -------------------------------------------------------------------------- */
+
+function handleProfileEditSubmit(e) {
+  e.preventDefault();
+  profileTitle.textContent = profileTitleInput.value;
+  profileSubtitle.textContent = profileSubtitleInput.value;
+  closePopup();
+}
 
 // getCardElement(){
 
