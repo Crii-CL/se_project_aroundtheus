@@ -27,8 +27,8 @@
               alt="profile picture"
               class="profile__image"
             />
-            <h1 class="profile__title">Jaques Cousteau</h1>
-            <p class="profile__subtitle">Explorer</p>
+            <h1 class="profile__title" id="profile-title">Jaques Cousteau</h1>
+            <p class="profile__subtitle" id="profile-subtitle">Explorer</p>
             <button
               class="profile__edit-button"
               id="profile-edit-button"
@@ -164,6 +164,25 @@
               </div>
             </li>
           </ul>
+          <template id="card-template">
+            <ul class="cards__list">
+              <li class="card">
+                <div>
+                  <img src="" alt="" class="card__image" />
+                  <div class="card__caption">
+                    <h2 class="card__title">Latemar</h2>
+                    <button class="card__button" type="button">
+                      <img
+                        src="./images/heart.svg"
+                        alt="heart icon"
+                        class="card__like-button"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </template>
         </section>
         <section>
           <div class="modal" id="profile-edit-modal">
@@ -177,7 +196,7 @@
                   <input
                     class="modal__form_input"
                     type="text"
-                    id="name"
+                    id="profile-title-input"
                     required
                     placeholder="Name"
                   />
@@ -185,7 +204,7 @@
                   <input
                     class="modal__form_input"
                     type="text"
-                    id="About me"
+                    id="profile-subtitle-input"
                     required
                     placeholder="Description"
                   />
