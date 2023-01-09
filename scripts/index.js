@@ -36,8 +36,9 @@ const profileSubtitle = document.querySelector("#profile-subtitle");
 const profileTitleInput = document.querySelector("#profile-title-input");
 const profileSubtitleInput = document.querySelector("#profile-subtitle-input");
 const modalSaveBtn = document.querySelector(".modal__form_button");
-const cardTemplate = document.querySelector("#card-template");
-// const cardElement = document.querySelector("#")
+const cardListEl = document.querySelector(".cards__list");
+const cardTemplate =
+  document.querySelector("#card-template").content.firstElementChild;
 
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
@@ -73,6 +74,22 @@ function handleProfileEditSubmit(e) {
   closePopup();
 }
 
-// getCardElement(){
+function getCardElement(cardData) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImageEl = cardElement.querySelector(".card__image");
+  const cardTitleEl = cardElement.querySelector(".card__title");
+  const cardAltEL = cardElement.querySelector();
+  cardImageEl.textContent = cardData.name;
+  cardTitleEl.textContent = cardData.name;
+  return cardElement;
+}
 
-// }
+/* -------------------------------------------------------------------------- */
+/*                                    Loops                                   */
+/* -------------------------------------------------------------------------- */
+
+initialCards.forEach((cardData) => {
+  const cardElement = getCardElement(cardData);
+  cardListEl.prepend(cardElement);
+});
+/* -------------------------------------------------------------------------- */
