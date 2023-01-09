@@ -66,6 +66,10 @@
   padding: 0;
 }
 
+.modal__form_button:hover {
+  cursor: pointer;
+}
+
 .modal__close {
   background-color: transparent;
   background-size: contain;
@@ -75,6 +79,10 @@
   height: 40px;
   bottom: calc(100% + 3px);
   left: calc(100% + 3px);
+}
+
+.modal__close:hover {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 767px) {
