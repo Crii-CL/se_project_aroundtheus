@@ -41,16 +41,18 @@ const profileModalSaveBtn = profileEditModal.querySelector(
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
-
+const modalForm = document.querySelector("#profile-modal-form");
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
 /* -------------------------------------------------------------------------- */
 
-profileEditButton.addEventListener("click", profileEditOpenForm);
+profileEditButton.addEventListener("click", openProfileEditForm);
 
-profileEditClose.addEventListener("click", profileCloseModal);
+profileEditClose.addEventListener("click", closeProfileModal);
 
-profileModalSaveBtn.addEventListener("submit", handleProfileEditSubmit);
+profileModalSaveBtn.addEventListener("click", handleProfileEditSubmit);
+
+modalForm.addEventListener("submit", handleProfileEditSubmit);
 
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
@@ -60,25 +62,25 @@ function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileSubtitle.textContent = profileSubtitleInput.value;
-  profileCloseModal();
+  closeProfileModal();
 }
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
-function profileOpenModal() {
+function openProfileModal() {
   profileEditModal.classList.add("modal_opened");
 }
 
-function profileCloseModal() {
+function closeProfileModal() {
   profileEditModal.classList.remove("modal_opened");
 }
 
-function profileEditOpenForm() {
+function openProfileEditForm() {
   profileTitleInput.value = profileTitle.textContent;
   profileSubtitleInput.value = profileSubtitle.textContent;
-  profileEditModal.classList.add("modal_opened");
+  openProfileModal();
 }
 
 function getCardElement(cardData) {
