@@ -50,8 +50,6 @@ profileEditButton.addEventListener("click", openProfileEditForm);
 
 profileEditClose.addEventListener("click", closeProfileModal);
 
-profileModalSaveBtn.addEventListener("click", handleProfileEditSubmit);
-
 modalForm.addEventListener("submit", handleProfileEditSubmit);
 
 /* -------------------------------------------------------------------------- */
