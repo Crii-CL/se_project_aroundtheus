@@ -42,6 +42,34 @@ const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const modalForm = document.querySelector("#profile-modal-form");
+const profileAddCardBtn = document.querySelector("#profile-add-card-button");
+const profileAddCardCloseBtn = document.querySelector(
+  "#profile-add-card-close-button"
+);
+const profileAddCard = document.querySelector("#profile-add-card");
+const profileAddCardContainer = document.querySelector(
+  "#profile-add-card-container"
+);
+const profileAddCardForm = document.querySelector("#profile-add-card-form");
+const profileAddCardHeading = document.querySelector(
+  "#profile-add-card-heading"
+);
+const profileAddCardFieldset = document.querySelector(
+  "#profile-add-card-fieldset"
+);
+const profileAddCardTitle = document.querySelector(
+  "#profile-add-card-title-input"
+);
+const profileAddCardSubtitle = document.querySelector(
+  "#profile-add-card-subtitle-input"
+);
+const profileAddCardDivider = document.querySelector(
+  "#profile-add-card-divider"
+);
+const profileAddCardCreateBtn = document.querySelector(
+  "#profile-add-card-create"
+);
+
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
 /* -------------------------------------------------------------------------- */
@@ -51,6 +79,12 @@ profileEditButton.addEventListener("click", openProfileEditForm);
 profileEditClose.addEventListener("click", closeProfileModal);
 
 modalForm.addEventListener("submit", handleProfileEditSubmit);
+
+profileAddCardBtn.addEventListener("click", openProfileAddCardModal);
+
+profileAddCardCloseBtn.addEventListener("click", closeProfileAddCardModal);
+
+profileAddCardCreateBtn.addEventListener("submit", handleProfileAddCardCreate);
 
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
@@ -63,6 +97,14 @@ function handleProfileEditSubmit(e) {
   closeProfileModal();
 }
 
+function handleProfileAddCardCreate(e) {}
+
+// function handleProfileAddCardCreate(e) {
+//   e.preventDefault();
+//   cardElement.prepend()
+//   closeProfileModal();
+// }
+
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
@@ -73,6 +115,14 @@ function openProfileModal() {
 
 function closeProfileModal() {
   profileEditModal.classList.remove("modal_opened");
+}
+
+function openProfileAddCardModal() {
+  profileAddCard.classList.add("modal_opened");
+}
+
+function closeProfileAddCardModal() {
+  profileAddCard.classList.remove("modal_opened");
 }
 
 function openProfileEditForm() {

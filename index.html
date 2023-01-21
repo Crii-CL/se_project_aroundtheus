@@ -40,7 +40,11 @@
                 class="profile__edit-image"
               />
             </button>
-            <button class="profile__add-button" type="button">
+            <button
+              class="profile__add-button"
+              type="button"
+              id="profile-add-card-button"
+            >
               <img
                 src="./images/add__button.svg"
                 alt="add button"
@@ -52,25 +56,31 @@
         <section class="cards">
           <ul class="cards__list">
             <template id="card-template">
-                <li class="card">
-                  <div>
-                    <img src="" alt="" class="card__image" />
-                    <div class="card__caption">
-                      <h2 class="card__title"></h2>
-                      <button class="card__button" type="button">
-                        <img
-                          src="./images/heart.svg"
-                          alt="heart icon"
-                          class="card__like-button"
-                        />
-                      </button>
-                    </div>
+              <li class="card">
+                <div>
+                  <button type="button" class="card__trash_button">
+                    <img src="./images/trash-lid.svg" />
+                    <img src="./images/trash-can.svg" />
+                  </button>
+                  <img src="" alt="" class="card__image" />
+                  <div class="card__caption">
+                    <h2 class="card__title"></h2>
+                    <button class="card__button" type="button">
+                      <img
+                        src="./images/heart.svg"
+                        alt="heart icon"
+                        class="card__like-button"
+                      />
+                    </button>
                   </div>
-                </li>
+                </div>
+              </li>
             </template>
+          </ul>
         </section>
         <section>
           <div class="modal" id="profile-edit-modal">
+            <!-- Edit Card -->
             <div class="modal__container">
               <button class="modal__close" id="profile-edit-close">
                 <img src="./images/Close Icon.svg" />
@@ -97,25 +107,53 @@
                   <button type="submit" class="modal__form_button">Save</button>
                 </fieldset>
               </form>
-              <form class="modal__form" id="profile-add-card">
-                <h2 class="modal__form_heading" id="profile-heading-add-card">New Place</h2>
-                <fieldset class="modal__form_fieldset" id="profile-fieldset-add-card">
-                  <input 
+            </div>
+          </div>
+        </section>
+        <section>
+          <!-- Add Card -->
+          <div class="profile__modal_add-card" id="profile-add-card">
+            <div class="modal__container" id="profile-add-card-container">
+              <button class="modal__close" id="profile-add-card-close-button">
+                <img src="./images/Close Icon.svg" />
+              </button>
+              <form class="modal__form" id="profile-add-card-form">
+                <h2 class="modal__form_heading" id="profile-add-card-heading">
+                  New Place
+                </h2>
+                <fieldset
+                  class="modal__form_fieldset"
+                  id="profile-add-card-fieldset"
+                >
+                  <input
                     class="modal__form_input"
                     type="text"
-                    id="profile-title-add-card"
+                    id="profile-add-card-title-input"
                     required
                     placeholder="Title"
                   />
-                  <span class="modal__form_divider" id="profile-divider-add-card"></span>
-                  <input 
+                  <span
+                    class="modal__form_divider"
+                    id="profile-divider-add-card"
+                  ></span>
+                  <input
                     class="modal__form_input"
                     type="text"
-                    id="profile-subtitle-add-card"
+                    id="profile-add-card-subtitle-input"
                     required
                     placeholder="Image Link"
                   />
-                  <span class="modal__form_divider" id="profile-divider-add-card"></span>
+                  <span
+                    class="modal__form_divider"
+                    id="profile-add-card-divider"
+                  ></span>
+                  <button
+                    type="submit"
+                    class="modal__form_button"
+                    id="profile-add-card-create"
+                  >
+                    Create
+                  </button>
                 </fieldset>
               </form>
             </div>
