@@ -53,19 +53,7 @@
   position: absolute;
   z-index: 99;
   top: 18px;
-  left: 15px;
-}
-
-.card__trash-lid {
-  border: none;
-  background: transparent;
-  display: flex;
-}
-
-.card__trash-bin {
-  border: none;
-  background: transparent;
-  display: flex;
+  right: 15px;
 }
 
 @media screen and (max-width: 767px) {
