@@ -3,9 +3,10 @@
   background-color: #fff;
   font-family: Inter, Arial, sans-serif;
   padding-bottom: 15px;
-  border-radius: 4%;
+  border-radius: 2%;
   line-height: 45px;
   width: 282px;
+  position: relative;
 }
 
 .card__image {
@@ -49,28 +50,22 @@
   border: none;
   background: transparent;
   display: flex;
-  position: relative;
+  position: absolute;
   z-index: 99;
-  width: 16px;
+  top: 18px;
+  left: 15px;
 }
+
 .card__trash-lid {
   border: none;
   background: transparent;
   display: flex;
-  position: absolute;
-  top: 18px;
-  left: 249px;
-  width: 16px;
 }
 
 .card__trash-bin {
   border: none;
   background: transparent;
   display: flex;
-  position: absolute;
-  top: 23px;
-  left: 249px;
-  width: 16px;
 }
 
 @media screen and (max-width: 767px) {
