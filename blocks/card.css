@@ -54,7 +54,13 @@
   top: 24px;
   left: 26px;
   width: 16px;
-  height: 14px;
+}
+.card__trash-img {
+  border: none;
+  background: transparent;
+  display: flex;
+  position: absolute;
+  width: 16px;
 }
 
 @media screen and (max-width: 767px) {
