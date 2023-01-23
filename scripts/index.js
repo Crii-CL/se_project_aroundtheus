@@ -75,7 +75,7 @@ const profileAddCardCreateBtn = document.querySelector(
 /*                               Event Listeners                              */
 /* -------------------------------------------------------------------------- */
 
-profileEditButton.addEventListener("click", openProfileEditForm);
+profileEditButton.addEventListener("click", openModal);
 
 profileEditClose.addEventListener("click", closeProfileModal);
 
@@ -85,12 +85,13 @@ profileAddCardBtn.addEventListener("click", openProfileAddCardModal);
 
 profileAddCardCloseBtn.addEventListener("click", closeProfileAddCardModal);
 
-profileAddCardCreateBtn.addEventListener("submit", (e) => {
+profileAddCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
   renderCard({
     name: title,
     link: link,
   });
+  console.log("submitted");
   closeProfileAddCardModal();
 });
 
@@ -130,6 +131,14 @@ function openProfileAddCardModal() {
 
 function closeProfileAddCardModal() {
   profileAddCard.classList.remove("modal_opened");
+}
+
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
 }
 
 function openProfileEditForm() {
