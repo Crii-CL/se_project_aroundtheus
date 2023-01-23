@@ -38,6 +38,7 @@ const profileSubtitleInput = document.querySelector("#profile-subtitle-input");
 const profileModalSaveBtn = profileEditModal.querySelector(
   ".modal__form_button"
 );
+const likeButton = document.querySelector(".card__like-button");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
@@ -84,19 +85,8 @@ profileAddCardBtn.addEventListener("click", openProfileAddCardModal);
 
 profileAddCardCloseBtn.addEventListener("click", closeProfileAddCardModal);
 
-profileAddCardCreateBtn.addEventListener("submit", (e) => {
-  e.preventDefault();
-  closeProfileAddCardModal();
-});
-
 profileAddCardForm.addEventListener("submit", (e) => {
-  e.preventDefault;
-  const title = e.target.title.value;
-  const link = e.target.link.value;
-  renderCard({
-    name: link,
-    link: link,
-  });
+  e.preventDefault();
   closeProfileAddCardModal();
 });
 
@@ -114,11 +104,13 @@ function handleProfileEditSubmit(e) {
 function handleProfileAddCardCreate(e) {
   e.preventDefault();
 }
-function handleProfileAddCardCreate(e) {}
-
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
+
+// function toggleLike() {
+//   likeButton.classList.add("card__liked");
+// }
 
 function openProfileModal() {
   profileEditModal.classList.add("modal_opened");
@@ -142,17 +134,7 @@ function openProfileEditForm() {
   openProfileModal();
 }
 
-// function getCardElement(cardData) {
-//   const cardElement = cardTemplate.cloneNode(true);
-//   const cardImageEl = cardElement.querySelector(".card__image");
-//   const cardTitleEl = cardElement.querySelector(".card__title");
-//   cardImageEl.alt = cardData.name;
-//   cardImageEl.src = cardData.link;
-//   cardTitleEl.textContent = cardData.name;
-//   return cardElement;
-// }
-
-function renderCard(cardData) {
+function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
@@ -167,10 +149,9 @@ function renderCard(cardData) {
 /* -------------------------------------------------------------------------- */
 
 initialCards.forEach((cardData) => {
-  // originally getCardElement instead of renderCard
-  const cardElement = renderCard(cardData);
+  //This is my loop
+  const cardElement = getCardElement(cardData);
   cardListEl.prepend(cardElement);
-  renderCard(cardData);
 });
 
 /* -------------------------------------------------------------------------- */

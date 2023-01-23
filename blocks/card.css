@@ -46,6 +46,10 @@
   opacity: 0.5;
 }
 
+.card__liked {
+  fill: red;
+}
+
 .card__trash_button {
   border: none;
   background: transparent;
