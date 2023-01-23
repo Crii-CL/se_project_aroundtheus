@@ -97,13 +97,15 @@ function handleProfileEditSubmit(e) {
   closeProfileModal();
 }
 
-function handleProfileAddCardCreate(e) {}
-
-// function handleProfileAddCardCreate(e) {
-//   e.preventDefault();
-//   cardElement.prepend()
-//   closeProfileModal();
-// }
+function handleProfileAddCardCreate(e) {
+  e.preventDefault();
+  profileAddCardSubtitle.querySelector("#profile-add-card-subtitle-input") = profileAddCardSubtitle.src;
+  profileAddCardSubtitle.src = profileAddCardSubtitle.value;
+  const newCard = createCard ("#profile-add-card-title-input", "#profile-add-card-subtitle-input")
+  initialCards.push(newCard);
+  renderCard(newCard);
+  profileAddCardForm.reset(); 
+}
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
