@@ -28,6 +28,8 @@ const initialCards = [
 /* -------------------------------------------------------------------------- */
 /*                                  Variables                                 */
 /* -------------------------------------------------------------------------- */
+const cardsList = document.querySelector("#cards-list");
+
 const profileEditButton = document.querySelector("#profile-edit-button");
 
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -75,14 +77,14 @@ const profileAddCardFieldset = document.querySelector(
   "#profile-add-card-fieldset"
 );
 
-const profileAddCardTitle = document.querySelector(
+const profileAddCardTitleInput = profileAddCardForm.querySelector(
   "#profile-add-card-title-input"
 );
 
-const profileAddCardSubtitle = document.querySelector(
-  "#profile-add-card-subtitle-input"
+const profileAddCardLinkInput = profileAddCardForm.querySelector(
+  "#profile-add-card-link-input"
 );
-
+profileAddCardForm;
 const profileAddCardDivider = document.querySelector(
   "#profile-add-card-divider"
 );
@@ -113,15 +115,7 @@ profileAddCardCloseBtn.addEventListener("click", () => {
 
 profileEditModalForm.addEventListener("submit", handleProfileEditSubmit);
 
-profileAddCardForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  renderCard({
-    name: title,
-    link: link,
-  });
-  console.log("submitted");
-  closeProfileAddCardModal();
-});
+profileAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
@@ -134,8 +128,14 @@ function handleProfileEditSubmit(e) {
   closeModal(profileEditModal);
 }
 
-function handleProfileAddCardCreate(e) {
+function handleProfileAddCardSubmit(e) {
   e.preventDefault();
+  const title = profileAddCardTitleInput.value;
+  const link = profileAddCardLinkInput.value;
+  console.log("titleValue", title);
+  console.log("linkValue", link);
+  renderCard({ title, link }, cardsList);
+  closeModal(profileAddCard);
 }
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
@@ -165,23 +165,14 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
-function renderCard() {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__title");
-  cardImageEl.alt = cardData.name;
-  cardImageEl.src = cardData.link;
-  cardTitleEl.textContent = cardData.name;
-  return cardElement;
+function renderCard(cardData) {
+  const cardElement = getCardElement(cardData);
+  cardListEl.prepend(cardElement);
 }
 /* -------------------------------------------------------------------------- */
 /*                                    Loops                                   */
 /* -------------------------------------------------------------------------- */
 
-initialCards.forEach((cardData) => {
-  //This is my loop
-  const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
-});
+initialCards.forEach((cardData) => renderCard(cardData, cardsList));
 
 /* -------------------------------------------------------------------------- */
