@@ -29,44 +29,64 @@ const initialCards = [
 /*                                  Variables                                 */
 /* -------------------------------------------------------------------------- */
 const profileEditButton = document.querySelector("#profile-edit-button");
+
 const profileEditModal = document.querySelector("#profile-edit-modal");
+
+const profileEditModalForm = document.querySelector("#profile-modal-form");
+
 const profileEditClose = document.querySelector("#profile-edit-close");
+
 const profileTitle = document.querySelector("#profile-title");
+
 const profileSubtitle = document.querySelector("#profile-subtitle");
+
 const profileTitleInput = document.querySelector("#profile-title-input");
+
 const profileSubtitleInput = document.querySelector("#profile-subtitle-input");
+
 const profileModalSaveBtn = profileEditModal.querySelector(
   ".modal__form_button"
 );
+
 const likeButton = document.querySelector(".card__like-button");
+
 const cardListEl = document.querySelector(".cards__list");
+
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
-const modalForm = document.querySelector("#profile-modal-form");
+
 const profileAddCardBtn = document.querySelector("#profile-add-card-button");
+
 const profileAddCardCloseBtn = document.querySelector(
   "#profile-add-card-close-button"
 );
 const profileAddCard = document.querySelector("#profile-add-card");
+
 const profileAddCardContainer = document.querySelector(
   "#profile-add-card-container"
 );
 const profileAddCardForm = document.querySelector("#profile-add-card-form");
+
 const profileAddCardHeading = document.querySelector(
   "#profile-add-card-heading"
 );
+
 const profileAddCardFieldset = document.querySelector(
   "#profile-add-card-fieldset"
 );
+
 const profileAddCardTitle = document.querySelector(
   "#profile-add-card-title-input"
 );
+
 const profileAddCardSubtitle = document.querySelector(
   "#profile-add-card-subtitle-input"
 );
+
 const profileAddCardDivider = document.querySelector(
   "#profile-add-card-divider"
 );
+
 const profileAddCardCreateBtn = document.querySelector(
   "#profile-add-card-create"
 );
@@ -75,15 +95,23 @@ const profileAddCardCreateBtn = document.querySelector(
 /*                               Event Listeners                              */
 /* -------------------------------------------------------------------------- */
 
-profileEditButton.addEventListener("click", openModal); //---------
+profileEditButton.addEventListener("click", () => {
+  openModal(profileEditModal);
+});
 
-profileEditClose.addEventListener("click", closeModal);
+profileEditClose.addEventListener("click", () => {
+  closeModal(profileEditModal);
+});
 
-modalForm.addEventListener("submit", handleProfileEditSubmit);
+profileAddCardBtn.addEventListener("click", () => {
+  openModal(profileAddCard);
+});
 
-profileAddCardBtn.addEventListener("click", openProfileAddCardModal);
+profileAddCardCloseBtn.addEventListener("click", () => {
+  closeModal(profileAddCard);
+});
 
-profileAddCardCloseBtn.addEventListener("click", closeProfileAddCardModal);
+profileEditModalForm.addEventListener("submit", handleProfileEditSubmit);
 
 profileAddCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -103,7 +131,6 @@ function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileSubtitle.textContent = profileSubtitleInput.value;
-  // closeProfileModal();
   closeModal(profileEditModal);
 }
 
@@ -113,23 +140,6 @@ function handleProfileAddCardCreate(e) {
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
-
-function openProfileModal() {
-  //-------------
-  profileEditModal.classList.add("modal_opened");
-}
-
-function closeProfileModal() {
-  profileEditModal.classList.remove("modal_opened");
-}
-
-function openProfileAddCardModal() {
-  profileAddCard.classList.add("modal_opened");
-}
-
-function closeProfileAddCardModal() {
-  profileAddCard.classList.remove("modal_opened");
-}
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
