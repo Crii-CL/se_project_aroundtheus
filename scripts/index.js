@@ -90,9 +90,14 @@ profileAddCardCreateBtn.addEventListener("submit", (e) => {
 });
 
 profileAddCardForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  console.log(e.target);
-  renderCard;
+  e.preventDefault;
+  const title = e.target.title.value;
+  const link = e.target.link.value;
+  renderCard({
+    name: link,
+    link: link,
+  });
+  closeProfileAddCardModal();
 });
 
 /* -------------------------------------------------------------------------- */
@@ -109,6 +114,7 @@ function handleProfileEditSubmit(e) {
 function handleProfileAddCardCreate(e) {
   e.preventDefault();
 }
+function handleProfileAddCardCreate(e) {}
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
@@ -136,8 +142,17 @@ function openProfileEditForm() {
   openProfileModal();
 }
 
-function getCardElement(cardData) {
-  // This is the function that the loop uses to get the card Data
+// function getCardElement(cardData) {
+//   const cardElement = cardTemplate.cloneNode(true);
+//   const cardImageEl = cardElement.querySelector(".card__image");
+//   const cardTitleEl = cardElement.querySelector(".card__title");
+//   cardImageEl.alt = cardData.name;
+//   cardImageEl.src = cardData.link;
+//   cardTitleEl.textContent = cardData.name;
+//   return cardElement;
+// }
+
+function renderCard(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
@@ -147,25 +162,15 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
-function renderCard(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__title");
-  cardImageEl.alt = cardData.name;
-  cardImageEl.src = cardData.link;
-  cardTitleEl.textContent = cardData.name;
-  cardListEl.prepend(cardElement);
-}
-
 /* -------------------------------------------------------------------------- */
 /*                                    Loops                                   */
 /* -------------------------------------------------------------------------- */
 
 initialCards.forEach((cardData) => {
-  //This is my loop
-  const cardElement = getCardElement(cardData);
+  // originally getCardElement instead of renderCard
+  const cardElement = renderCard(cardData);
   cardListEl.prepend(cardElement);
-  getCardElement(cardData);
+  renderCard(cardData);
 });
 
 /* -------------------------------------------------------------------------- */
