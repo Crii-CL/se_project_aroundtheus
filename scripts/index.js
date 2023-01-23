@@ -84,7 +84,16 @@ profileAddCardBtn.addEventListener("click", openProfileAddCardModal);
 
 profileAddCardCloseBtn.addEventListener("click", closeProfileAddCardModal);
 
-profileAddCardCreateBtn.addEventListener("submit", handleProfileAddCardCreate);
+profileAddCardCreateBtn.addEventListener("submit", (e) => {
+  e.preventDefault();
+  closeProfileAddCardModal();
+});
+
+profileAddCardForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log(e.target);
+  renderCard;
+});
 
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
@@ -99,12 +108,6 @@ function handleProfileEditSubmit(e) {
 
 function handleProfileAddCardCreate(e) {
   e.preventDefault();
-  profileAddCardSubtitle.querySelector("#profile-add-card-subtitle-input") = profileAddCardSubtitle.src;
-  profileAddCardSubtitle.src = profileAddCardSubtitle.value;
-  const newCard = createCard ("#profile-add-card-title-input", "#profile-add-card-subtitle-input")
-  initialCards.push(newCard);
-  renderCard(newCard);
-  profileAddCardForm.reset(); 
 }
 
 /* -------------------------------------------------------------------------- */
@@ -134,6 +137,7 @@ function openProfileEditForm() {
 }
 
 function getCardElement(cardData) {
+  // This is the function that the loop uses to get the card Data
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
@@ -143,12 +147,25 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
+function renderCard(cardData) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImageEl = cardElement.querySelector(".card__image");
+  const cardTitleEl = cardElement.querySelector(".card__title");
+  cardImageEl.alt = cardData.name;
+  cardImageEl.src = cardData.link;
+  cardTitleEl.textContent = cardData.name;
+  cardListEl.prepend(cardElement);
+}
+
 /* -------------------------------------------------------------------------- */
 /*                                    Loops                                   */
 /* -------------------------------------------------------------------------- */
 
 initialCards.forEach((cardData) => {
+  //This is my loop
   const cardElement = getCardElement(cardData);
   cardListEl.prepend(cardElement);
+  getCardElement(cardData);
 });
+
 /* -------------------------------------------------------------------------- */
