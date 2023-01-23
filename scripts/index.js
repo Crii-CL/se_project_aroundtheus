@@ -85,8 +85,12 @@ profileAddCardBtn.addEventListener("click", openProfileAddCardModal);
 
 profileAddCardCloseBtn.addEventListener("click", closeProfileAddCardModal);
 
-profileAddCardForm.addEventListener("submit", (e) => {
+profileAddCardCreateBtn.addEventListener("submit", (e) => {
   e.preventDefault();
+  renderCard({
+    name: title,
+    link: link,
+  });
   closeProfileAddCardModal();
 });
 
@@ -144,6 +148,15 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
+function renderCard() {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImageEl = cardElement.querySelector(".card__image");
+  const cardTitleEl = cardElement.querySelector(".card__title");
+  cardImageEl.alt = cardData.name;
+  cardImageEl.src = cardData.link;
+  cardTitleEl.textContent = cardData.name;
+  return cardElement;
+}
 /* -------------------------------------------------------------------------- */
 /*                                    Loops                                   */
 /* -------------------------------------------------------------------------- */
