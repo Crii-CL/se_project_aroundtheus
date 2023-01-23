@@ -75,9 +75,9 @@ const profileAddCardCreateBtn = document.querySelector(
 /*                               Event Listeners                              */
 /* -------------------------------------------------------------------------- */
 
-profileEditButton.addEventListener("click", openModal);
+profileEditButton.addEventListener("click", openModal); //---------
 
-profileEditClose.addEventListener("click", closeProfileModal);
+profileEditClose.addEventListener("click", closeModal);
 
 modalForm.addEventListener("submit", handleProfileEditSubmit);
 
@@ -103,7 +103,8 @@ function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileSubtitle.textContent = profileSubtitleInput.value;
-  closeProfileModal();
+  // closeProfileModal();
+  closeModal(profileEditModal);
 }
 
 function handleProfileAddCardCreate(e) {
@@ -113,11 +114,8 @@ function handleProfileAddCardCreate(e) {
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
-// function toggleLike() {
-//   likeButton.classList.add("card__liked");
-// }
-
 function openProfileModal() {
+  //-------------
   profileEditModal.classList.add("modal_opened");
 }
 
