@@ -40,14 +40,23 @@
   margin-left: auto;
   margin-right: 20px;
   transition: 0.2s ease-in;
+  background-image: url(../images/heart.svg);
+  border: none;
+}
+
+.card__like-button_active {
+  margin-left: auto;
+  margin-right: 20px;
+  transition: 0.2s ease-in;
+  background-image: url(../images/black-heart.svg);
 }
 
 .card__like-button:hover {
   opacity: 0.5;
 }
 
-.card__liked {
-  fill: red;
+.card__like-button_active:hover {
+  opacity: 0.5;
 }
 
 .card__trash_button {
