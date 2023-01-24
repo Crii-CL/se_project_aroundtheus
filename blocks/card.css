@@ -42,6 +42,7 @@
   transition: 0.2s ease-in;
   background-image: url(../images/heart.svg);
   border: none;
+  cursor: pointer;
 }
 
 .card__like-button_active {
@@ -49,17 +50,18 @@
   margin-right: 20px;
   transition: 0.2s ease-in;
   background-image: url(../images/black-heart.svg);
+  cursor: pointer;
 }
 
 .card__like-button:hover {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .card__like-button_active:hover {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
-.card__trash_button {
+.card__delete_button {
   border: none;
   background: transparent;
   display: flex;
@@ -67,6 +69,12 @@
   z-index: 99;
   top: 18px;
   right: 15px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.card__delete_button:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 767px) {

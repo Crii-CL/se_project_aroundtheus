@@ -28,7 +28,8 @@ const initialCards = [
 /* -------------------------------------------------------------------------- */
 /*                                  Variables                                 */
 /* -------------------------------------------------------------------------- */
-const cardsList = document.querySelector("#cards-list");
+
+const cardListEl = document.querySelector(".cards__list");
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 
@@ -51,8 +52,6 @@ const profileModalSaveBtn = profileEditModal.querySelector(
 );
 
 const likeButton = document.querySelector(".card__like-button");
-
-const cardListEl = document.querySelector(".cards__list");
 
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
@@ -93,6 +92,9 @@ const profileAddCardCreateBtn = document.querySelector(
   "#profile-add-card-create"
 );
 
+const cardDelBtn = document.querySelector("#card-delete-button");
+
+const card = document.querySelector("#card");
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
 /* -------------------------------------------------------------------------- */
@@ -142,6 +144,12 @@ function handleLikeButton(e) {
   e.target.classList.toggle("card__like-button_active");
 }
 
+function handleDelButton(e) {
+  const card = this.closest("#card");
+  const cardContainer = cardListEl;
+  cardContainer.removeChild(card);
+}
+
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
@@ -165,6 +173,8 @@ function getCardElement(cardData) {
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
   const cardLikeBtn = cardElement.querySelector(".card__like-button");
+  const cardDelBtn = cardElement.querySelector(".card__delete_button");
+  cardDelBtn.addEventListener("click", handleDelButton);
   cardLikeBtn.addEventListener("click", handleLikeButton);
   cardImageEl.alt = cardData.name;
   cardImageEl.src = cardData.link;
@@ -180,6 +190,6 @@ function renderCard(cardData) {
 /*                                    Loops                                   */
 /* -------------------------------------------------------------------------- */
 
-initialCards.forEach((cardData) => renderCard(cardData, cardsList));
+initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 
 /* -------------------------------------------------------------------------- */
