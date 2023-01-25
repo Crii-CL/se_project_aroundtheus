@@ -94,6 +94,23 @@
   opacity: 0.6;
 }
 
+.modalPreview__close {
+  background-color: transparent;
+  background-size: contain;
+  border: none;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  bottom: calc(100% + 3px);
+  left: calc(100% + 3px);
+  transition: 0.2s ease-in-out;
+}
+
+.modalPreview__close:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
 .modalPreview {
   display: none;
   position: fixed;
@@ -159,10 +176,27 @@
   }
 
   .modal__close {
-    width: 26px;
-    height: 26px;
-    bottom: calc(100% + 25px);
-    left: calc(100% - 39px);
+    background-color: transparent;
+    background-size: contain;
+    border: none;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    bottom: calc(100% + 3px);
+    left: calc(100% + 3px);
+    transition: 0.2s ease-in-out;
+  }
+
+  .modalPreview__close {
+    background-color: transparent;
+    background-size: contain;
+    border: none;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    bottom: calc(100% + 3px);
+    left: calc(100% + 3px);
+    transition: 0.2s ease-in-out;
   }
 
   .modalPreview__block {
@@ -188,6 +222,13 @@
   }
 
   .modal__close {
+    width: 26px;
+    height: 26px;
+    bottom: calc(100% + 25px);
+    left: calc(100% - 39px);
+  }
+
+  .modalPreview__close {
     width: 26px;
     height: 26px;
     bottom: calc(100% + 25px);

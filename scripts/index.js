@@ -104,7 +104,7 @@ const modalPreviewImage = document.querySelector("#modalpreview-image");
 
 const modalPreviewTitle = document.querySelector("#modalpreview-title");
 
-const modalCloseBtnPreview = document.querySelector("#modal-close-preview");
+const modalPreviewCloseBtn = document.querySelector("#modal-close-preview");
 
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
@@ -130,7 +130,7 @@ profileEditModalForm.addEventListener("submit", handleProfileEditSubmit);
 
 profileAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 
-modalCloseBtnPreview.addEventListener("click", () => {
+modalPreviewCloseBtn.addEventListener("click", () => {
   closeModal(modalPreviewBlock);
   closeModal(modalPreview);
 });
