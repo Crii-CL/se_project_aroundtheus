@@ -76,7 +76,7 @@
         <section>
           <div class="modal" id="profile-edit-modal">
             <!-- Edit Card -->
-            <div class="modal__container-block">
+            <div class="modal__container">
               <button class="modal__close" id="profile-edit-close">
                 <img src="./images/Close-Icon.svg" alt="close icon" />
               </button>
@@ -107,8 +107,8 @@
         </section>
         <section>
           <!-- Add Card -->
-          <div class="modal__container" id="modal-container">
-            <div class="modal__container-block" id="modal-container-block">
+          <div class="modal" id="modal-add-card">
+            <div class="modal__container" id="modalcontainer">
               <button class="modal__close" id="profile-add-card-close-button">
                 <img src="./images/Close-Icon.svg" />
               </button>
@@ -156,20 +156,17 @@
         </section>
         <section>
           <div class="modal__wrapper-preview" id="modal-wrapper-preview">
-            <div class="modal__preview" id="modal-preview">
-              <button
-                class="modal__close modal__close-preview"
-                id="modal-preview-close"
-              >
+            <div class="modalPreview" id="modal-preview">
+              <button class="modal__close" id="modal-close-preview">
                 <img src="./images/Close-Icon.svg" />
               </button>
               <img
                 src="&nbsp;"
                 alt="&nbsp;"
-                class="modal__preview-image"
+                class="modalPreview__image"
                 id="modal-preview-image"
               />
-              <p class="modal__preview-title" id="modal-preview-title">
+              <p class="modalPreview__title" id="modal-preview-title">
                 Lake Louise
               </p>
             </div>
