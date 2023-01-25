@@ -96,15 +96,15 @@ const cardDelBtn = document.querySelector("#card-delete-button");
 
 const card = document.querySelector("#card");
 
-const modalPreview = document.querySelector("#modal-preview");
+const modalPreviewBlock = document.querySelector("#modalpreview-block");
 
-const modalPreviewImage = document.querySelector("#modal-preview-image");
+const modalPreviewImage = document.querySelector("#modalpreview-image");
 
-const modalPreviewTitle = document.querySelector("#modal-preview-title");
+const modalPreviewTitle = document.querySelector("#modalpreview-title");
 
 const modalCloseBtnPreview = document.querySelector("#modal-close-preview");
 
-const modalWrapperPreview = document.querySelector("#modal-wrapper-preview");
+const modalPreviewWrapper = document.querySelector("#modalpreview-wrapper");
 
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
@@ -131,8 +131,8 @@ profileEditModalForm.addEventListener("submit", handleProfileEditSubmit);
 profileAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 
 modalCloseBtnPreview.addEventListener("click", () => {
-  closeModal(modalPreview);
-  closeModal(modalWrapperPreview);
+  closeModal(modalPreviewBlock);
+  closeModal(modalPreviewWrapper);
 });
 
 /* -------------------------------------------------------------------------- */
@@ -200,8 +200,8 @@ function getCardElement(cardData) {
   cardLikeBtn.addEventListener("click", handleLikeButton);
   cardImageEl.addEventListener("click", () => {
     handleImagePreview(cardData);
-    openModal(modalPreview);
-    openModal(modalWrapperPreview);
+    openModal(modalPreviewBlock);
+    openModal(modalPreviewWrapper);
   });
   cardImageEl.alt = cardData.name;
   cardImageEl.src = cardData.link;

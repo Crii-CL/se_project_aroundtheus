@@ -94,7 +94,7 @@
   opacity: 0.6;
 }
 
-.modal__wrapper-preview {
+.modalPreview__wrapper {
   display: none;
   position: fixed;
   top: 0;
@@ -105,7 +105,7 @@
   z-index: 9999;
 }
 
-.modalPreview {
+.modalPreview__block {
   display: none;
   position: fixed;
   width: 816px;
@@ -165,7 +165,7 @@
     left: calc(100% - 39px);
   }
 
-  .modalPreview {
+  .modalPreview__block {
     width: 433px;
     height: 540px;
   }
@@ -177,7 +177,7 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 766px) {
-  .modalPreview {
+  .modalPreview__block {
     width: 240px;
     height: 299px;
   }
