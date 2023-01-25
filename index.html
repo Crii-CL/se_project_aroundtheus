@@ -73,107 +73,104 @@
             </template>
           </ul>
         </section>
-        <section>
-          <div class="modal" id="profile-edit-modal">
-            <!-- ------------------------------ Edit Card ------------------------------ -->
-            <div class="modal__container">
-              <button class="modal__close" id="profile-edit-close">
-                <img src="./images/Close-Icon.svg" alt="close icon" />
-              </button>
-              <form class="modal__form" id="profile-modal-form">
-                <h2 class="modal__form-heading">Edit Profile</h2>
-                <fieldset class="modal__form-fieldset">
-                  <input
-                    class="modal__form-input"
-                    type="text"
-                    id="profile-title-input"
-                    required
-                    placeholder="Name"
-                  />
-                  <span class="modal__form-divider"></span>
-                  <input
-                    class="modal__form-input"
-                    type="text"
-                    id="profile-subtitle-input"
-                    required
-                    placeholder="Description"
-                  />
-                  <span class="modal__form-divider"></span>
-                  <button type="submit" class="modal__form-button">Save</button>
-                </fieldset>
-              </form>
-            </div>
+        <!-- ------------------------------ Edit Card ------------------------------ -->
+        <div class="modal" id="profile-edit-modal">
+          <div class="modal__container">
+            <button class="modal__close" id="profile-edit-close">
+              <img src="./images/Close-Icon.svg" alt="close icon" />
+            </button>
+            <form class="modal__form" id="profile-modal-form">
+              <h2 class="modal__form-heading">Edit Profile</h2>
+              <fieldset class="modal__form-fieldset">
+                <input
+                  class="modal__form-input"
+                  type="text"
+                  id="profile-title-input"
+                  required
+                  placeholder="Name"
+                />
+                <span class="modal__form-divider"></span>
+                <input
+                  class="modal__form-input"
+                  type="text"
+                  id="profile-subtitle-input"
+                  required
+                  placeholder="Description"
+                />
+                <span class="modal__form-divider"></span>
+                <button type="submit" class="modal__form-button">Save</button>
+              </fieldset>
+            </form>
           </div>
-          <!-- ----------------------------- ^Edit Card^ ----------------------------- -->
-        </section>
-        <section>
-          <!-- ------------------------------ Add Card ------------------------------- -->
-          <div class="modal" id="modal-add-card">
-            <div class="modal__container" id="modalcontainer">
-              <button class="modal__close" id="modal-add-card-close-button">
-                <img src="./images/Close-Icon.svg" />
-              </button>
-              <form class="modal__form" id="modal-add-card-form">
-                <h2 class="modal__form-heading" id="modal-add-card-heading">
-                  New Place
-                </h2>
-                <fieldset
-                  class="modal__form-fieldset"
-                  id="modal-add-card-fieldset"
+        </div>
+        <!-- ----------------------------- ^Edit Card^ ----------------------------- -->
+        <!-- ------------------------------ Add Card ------------------------------- -->
+        <div class="modal" id="modal-add-card">
+          <div class="modal__container" id="modalcontainer">
+            <button class="modal__close" id="modal-add-card-close-button">
+              <img src="./images/Close-Icon.svg" />
+            </button>
+            <form class="modal__form" id="modal-add-card-form">
+              <h2 class="modal__form-heading" id="modal-add-card-heading">
+                New Place
+              </h2>
+              <fieldset
+                class="modal__form-fieldset"
+                id="modal-add-card-fieldset"
+              >
+                <input
+                  class="modal__form-input"
+                  type="text"
+                  id="modal-add-card-title"
+                  placeholder="Title"
+                />
+                <span
+                  class="modal__form-divider"
+                  id="modal-divider-add-card"
+                ></span>
+                <input
+                  class="modal__form-input"
+                  type="text"
+                  id="modal-add-card-link"
+                  placeholder="Image Link"
+                />
+                <span
+                  class="modal__form-divider"
+                  id="modal-add-card-divider"
+                ></span>
+                <button
+                  type="submit"
+                  class="modal__form-button"
+                  id="modal-add-card-create"
                 >
-                  <input
-                    class="modal__form-input"
-                    type="text"
-                    id="modal-add-card-title-input"
-                    placeholder="Title"
-                    name="title"
-                  />
-                  <span
-                    class="modal__form-divider"
-                    id="modal-divider-add-card"
-                  ></span>
-                  <input
-                    class="modal__form-input"
-                    type="text"
-                    id="modal-add-card-link-input"
-                    placeholder="Image Link"
-                    name="link"
-                  />
-                  <span
-                    class="modal__form-divider"
-                    id="modal-add-card-divider"
-                  ></span>
-                  <button
-                    type="submit"
-                    class="modal__form-button"
-                    id="modal-add-card-create"
-                  >
-                    Create
-                  </button>
-                </fieldset>
-              </form>
-            </div>
+                  Create
+                </button>
+              </fieldset>
+            </form>
           </div>
-          <!-- ------------------------------ ^Add Card^ ------------------------------- -->
-        </section>
-        <section>
-          <div class="modalPreview" id="modalpreview">
-            <div class="modalPreview__block" id="modalpreview-block">
-              <button class="modalPreview__close" id="modal-close-preview">
-                <img src="./images/Close-Icon.svg" />
-              </button>
-              <img
-                src="&nbsp;"
-                alt="&nbsp;"
-                class="modalPreview__image"
-                id="modalpreview-image"
-              />
-              <p class="modalPreview__title" id="modalpreview-title">
-                Lake Louise
-              </p>
-            </div>
+        </div>
+        <!-- ------------------------------ ^Add Card^ ------------------------------- -->
+        <!-- ------------------------------- Preview ------------------------------- -->
+        <div class="modal modalPreview" id="modalpreview">
+          <div class="modalPreview__container" id="modalpreview-container">
+            <button
+              class="modal__close modalPreview__close"
+              id="modal-close-preview"
+            >
+              <img src="./images/Close-Icon.svg" />
+            </button>
+            <img
+              src="&nbsp;"
+              alt="&nbsp;"
+              class="modalPreview__image"
+              id="modalpreview-image"
+            />
+            <p class="modalPreview__title" id="modalpreview-title">
+              Lake Louise
+            </p>
           </div>
-        </section>
+        </div>
+        <!-- ------------------------------ ^Preview^ ------------------------------ -->
       </main>
       <footer class="footer">
         <p class="footer__copyright">© 2022 Around the U.S.</p>
