@@ -119,8 +119,6 @@ profileAddCardBtn.addEventListener("click", () => {
 
 profileEditModalForm.addEventListener("submit", handleProfileEditSubmit);
 
-// profileEditModalForm.addEventListener("click", openProfileEditForm);
-
 modalAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 
 /* -------------------------------------------------------------------------- */
