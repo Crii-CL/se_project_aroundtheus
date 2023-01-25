@@ -194,6 +194,7 @@ function getCardElement(cardData) {
   cardLikeBtn.addEventListener("click", handleLikeButton);
   modalPreviewImage.addEventListener("click", () => {
     handleImagePreview(cardData);
+    openModal(modalPreview);
   });
   cardImageEl.alt = cardData.name;
   cardImageEl.src = cardData.link;
