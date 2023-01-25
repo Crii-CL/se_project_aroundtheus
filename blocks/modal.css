@@ -19,7 +19,7 @@
   padding: 0 19px;
 }
 
-.profile__modal_add-card {
+.modal__container {
   position: fixed;
   top: 0;
   left: 0;
@@ -32,7 +32,7 @@
   animation: fadeIn 0.3s ease-in-out;
 }
 
-.modal__container {
+.modal__container-block {
   position: relative;
   background-color: #fff;
   margin: auto;
@@ -45,11 +45,11 @@
 .modal__form {
 }
 
-.modal__form_heading {
+.modal__form-heading {
   margin: 36px 36px 54px 36px;
 }
 
-.modal__form_fieldset {
+.modal__form-fieldset {
   display: flex;
   flex-direction: column;
   border: none;
@@ -57,24 +57,24 @@
   padding: 0;
 }
 
-.modal__form_input {
+.modal__form-input {
   border: none;
   height: 14px;
   padding-bottom: 13.26px;
   outline: none;
 }
 
-.modal__form_divider {
+.modal__form-divider {
   width: 100%;
   border-bottom: solid 1px #000;
   margin-bottom: 27px;
 }
 
-.modal__form_divider:nth-last-child(2) {
+.modal__form-divider:nth-last-child(2) {
   margin-bottom: 40px;
 }
 
-.modal__form_button {
+.modal__form-button {
   height: 50px;
   color: #fff;
   background-color: #000;
@@ -85,7 +85,7 @@
   padding: 0;
 }
 
-.modal__form_button:hover {
+.modal__form-button:hover {
   cursor: pointer;
 }
 
@@ -106,7 +106,7 @@
   opacity: 0.6;
 }
 
-.modal__preview_wrapper {
+.modal__wrapper-preview {
   display: none;
   position: fixed;
   top: 0;
@@ -135,12 +135,12 @@
   animation: fadeIn 0.3s ease-in-out;
 }
 
-.modal__preview_image {
+.modal__preview-image {
   width: 816px;
   height: 540px;
 }
 
-.modal__preview_title {
+.modal__preview-title {
   color: white;
   position: absolute;
   bottom: -22px;
@@ -161,12 +161,12 @@
     padding: 0 19px;
   }
 
-  .modal__container {
+  .modal__container-block {
     width: 282px;
     height: 322px;
   }
 
-  .modal__form_fieldset {
+  .modal__form-fieldset {
     margin: 0 22px;
   }
 
@@ -182,7 +182,7 @@
     height: 540px;
   }
 
-  .modal__preview_image {
+  .modal__preview-image {
     width: 433px;
     height: 540px;
   }
@@ -194,7 +194,7 @@
     height: 299px;
   }
 
-  .modal__preview_image {
+  .modal__preview-image {
     width: 240px;
     height: 299px;
   }
@@ -206,11 +206,11 @@
     left: calc(100% - 39px);
   }
 
-  .modal__form_fieldset {
+  .modal__form-fieldset {
     margin: 0 22px;
   }
 
-  .modal__container {
+  .modal__container-block {
     width: 282px;
     height: 322px;
   }

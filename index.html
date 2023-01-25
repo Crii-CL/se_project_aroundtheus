@@ -76,30 +76,30 @@
         <section>
           <div class="modal" id="profile-edit-modal">
             <!-- Edit Card -->
-            <div class="modal__container">
+            <div class="modal__container-block">
               <button class="modal__close" id="profile-edit-close">
                 <img src="./images/Close-Icon.svg" alt="close icon" />
               </button>
               <form class="modal__form" id="profile-modal-form">
-                <h2 class="modal__form_heading">Edit Profile</h2>
-                <fieldset class="modal__form_fieldset">
+                <h2 class="modal__form-heading">Edit Profile</h2>
+                <fieldset class="modal__form-fieldset">
                   <input
-                    class="modal__form_input"
+                    class="modal__form-input"
                     type="text"
                     id="profile-title-input"
                     required
                     placeholder="Name"
                   />
-                  <span class="modal__form_divider"></span>
+                  <span class="modal__form-divider"></span>
                   <input
-                    class="modal__form_input"
+                    class="modal__form-input"
                     type="text"
                     id="profile-subtitle-input"
                     required
                     placeholder="Description"
                   />
-                  <span class="modal__form_divider"></span>
-                  <button type="submit" class="modal__form_button">Save</button>
+                  <span class="modal__form-divider"></span>
+                  <button type="submit" class="modal__form-button">Save</button>
                 </fieldset>
               </form>
             </div>
@@ -107,44 +107,44 @@
         </section>
         <section>
           <!-- Add Card -->
-          <div class="profile__modal_add-card" id="profile-add-card">
-            <div class="modal__container" id="profile-add-card-container">
+          <div class="modal__container" id="modal-container">
+            <div class="modal__container-block" id="modal-container-block">
               <button class="modal__close" id="profile-add-card-close-button">
                 <img src="./images/Close-Icon.svg" />
               </button>
               <form class="modal__form" id="profile-add-card-form">
-                <h2 class="modal__form_heading" id="profile-add-card-heading">
+                <h2 class="modal__form-heading" id="profile-add-card-heading">
                   New Place
                 </h2>
                 <fieldset
-                  class="modal__form_fieldset"
+                  class="modal__form-fieldset"
                   id="profile-add-card-fieldset"
                 >
                   <input
-                    class="modal__form_input"
+                    class="modal__form-input"
                     type="text"
                     id="profile-add-card-title-input"
                     placeholder="Title"
                     name="title"
                   />
                   <span
-                    class="modal__form_divider"
+                    class="modal__form-divider"
                     id="profile-divider-add-card"
                   ></span>
                   <input
-                    class="modal__form_input"
+                    class="modal__form-input"
                     type="text"
                     id="profile-add-card-link-input"
                     placeholder="Image Link"
                     name="link"
                   />
                   <span
-                    class="modal__form_divider"
+                    class="modal__form-divider"
                     id="profile-add-card-divider"
                   ></span>
                   <button
                     type="submit"
-                    class="modal__form_button"
+                    class="modal__form-button"
                     id="profile-add-card-create"
                   >
                     Create
@@ -155,7 +155,7 @@
           </div>
         </section>
         <section>
-          <div class="modal__preview_wrapper" id="modal-preview-wrapper">
+          <div class="modal__wrapper-preview" id="modal-wrapper-preview">
             <div class="modal__preview" id="modal-preview">
               <button
                 class="modal__close modal__close-preview"
@@ -166,10 +166,10 @@
               <img
                 src="&nbsp;"
                 alt="&nbsp;"
-                class="modal__preview_image"
+                class="modal__preview-image"
                 id="modal-preview-image"
               />
-              <p class="modal__preview_title" id="modal-preview-title">
+              <p class="modal__preview-title" id="modal-preview-title">
                 Lake Louise
               </p>
             </div>

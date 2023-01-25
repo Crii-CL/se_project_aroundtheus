@@ -61,11 +61,9 @@ const profileAddCardBtn = document.querySelector("#profile-add-card-button");
 const profileAddCardCloseBtn = document.querySelector(
   "#profile-add-card-close-button"
 );
-const profileAddCard = document.querySelector("#profile-add-card");
+const modalContainer = document.querySelector("#modal-container");
 
-const profileAddCardContainer = document.querySelector(
-  "#profile-add-card-container"
-);
+const modalContainerBlock = document.querySelector("#modal-container-block");
 const profileAddCardForm = document.querySelector("#profile-add-card-form");
 
 const profileAddCardHeading = document.querySelector(
@@ -105,7 +103,7 @@ const modalPreviewTitle = document.querySelector("#modal-preview-title");
 
 const modalPreviewCloseBtn = document.querySelector("#modal-preview-close");
 
-const modalPreviewWrapper = document.querySelector("#modal-preview-wrapper");
+const modalWrapperPreview = document.querySelector("#modal-wrapper-preview");
 
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
@@ -120,11 +118,11 @@ profileEditClose.addEventListener("click", () => {
 });
 
 profileAddCardBtn.addEventListener("click", () => {
-  openModal(profileAddCard);
+  openModal(modalContainer);
 });
 
 profileAddCardCloseBtn.addEventListener("click", () => {
-  closeModal(profileAddCard);
+  closeModal(modalContainer);
 });
 
 profileEditModalForm.addEventListener("submit", handleProfileEditSubmit);
@@ -133,7 +131,7 @@ profileAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 
 modalPreviewCloseBtn.addEventListener("click", () => {
   closeModal(modalPreview);
-  closeModal(modalPreviewWrapper);
+  closeModal(modalWrapperPreview);
 });
 
 /* -------------------------------------------------------------------------- */
@@ -154,7 +152,7 @@ function handleProfileAddCardSubmit(e) {
   console.log("titleValue", title);
   console.log("linkValue", link);
   renderCard({ title, link }, cardListEl);
-  closeModal(profileAddCard);
+  closeModal(modalContainer);
 }
 
 function handleLikeButton(e) {
@@ -202,7 +200,7 @@ function getCardElement(cardData) {
   cardImageEl.addEventListener("click", () => {
     handleImagePreview(cardData);
     openModal(modalPreview);
-    openModal(modalPreviewWrapper);
+    openModal(modalWrapperPreview);
   });
   cardImageEl.alt = cardData.name;
   cardImageEl.src = cardData.link;
