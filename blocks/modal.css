@@ -121,7 +121,6 @@
   bottom: 0;
   margin: auto;
   z-index: 3;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal__preview-image {
@@ -185,5 +184,21 @@
   .modal__preview-image {
     width: 240px;
     height: 299px;
+  }
+
+  .modal__close {
+    width: 26px;
+    height: 26px;
+    bottom: calc(100% + 25px);
+    left: calc(100% - 39px);
+  }
+
+  .modal__form_fieldset {
+    margin: 0 22px;
+  }
+
+  .modal__container {
+    width: 282px;
+    height: 322px;
   }
 }
