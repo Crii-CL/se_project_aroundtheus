@@ -101,6 +101,8 @@ const modalPreview = document.querySelector("#modal-preview");
 
 const modalPreviewImage = document.querySelector("#modal-preview-image");
 
+const modalPreviewTitle = document.querySelector("#modal-preview-title");
+
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
 /* -------------------------------------------------------------------------- */
@@ -158,7 +160,11 @@ function handleDelButton(e) {
   cardContainer.removeChild(card);
 }
 
-// function handleImagePreview() {}
+function handleImagePreview(cardData) {
+  modalPreviewImage.src = cardData.link;
+  modalPreviewImage.alt = cardData.name;
+  modalPreviewTitle.textContent = cardData.name;
+}
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
@@ -186,6 +192,9 @@ function getCardElement(cardData) {
   const cardDelBtn = cardElement.querySelector(".card__delete_button");
   cardDelBtn.addEventListener("click", handleDelButton);
   cardLikeBtn.addEventListener("click", handleLikeButton);
+  modalPreviewImage.addEventListener("click", () => {
+    handleImagePreview(cardData);
+  });
   cardImageEl.alt = cardData.name;
   cardImageEl.src = cardData.link;
   cardTitleEl.textContent = cardData.name;
