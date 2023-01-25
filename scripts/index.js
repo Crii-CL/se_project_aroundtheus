@@ -96,6 +96,8 @@ const cardDelBtn = document.querySelector("#card-delete-button");
 
 const card = document.querySelector("#card");
 
+const modalPreview = document.querySelector("#modalpreview");
+
 const modalPreviewBlock = document.querySelector("#modalpreview-block");
 
 const modalPreviewImage = document.querySelector("#modalpreview-image");
@@ -103,8 +105,6 @@ const modalPreviewImage = document.querySelector("#modalpreview-image");
 const modalPreviewTitle = document.querySelector("#modalpreview-title");
 
 const modalCloseBtnPreview = document.querySelector("#modal-close-preview");
-
-const modalPreviewWrapper = document.querySelector("#modalpreview-wrapper");
 
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
@@ -132,7 +132,7 @@ profileAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 
 modalCloseBtnPreview.addEventListener("click", () => {
   closeModal(modalPreviewBlock);
-  closeModal(modalPreviewWrapper);
+  closeModal(modalPreview);
 });
 
 /* -------------------------------------------------------------------------- */
@@ -201,7 +201,7 @@ function getCardElement(cardData) {
   cardImageEl.addEventListener("click", () => {
     handleImagePreview(cardData);
     openModal(modalPreviewBlock);
-    openModal(modalPreviewWrapper);
+    openModal(modalPreview);
   });
   cardImageEl.alt = cardData.name;
   cardImageEl.src = cardData.link;

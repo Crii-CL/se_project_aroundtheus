@@ -94,7 +94,7 @@
   opacity: 0.6;
 }
 
-.modalPreview__wrapper {
+.modalPreview {
   display: none;
   position: fixed;
   top: 0;
