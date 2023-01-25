@@ -119,6 +119,8 @@ profileAddCardBtn.addEventListener("click", () => {
 
 profileEditModalForm.addEventListener("submit", handleProfileEditSubmit);
 
+// profileEditModalForm.addEventListener("click", openProfileEditForm);
+
 modalAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 
 /* -------------------------------------------------------------------------- */
@@ -184,8 +186,7 @@ function getCardElement(cardData) {
   cardLikeBtn.addEventListener("click", handleLikeButton);
   cardImageEl.addEventListener("click", () => {
     handleImagePreview(cardData);
-    openPopup(modalPreviewContainer);
-    openPopup(modalPreview); // It doesn't open if they are not both there for some reason
+    openPopup(modalPreview);
   });
   cardImageEl.alt = cardData.name;
   cardImageEl.src = cardData.link;
