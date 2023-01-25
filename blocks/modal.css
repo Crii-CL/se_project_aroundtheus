@@ -19,7 +19,7 @@
   padding: 0 19px;
 }
 
-.profile__modal-add-card {
+.profile__modal_add-card {
   position: fixed;
   top: 0;
   left: 0;
@@ -45,11 +45,11 @@
 .modal__form {
 }
 
-.modal__form-heading {
+.modal__form_heading {
   margin: 36px 36px 54px 36px;
 }
 
-.modal__form-fieldset {
+.modal__form_fieldset {
   display: flex;
   flex-direction: column;
   border: none;
@@ -57,24 +57,24 @@
   padding: 0;
 }
 
-.modal__form-input {
+.modal__form_input {
   border: none;
   height: 14px;
   padding-bottom: 13.26px;
   outline: none;
 }
 
-.modal__form-divider {
+.modal__form_divider {
   width: 100%;
   border-bottom: solid 1px #000;
   margin-bottom: 27px;
 }
 
-.modal__form-divider:nth-last-child(2) {
+.modal__form_divider:nth-last-child(2) {
   margin-bottom: 40px;
 }
 
-.modal__form-button {
+.modal__form_button {
   height: 50px;
   color: #fff;
   background-color: #000;
@@ -85,7 +85,7 @@
   padding: 0;
 }
 
-.modal__form-button:hover {
+.modal__form_button:hover {
   cursor: pointer;
 }
 
@@ -106,7 +106,7 @@
   opacity: 0.6;
 }
 
-.modal__preview-wrapper {
+.modal__preview_wrapper {
   display: none;
   position: fixed;
   top: 0;
@@ -135,12 +135,12 @@
   animation: fadeIn 0.3s ease-in-out;
 }
 
-.modal__preview-image {
+.modal__preview_image {
   width: 816px;
   height: 540px;
 }
 
-.modal__preview-title {
+.modal__preview_title {
   color: white;
   position: absolute;
   bottom: -22px;
@@ -166,7 +166,7 @@
     height: 322px;
   }
 
-  .modal__form-fieldset {
+  .modal__form_fieldset {
     margin: 0 22px;
   }
 
@@ -182,7 +182,7 @@
     height: 540px;
   }
 
-  .modal__preview-image {
+  .modal__preview_image {
     width: 433px;
     height: 540px;
   }
@@ -194,7 +194,7 @@
     height: 299px;
   }
 
-  .modal__preview-image {
+  .modal__preview_image {
     width: 240px;
     height: 299px;
   }
@@ -206,7 +206,7 @@
     left: calc(100% - 39px);
   }
 
-  .modal__form-fieldset {
+  .modal__form_fieldset {
     margin: 0 22px;
   }
 
