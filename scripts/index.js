@@ -105,7 +105,7 @@ const modalPreviewTitle = document.querySelector("#modal-preview-title");
 
 const modalPreviewCloseBtn = document.querySelector("#modal-preview-close");
 
-const modalPreviewWrapper = document.querySelector(".modal__preview-wrapper");
+const modalPreviewWrapper = document.querySelector("#modal-preview-wrapper");
 
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
