@@ -70,7 +70,7 @@
   background: transparent;
   display: flex;
   position: absolute;
-  z-index: 99;
+  z-index: 1;
   top: 18px;
   right: 15px;
   cursor: pointer;
@@ -80,19 +80,3 @@
 .card__delete_button:hover {
   opacity: 0.6;
 }
-
-/* @media screen and (min-width: 767px) {
-  .card__like-button {
-    width: 23px;
-    height: 19px;
-    align-self: center;
-  }
-} */
-
-/* @media screen and (min-width: 1280px) {
-  .card__like-button {
-    width: 23px;
-    height: 19px;
-    align-self: center;
-  }
-} */

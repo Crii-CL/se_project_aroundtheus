@@ -84,6 +84,7 @@ const profileAddCardLinkInput = profileAddCardForm.querySelector(
   "#profile-add-card-link-input"
 );
 profileAddCardForm;
+
 const profileAddCardDivider = document.querySelector(
   "#profile-add-card-divider"
 );
@@ -95,6 +96,11 @@ const profileAddCardCreateBtn = document.querySelector(
 const cardDelBtn = document.querySelector("#card-delete-button");
 
 const card = document.querySelector("#card");
+
+const modalPreview = document.querySelector("#modal-preview");
+
+const modalPreviewImage = document.querySelector("#modal-preview-image");
+
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
 /* -------------------------------------------------------------------------- */
@@ -119,6 +125,8 @@ profileEditModalForm.addEventListener("submit", handleProfileEditSubmit);
 
 profileAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 
+// modalPreview.addEventListener("click", handleImagePreview);
+
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
 /* -------------------------------------------------------------------------- */
@@ -136,7 +144,7 @@ function handleProfileAddCardSubmit(e) {
   const link = profileAddCardLinkInput.value;
   console.log("titleValue", title);
   console.log("linkValue", link);
-  renderCard({ title, link }, cardsList);
+  renderCard({ title, link }, cardListEl);
   closeModal(profileAddCard);
 }
 
@@ -149,6 +157,8 @@ function handleDelButton(e) {
   const cardContainer = cardListEl;
   cardContainer.removeChild(card);
 }
+
+// function handleImagePreview() {}
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
