@@ -103,6 +103,10 @@ const modalPreviewImage = document.querySelector("#modal-preview-image");
 
 const modalPreviewTitle = document.querySelector("#modal-preview-title");
 
+const modalPreviewCloseBtn = document.querySelector("#modal-preview-close");
+
+const modalPreviewWrapper = document.querySelector(".modal__preview-wrapper");
+
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
 /* -------------------------------------------------------------------------- */
@@ -126,6 +130,11 @@ profileAddCardCloseBtn.addEventListener("click", () => {
 profileEditModalForm.addEventListener("submit", handleProfileEditSubmit);
 
 profileAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
+
+modalPreviewCloseBtn.addEventListener("click", () => {
+  closeModal(modalPreview);
+  closeModal(modalPreviewWrapper);
+});
 
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
@@ -193,6 +202,7 @@ function getCardElement(cardData) {
   cardImageEl.addEventListener("click", () => {
     handleImagePreview(cardData);
     openModal(modalPreview);
+    openModal(modalPreviewWrapper);
   });
   cardImageEl.alt = cardData.name;
   cardImageEl.src = cardData.link;
