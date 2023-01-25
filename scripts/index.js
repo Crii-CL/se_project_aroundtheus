@@ -127,8 +127,6 @@ profileEditModalForm.addEventListener("submit", handleProfileEditSubmit);
 
 profileAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 
-// modalPreview.addEventListener("click", handleImagePreview);
-
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
 /* -------------------------------------------------------------------------- */
@@ -192,7 +190,7 @@ function getCardElement(cardData) {
   const cardDelBtn = cardElement.querySelector(".card__delete_button");
   cardDelBtn.addEventListener("click", handleDelButton);
   cardLikeBtn.addEventListener("click", handleLikeButton);
-  modalPreviewImage.addEventListener("click", () => {
+  cardImageEl.addEventListener("click", () => {
     handleImagePreview(cardData);
     openModal(modalPreview);
   });

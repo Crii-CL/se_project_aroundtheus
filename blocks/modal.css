@@ -34,10 +34,6 @@
 .modal__form {
 }
 
-.modal_opened {
-  display: flex;
-}
-
 .modal__form_heading {
   margin: 36px 36px 54px 36px;
 }
@@ -100,6 +96,7 @@
 }
 
 .modal__preview {
+  /* display: none; */
   position: absolute;
   width: 816px;
   height: 540px;
@@ -113,7 +110,7 @@
   bottom: 0;
   margin: auto;
   z-index: 3;
-  display: none;
+  background-color: red;
 }
 
 .modal__preview-image {
@@ -122,11 +119,16 @@
 .modal__preview-title {
   color: white;
   position: absolute;
-  bottom: -38px;
+  bottom: -22px;
   left: 0px;
   font-family: Inter, "Arial", sans-serif;
   font-weight: 400;
   font-size: 12px;
+  margin: 0;
+}
+
+.modal_opened {
+  display: flex;
 }
 
 @media screen and (min-width: 767px) and (max-width: 1279px) {
