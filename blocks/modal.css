@@ -68,8 +68,6 @@
 
 .modal__form-divider_inactive {
   border-color: rgba(0, 0, 0, 0.2);
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.2);
 }
 
 .modal__form-divider:nth-last-child(2) {

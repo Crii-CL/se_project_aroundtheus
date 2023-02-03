@@ -154,6 +154,7 @@ function handleImagePreview(cardData) {
   modalPreviewTitle.textContent = cardData.name;
 }
 
+const enableValidation = () => {};
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
