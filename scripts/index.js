@@ -109,9 +109,7 @@ const modalPreviewCloseBtn = document.querySelector("#modal-close-preview");
 /*                               Event Listeners                              */
 /* -------------------------------------------------------------------------- */
 
-profileEditButton.addEventListener("click", () => {
-  openPopup(profileEditModal);
-});
+profileEditButton.addEventListener("click", openProfileEditForm);
 
 profileAddCardBtn.addEventListener("click", () => {
   openPopup(addCardModal);
