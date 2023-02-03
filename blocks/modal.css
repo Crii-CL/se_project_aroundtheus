@@ -52,10 +52,24 @@
   outline: none;
 }
 
+.modal__form-input_inactive {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.modal__form-input::placeholder {
+  color: rgba(0, 0, 0, 0.2);
+}
+
 .modal__form-divider {
   width: 100%;
   border-bottom: solid 1px #000;
   margin-bottom: 27px;
+}
+
+.modal__form-divider_inactive {
+  border-color: rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.2);
 }
 
 .modal__form-divider:nth-last-child(2) {
@@ -71,6 +85,12 @@
   font-weight: 400;
   border-radius: 2px;
   padding: 0;
+}
+
+.modal__form-button_inactive {
+  border-color: rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.2);
 }
 
 .modal__form-button:hover {
