@@ -229,29 +229,30 @@ const hideError = (input) => {
   input.classList.remove("modal__form-input_type_error");
 };
 
-const checkInputValidity = () => {
-  if (!modalFormInput.validity.valid) {
-    showError(modalFormInput, modalFormInput.validationMessage);
-  } else {
-    hideError(modalFormInput);
-  }
-};
+// const checkInputValidity = () => {
+//   if (!modalFormInput.validity.valid) {
+//     showError(modalFormInput, modalFormInput.validationMessage);
+//   } else {
+//     hideError(modalFormInput);
+//   }
+// };
 
-const inputEmpty = () => {
-  if (modalFormInput.length === 0) {
-    modalFormInput.classList.add("modal__form-input_inactive");
-    modalDivider.classList.add("modal__form-divider_inactive");
-  } else {
-    modalFormInput.classList.remove("modal__form-input_inactive");
-    modalDivider.classList.remove("modal__form-divider_inactive");
-  }
-};
+// const inputEmpty = () => {
+//   if (modalFormInput.length === 0) {
+//     modalFormInput.classList.add("modal__form-input_inactive");
+//     modalDivider.classList.add("modal__form-divider_inactive");
+//   } else {
+//     modalFormInput.classList.remove("modal__form-input_inactive");
+//     modalDivider.classList.remove("modal__form-divider_inactive");
+//   }
+// };
 
-const toggleSubmitButton = () => {
-  if (!modalFormInput.validity.valid) {
-    input.classList.add("modal__form-button_inactive");
-  }
-};
+// const toggleSubmitButton = () => {
+//   if (!modalFormInput.validity.valid) {
+//     input.classList.add("modal__form-button_inactive");
+//   }
+// };
+
 /* -------------------------------------------------------------------------- */
 /*                                    Loops                                   */
 /* -------------------------------------------------------------------------- */
@@ -266,4 +267,3 @@ closeButtons.forEach((button) => {
 });
 
 /* -------------------------------------------------------------------------- */
-// enableValidation();
