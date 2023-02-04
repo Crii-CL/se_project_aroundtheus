@@ -43,17 +43,21 @@
 
 .popup__input_type_error {
   margin-top: 5px;
-  margin-bottom: 27px;
+  /* margin-bottom: 27px; */
   color: #ff0000;
   font-size: 12px;
 }
 
-.popup__input_type_error: :nth-child(2) {
+.popup__input_type_error:nth-child(2) {
   margin-bottom: 0px;
 }
 
+.popup__error_visible {
+  border-color: #ff0000;
+}
+
 .modal__form-heading {
-  margin: 36px 36px 40px 36px;
+  margin: 36px 36px 54px 36px;
   /* was 54px for bottom, but edited it to make it more even */
 }
 
@@ -83,11 +87,12 @@
 .modal__form-divider {
   width: 100%;
   border-bottom: solid 1px #000;
+  margin-bottom: 27px;
 }
 
-.modal__form-divider_error {
+/* .modal__form-divider_error {
   border-bottom: solid 1px #ff0000;
-}
+} */
 
 .modal__form-divider_inactive {
   border-color: rgba(0, 0, 0, 0.2);
@@ -95,7 +100,7 @@
   color: rgba(0, 0, 0, 0.2);
 }
 
-.modal__form-divider:nth-last-child(2) {
+.modal__form-divider:nth-last-of-type(2) {
   margin-bottom: 40px;
 }
 
