@@ -109,7 +109,9 @@ const modalPreviewCloseBtn = document.querySelector("#modal-close-preview");
 /*                               Event Listeners                              */
 /* -------------------------------------------------------------------------- */
 
-profileEditButton.addEventListener("click", openProfileEditForm);
+profileEditButton.addEventListener("click", () => {
+  openPopup(profileEditModal);
+});
 
 profileAddCardBtn.addEventListener("click", () => {
   openPopup(addCardModal);
@@ -154,7 +156,6 @@ function handleImagePreview(cardData) {
   modalPreviewTitle.textContent = cardData.name;
 }
 
-const enableValidation = () => {};
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
