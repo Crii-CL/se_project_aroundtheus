@@ -3,7 +3,8 @@ function setEventListeners(formElement, options) {
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
   inputElements.forEach((inputElement) => {
     inputElement.addEventListener("input", (e) => {
-      
+      enableValidation()
+      }
     };
   });
 }
@@ -24,9 +25,9 @@ const config = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
+  inactiveButtonClass: ".popup__button_disabled",
+  inputErrorClass: ".popup__input_type_error",
+  errorClass: ".popup__error_visible",
 };
 
 enableValidation(config);

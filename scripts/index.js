@@ -47,8 +47,6 @@ const closeButtons = document.querySelectorAll(".modal__close");
 
 const modalFormInput = document.querySelectorAll(".modal__form-input");
 
-const modalDivider = document.querySelectorAll(".modal__form-divider");
-
 const modalFormError = document.querySelector(".modal__form-input_error");
 
 const modalForm = document.querySelectorAll(".modal__form");
