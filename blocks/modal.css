@@ -56,11 +56,14 @@
   padding: 0;
 }
 
-.modal__form-input {
+.modal__form-input:valid {
   border: none;
   height: 14px;
   padding-bottom: 13.26px;
   outline: none;
+}
+
+.modal__form-input:invalid {
 }
 
 .modal__form-input_inactive {
@@ -68,13 +71,17 @@
 }
 
 .modal__form-input::placeholder {
-  color: rgba(0, 0, 0, 0.2);
+  /* color: rgba(0, 0, 0, 0.2); */
 }
 
 .modal__form-divider {
   width: 100%;
   border-bottom: solid 1px #000;
   margin-bottom: 27px;
+}
+
+.modal__form-divider:invalid {
+  border-color: #ff0000;
 }
 
 .modal__form-divider_inactive {

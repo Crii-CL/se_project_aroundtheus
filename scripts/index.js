@@ -140,7 +140,9 @@ modalAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 //   evt.preventDefault();
 // });
 
-// modalFormInput.addEventListener("input", checkInputValidity);
+// modalFormInput.addEventListener("input", function () => {
+//   checkInputValidity();
+// });
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
 /* -------------------------------------------------------------------------- */
@@ -234,6 +236,22 @@ const checkInputValidity = () => {
     hideError(modalFormInput);
   }
 };
+
+const inputEmpty = () => {
+  if (modalFormInput.length === 0) {
+    modalFormInput.classList.add("modal__form-input_inactive");
+    modalDivider.classList.add("modal__form-divider_inactive");
+  } else {
+    modalFormInput.classList.remove("modal__form-input_inactive");
+    modalDivider.classList.remove("modal__form-divider_inactive");
+  }
+};
+
+const toggleSubmitButton = () => {
+  if (!modalFormInput.validity.valid) {
+    input.classList.add("modal__form-button_inactive");
+  }
+};
 /* -------------------------------------------------------------------------- */
 /*                                    Loops                                   */
 /* -------------------------------------------------------------------------- */
@@ -248,3 +266,4 @@ closeButtons.forEach((button) => {
 });
 
 /* -------------------------------------------------------------------------- */
+// enableValidation();
