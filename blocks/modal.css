@@ -53,7 +53,8 @@
 }
 
 .modal__form-heading {
-  margin: 36px 36px 54px 36px;
+  margin: 36px 36px 40px 36px;
+  /* was 54px for bottom, but edited it to make it more even */
 }
 
 .modal__form-fieldset {
@@ -71,25 +72,21 @@
   outline: none;
 }
 
-.modal__form-input:invalid {
-}
-
 .modal__form-input_inactive {
   color: rgba(0, 0, 0, 0.2);
 }
 
 .modal__form-input::placeholder {
-  /* color: rgba(0, 0, 0, 0.2); */
+  color: rgba(0, 0, 0, 0.2);
 }
 
 .modal__form-divider {
   width: 100%;
   border-bottom: solid 1px #000;
-  /* margin-bottom: 27px; */
 }
 
-.modal__form-divider:invalid {
-  border-color: #ff0000;
+.modal__form-divider_error {
+  border-bottom: solid 1px #ff0000;
 }
 
 .modal__form-divider_inactive {
@@ -253,6 +250,11 @@
     width: 433px;
     height: 540px;
   }
+
+  .modal__form-heading {
+    justify-content: center;
+    display: flex;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 766px) {
@@ -287,5 +289,10 @@
   .modal__container {
     width: 282px;
     height: 322px;
+  }
+
+  .modal__form-heading {
+    justify-content: center;
+    display: flex;
   }
 }
