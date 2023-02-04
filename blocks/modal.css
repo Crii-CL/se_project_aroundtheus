@@ -33,6 +33,17 @@
 .modal__form {
 }
 
+.modal__form-input-error {
+}
+
+.modal__form-input_error_active {
+  border-color: #ff0000;
+  color: #ff0000;
+}
+
+.modal__form-input_type_error {
+}
+
 .modal__form-heading {
   margin: 36px 36px 54px 36px;
 }

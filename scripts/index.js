@@ -43,7 +43,16 @@ const card = document.querySelector("#card");
 
 const closeButtons = document.querySelectorAll(".modal__close");
 
+/* ----------------------------- Modal Elements ----------------------------- */
+
+const modalFormInput = document.querySelectorAll(".modal__form-input");
+
 const modalDivider = document.querySelectorAll(".modal__form-divider");
+
+const modalFormError = document.querySelector(".modal__form-input_error");
+
+const modalForm = document.querySelectorAll(".modal__form");
+
 /* ------------------------------ ^CardElements^ ------------------------------ */
 
 /* ----------------------------- Profile Section ---------------------------- */
@@ -53,7 +62,9 @@ const modalEditProfile = document.querySelector("#modal-edit-profile");
 
 const modalEditProfileForm = document.querySelector("#modal-profile-form");
 
-const profileEditClose = document.querySelector("#profile-edit-close");
+const modalProfileEditClose = document.querySelector(
+  "#modal-profile-edit-close"
+);
 
 const profileTitle = document.querySelector("#profile-title");
 
@@ -114,7 +125,7 @@ const modalPreviewCloseBtn = document.querySelector("#modal-close-preview");
 /* -------------------------------------------------------------------------- */
 
 profileEditButton.addEventListener("click", () => {
-  openPopup(modalEditProfile);
+  openProfileEditForm();
 });
 
 profileAddCardBtn.addEventListener("click", () => {
@@ -125,6 +136,11 @@ modalEditProfileForm.addEventListener("submit", handleProfileEditSubmit);
 
 modalAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 
+// modalForm.addEventListener("submit", function (evt) {
+//   evt.preventDefault();
+// });
+
+// modalFormInput.addEventListener("input", checkInputValidity);
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
 /* -------------------------------------------------------------------------- */
@@ -201,8 +217,23 @@ function renderCard(cardData) {
   cardListEl.prepend(cardElement);
 }
 
-const showError = (input) => {};
+const showError = (input, errorMessage) => {
+  input.classList.add("modal__form-input_type_error");
+  modalFormError.textContent = errorMessage;
+  modalFormInput.classList.add("modal__form-input_error_active");
+};
 
+const hideError = (input) => {
+  input.classList.remove("modal__form-input_type_error");
+};
+
+const checkInputValidity = () => {
+  if (!modalFormInput.validity.valid) {
+    showError(modalFormInput, modalFormInput.validationMessage);
+  } else {
+    hideError(modalFormInput);
+  }
+};
 /* -------------------------------------------------------------------------- */
 /*                                    Loops                                   */
 /* -------------------------------------------------------------------------- */
