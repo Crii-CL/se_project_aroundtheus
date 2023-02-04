@@ -1,15 +1,22 @@
-function enableValidation(options) {
-  const formElements = Array.from(
-    document.querySelectorAll("options.formSelector")
-  );
-  const formInput = document.querySelectorAll("options.inputSelector");
+function setEventListeners(formElement, options) {
+  const { inputSelector } = options;
+  const inputElements = [...formElement.querySelectorAll(inputSelector)];
+  inputElements.forEach((inputElement) => {
+    inputElement.addEventListener("input", (e) => {
+      
+    };
+  });
+}
 
+function enableValidation(options) {
+  const { formSelector } = options;
+  const formElements = [...document.querySelectorAll(formSelector)];
   formElements.forEach((formElement) => {
-    formElements.addEventListener("submit", (e) => {
+    formElement.addEventListener("submit", (e) => {
       e.preventDefault();
     });
 
-    formElement.forEach(formInput);
+    setEventListeners(formElement, options);
   });
 }
 

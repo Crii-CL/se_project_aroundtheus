@@ -41,7 +41,15 @@
   color: #ff0000;
 }
 
-.modal__form-input_type_error {
+.popup__input_type_error {
+  margin-top: 5px;
+  margin-bottom: 27px;
+  color: #ff0000;
+  font-size: 12px;
+}
+
+.popup__input_type_error: :nth-child(2) {
+  margin-bottom: 0px;
 }
 
 .modal__form-heading {
@@ -77,7 +85,7 @@
 .modal__form-divider {
   width: 100%;
   border-bottom: solid 1px #000;
-  margin-bottom: 27px;
+  /* margin-bottom: 27px; */
 }
 
 .modal__form-divider:invalid {
