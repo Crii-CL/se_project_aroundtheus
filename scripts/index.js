@@ -138,11 +138,12 @@ modalEditProfileForm.addEventListener("submit", handleProfileEditSubmit);
 
 modalAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 
-modalAddCardCloseBtn.addEventListener("click", modalCloseButtonReset);
+modalAddCardCloseBtn.addEventListener("click", modalAddCloseButtonReset);
 
 document.addEventListener("click", modalCloseOverlay);
 
 document.addEventListener("keydown", modalEscape);
+
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
 /* -------------------------------------------------------------------------- */
@@ -157,7 +158,7 @@ function modalCloseOverlay(e) {
   e.target.classList.remove("modal_opened");
 }
 
-function modalCloseButtonReset() {
+function modalAddCloseButtonReset() {
   closePopup(addCardModal);
   modalAddCardTitleInput.value = "";
   modalAddCardLinkInput.value = "";
@@ -204,7 +205,6 @@ function openPopup(modal) {
 
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
-  modal.classList.add("modal_closing");
 }
 
 function openProfileEditForm() {

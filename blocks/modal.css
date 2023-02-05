@@ -24,18 +24,14 @@
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  display: none;
+  display: flex;
+  visibility: hidden;
   padding: 0 19px;
-  animation: fadeIn 0.3s ease-in;
 }
 
 .modal_opened {
-  display: flex;
-  opacity: 1;
-}
-
-.modal_closing {
-  animation: fadeOut 0.3s ease-out;
+  visibility: visible;
+  animation: fadeIn 0.3s ease;
 }
 
 .modal__container {
@@ -45,12 +41,10 @@
   border-radius: 10px;
   width: 430px;
   height: 330px;
-  animation: fadeIn 0.3s ease-in;
 }
 
 .modal__form-heading {
   margin: 36px 36px 54px 36px;
-  /* was 54px for bottom, but edited it to make it more even */
 }
 
 .modal__form-fieldset {
@@ -136,7 +130,7 @@
   height: 40px;
   bottom: calc(100% + 3px);
   left: calc(100% + 3px);
-  transition: 0.2s ease-in-out;
+  transition: 0.2s ease;
 }
 
 .modal__close:hover {
@@ -153,7 +147,7 @@
   height: 40px;
   bottom: calc(100% + 3px);
   left: calc(100% + 3px);
-  transition: 0.2s ease-in-out;
+  transition: 0.2s ease;
 }
 
 .modalPreview__close:hover {
@@ -162,7 +156,6 @@
 }
 
 .modalPreview {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -186,7 +179,7 @@
   bottom: 0;
   margin: auto;
   z-index: 3;
-  animation: fadeIn 0.3s ease-in-out;
+  animation: fadeIn 0.3s ease;
 }
 
 .modalPreview__image {
@@ -228,7 +221,7 @@
     height: 40px;
     bottom: calc(100% + 3px);
     left: calc(100% + 3px);
-    transition: 0.2s ease-in-out;
+    transition: 0.2s ease;
   }
 
   .modalPreview__close {
@@ -240,7 +233,7 @@
     height: 40px;
     bottom: calc(100% + 3px);
     left: calc(100% + 3px);
-    transition: 0.2s ease-in-out;
+    transition: 0.2s ease;
   }
 
   .modalPreview__container {
