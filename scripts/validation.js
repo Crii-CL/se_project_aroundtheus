@@ -34,8 +34,18 @@ function showInputError(
   errorMessageElement.classList.add(errorClass);
 }
 
-function hideInputError(formElement, inputElement, options) {
-  inputElement.classList.remove("popup__error_visible");
+function hideInputError(
+  formElement,
+  inputElement,
+  { inputErrorClass, errorClass }
+) {
+  const errorMessageElement = formElement.querySelector(
+    `#${inputElement.id}-error`
+  );
+
+  inputElement.classList.remove(inputErrorClass);
+  errorMessageElement.textContent = " ";
+  errorMessageElement.classList.remove(errorClass);
 }
 
 function checkInputValidity(formElement, inputElement, options) {
