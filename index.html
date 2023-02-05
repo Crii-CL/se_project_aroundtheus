@@ -74,7 +74,7 @@
           </ul>
         </section>
         <!-- ------------------------------ Edit Profile ------------------------------ -->
-        <div class="modal modal_opened" id="modal-edit-profile">
+        <div class="modal" id="modal-edit-profile">
           <div class="modal__container">
             <button class="modal__close" id="modal-profile-edit-close">
               <img src="./images/Close-Icon.svg" alt="close icon" />
@@ -109,7 +109,11 @@
                   class="popup__error"
                   id="modal-edit-subtitle-input-error"
                 ></span>
-                <button type="submit" class="modal__form-button_inactive">
+                <button
+                  type="submit"
+                  class="modal__form-button modal__form-button_inactive"
+                  disabled
+                >
                   Save
                 </button>
               </fieldset>
@@ -138,6 +142,7 @@
                   placeholder="Title"
                   minlength="1"
                   maxlength="30"
+                  required
                 />
                 <span
                   class="popup__error"
@@ -146,19 +151,20 @@
 
                 <input
                   class="modal__form-input"
-                  type="txt"
+                  type="url"
                   id="modal-add-card-link"
                   placeholder="Image Link"
+                  required
                 />
-                <!-- might be url for the type= -->
                 <span
                   class="popup__error"
                   id="modal-add-card-link-error"
                 ></span>
                 <button
                   type="submit"
-                  class="modal__form-button"
+                  class="modal__form-button modal__form-button_inactive"
                   id="modal-add-card-create"
+                  disabled
                 >
                   Create
                 </button>

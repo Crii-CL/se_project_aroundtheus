@@ -51,6 +51,8 @@ const modalFormError = document.querySelector(".modal__form-input_error");
 
 const modalForm = document.querySelectorAll(".modal__form");
 
+const modalOpened = document.querySelectorAll(".modal_opened");
+
 /* ------------------------------ ^CardElements^ ------------------------------ */
 
 /* ----------------------------- Profile Section ---------------------------- */
@@ -134,16 +136,36 @@ modalEditProfileForm.addEventListener("submit", handleProfileEditSubmit);
 
 modalAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 
-// modalForm.addEventListener("submit", function (evt) {
-//   evt.preventDefault();
-// });
+modalAddCardCloseBtn.addEventListener("click", modalCloseButtonReset);
 
-// modalFormInput.addEventListener("input", function () => {
-//   checkInputValidity();
-// });
+document.addEventListener("click", modalCloseOverlay);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    modalOpened.forEach((modal) => {
+      modal.classList.remove("modal_opened");
+    });
+  }
+});
+
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
 /* -------------------------------------------------------------------------- */
+
+// function modalEscape (e) {
+//   if(e.key === "Escape");
+//   closePopup();
+// }
+
+function modalCloseOverlay() {
+  closePopup(modalPreview);
+}
+
+function modalCloseButtonReset() {
+  closePopup(addCardModal);
+  modalAddCardTitleInput.value = "";
+  modalAddCardLinkInput.value = "";
+}
 
 function handleProfileEditSubmit(e) {
   e.preventDefault();
@@ -226,30 +248,6 @@ const showError = (input, errorMessage) => {
 const hideError = (input) => {
   input.classList.remove("modal__form-input_type_error");
 };
-
-// const checkInputValidity = () => {
-//   if (!modalFormInput.validity.valid) {
-//     showError(modalFormInput, modalFormInput.validationMessage);
-//   } else {
-//     hideError(modalFormInput);
-//   }
-// };
-
-// const inputEmpty = () => {
-//   if (modalFormInput.length === 0) {
-//     modalFormInput.classList.add("modal__form-input_inactive");
-//     modalDivider.classList.add("modal__form-divider_inactive");
-//   } else {
-//     modalFormInput.classList.remove("modal__form-input_inactive");
-//     modalDivider.classList.remove("modal__form-divider_inactive");
-//   }
-// };
-
-// const toggleSubmitButton = () => {
-//   if (!modalFormInput.validity.valid) {
-//     input.classList.add("modal__form-button_inactive");
-//   }
-// };
 
 /* -------------------------------------------------------------------------- */
 /*                                    Loops                                   */

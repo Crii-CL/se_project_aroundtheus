@@ -12,10 +12,9 @@ function enableValidation(options) {
 
 function checkInputValidity(formElement, inputElement, options) {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, options);
-  } else {
-    hideInputError(formElement, inputElement, options);
+    return showInputError(formElement, inputElement, options);
   }
+  hideInputError(formElement, inputElement, options);
 }
 
 function setEventListeners(formElement, options) {
@@ -74,11 +73,10 @@ function toggleButtonState(
 
   if (foundInvalid) {
     submitButton.classList.add(inactiveButtonClass);
-    submitButton.disabled = true;
-  } else {
-    submitButton.classList.remove(inactiveButtonClass);
-    submitButton.disabled = false;
+    return (submitButton.disabled = true);
   }
+  submitButton.classList.remove(inactiveButtonClass);
+  submitButton.disabled = false;
 }
 
 const config = {
