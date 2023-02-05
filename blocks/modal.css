@@ -55,7 +55,7 @@
   padding: 0;
 }
 
-.popup__error {
+.modal_error {
   margin: 5px 0 0;
   color: #ff0000;
   font-size: 10px;
@@ -63,7 +63,7 @@
   display: none;
 }
 
-.popup__error_visible {
+.modal_error_visible {
   display: block;
 }
 
