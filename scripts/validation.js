@@ -1,13 +1,3 @@
-function setEventListeners(formElement, options) {
-  const { inputSelector } = options;
-  const inputElements = [...formElement.querySelectorAll(inputSelector)];
-  inputElements.forEach((inputElement) => {
-    inputElement.addEventListener("input", (e) => {
-      checkInputValidity(formElement, inputElement, options);
-    });
-  });
-}
-
 function enableValidation(options) {
   const { formSelector } = options;
   const formElements = [...document.querySelectorAll(formSelector)];
@@ -17,6 +7,27 @@ function enableValidation(options) {
     });
 
     setEventListeners(formElement, options);
+  });
+}
+
+function checkInputValidity(formElement, inputElement, options) {
+  if (!inputElement.validity.valid) {
+    showInputError(formElement, inputElement, options);
+  } else {
+    hideInputError(formElement, inputElement, options);
+  }
+}
+
+function setEventListeners(formElement, options) {
+  const { inputSelector } = options;
+  const inputElements = [...formElement.querySelectorAll(inputSelector)];
+  const submitButton = formElement.querySelector(".modal__form-button");
+
+  inputElements.forEach((inputElement) => {
+    inputElement.addEventListener("input", () => {
+      checkInputValidity(formElement, inputElement, options);
+      toggleButtonState(inputElements, submitButton, options);
+    });
   });
 }
 
@@ -48,11 +59,25 @@ function hideInputError(
   errorMessageElement.classList.remove(errorClass);
 }
 
-function checkInputValidity(formElement, inputElement, options) {
-  if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, options);
+function toggleButtonState(
+  inputElements,
+  submitButton,
+  { inactiveButtonClass }
+) {
+  let foundInvalid = false;
+
+  inputElements.forEach((inputElement) => {
+    if (!inputElement.validity.valid) {
+      foundInvalid = true;
+    }
+  });
+
+  if (foundInvalid) {
+    submitButton.classList.add(inactiveButtonClass);
+    submitButton.disabled = true;
   } else {
-    hideInputError(formElement, inputElement, options);
+    submitButton.classList.remove(inactiveButtonClass);
+    submitButton.disabled = false;
   }
 }
 
