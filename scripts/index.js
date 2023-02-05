@@ -149,7 +149,7 @@ document.addEventListener("keydown", modalEscape);
 
 function modalEscape(e) {
   if (e.key === "Escape") {
-    e.target.classList.remove("modal_opened");
+    document.querySelector(".modal_opened").classList.remove("modal_opened");
   }
 }
 
