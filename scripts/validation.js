@@ -10,13 +10,6 @@ function enableValidation(options) {
   });
 }
 
-function checkInputValidity(formElement, inputElement, options) {
-  if (!inputElement.validity.valid) {
-    return showInputError(formElement, inputElement, options);
-  }
-  hideInputError(formElement, inputElement, options);
-}
-
 function setEventListeners(formElement, options) {
   const { inputSelector } = options;
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
@@ -28,6 +21,13 @@ function setEventListeners(formElement, options) {
       toggleButtonState(inputElements, submitButton, options);
     });
   });
+}
+
+function checkInputValidity(formElement, inputElement, options) {
+  if (!inputElement.validity.valid) {
+    return showInputError(formElement, inputElement, options);
+  }
+  hideInputError(formElement, inputElement, options);
 }
 
 function showInputError(
@@ -78,7 +78,7 @@ function toggleButtonState(
   submitButton.classList.remove(inactiveButtonClass);
   submitButton.disabled = false;
 }
-
+/* ---------------------------- Validation Object --------------------------- */
 const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__form-input",
@@ -89,3 +89,4 @@ const config = {
 };
 
 enableValidation(config);
+/* --------------------------- ^ValidationObject^ --------------------------- */

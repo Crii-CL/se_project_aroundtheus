@@ -140,25 +140,21 @@ modalAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 
 modalAddCardCloseBtn.addEventListener("click", modalCloseButtonReset);
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    modalOpened.forEach((modal) => {
-      modal.classList.remove("modal_opened");
-    });
-  }
-});
+document.addEventListener("click", modalCloseOverlay);
 
+document.addEventListener("keydown", modalEscape);
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
 /* -------------------------------------------------------------------------- */
 
-// function modalEscape (e) {
-//   if(e.key === "Escape");
-//   closePopup();
-// }
+function modalEscape(e) {
+  if (e.key === "Escape") {
+    e.target.classList.remove("modal_opened");
+  }
+}
 
-function modalCloseOverlay() {
-  closePopup();
+function modalCloseOverlay(e) {
+  e.target.classList.remove("modal_opened");
 }
 
 function modalCloseButtonReset() {
@@ -208,6 +204,7 @@ function openPopup(modal) {
 
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
+  modal.classList.add("modal_closing");
 }
 
 function openProfileEditForm() {
