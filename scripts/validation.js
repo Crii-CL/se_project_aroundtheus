@@ -3,9 +3,8 @@ function setEventListeners(formElement, options) {
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
   inputElements.forEach((inputElement) => {
     inputElement.addEventListener("input", (e) => {
-      enableValidation()
-      }
-    };
+      checkInputValidity(formElement, inputElement, options);
+    });
   });
 }
 
@@ -21,12 +20,37 @@ function enableValidation(options) {
   });
 }
 
+function showInputError(
+  formElement,
+  inputElement,
+  { inputErrorClass, errorClass, inputSelector }
+) {
+  const errorMessageElement = formElement.querySelector(
+    `#${inputElement.id}-error`
+  );
+  inputElement.classList.add(inputErrorClass);
+  errorMessageElement.textContent = inputElement.validationMessage;
+  errorMessageElement.classList.add(errorClass);
+}
+
+function hideInputError(formElement, inputElement, options) {
+  inputElement.classList.remove("popup__error_visible");
+}
+
+function checkInputValidity(formElement, inputElement, options) {
+  if (!inputElement.validity.valid) {
+    showInputError(formElement, inputElement, options);
+  } else {
+    hideInputError(formElement, inputElement, options);
+  }
+}
+
 const config = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: ".popup__button_disabled",
-  inputErrorClass: ".popup__input_type_error",
+  formSelector: ".modal__form",
+  inputSelector: ".modal__form-input",
+  submitButtonSelector: ".modal__form-button",
+  inactiveButtonClass: ".modal__form-button_inactive",
+  inputErrorClass: ".modal__form-input_error",
   errorClass: ".popup__error_visible",
 };
 

@@ -31,7 +31,7 @@
 }
 
 .modal__form-heading {
-  margin: 36px 36px 36px 36px;
+  margin: 36px 36px 54px 36px;
   /* was 54px for bottom, but edited it to make it more even */
 }
 
@@ -44,14 +44,15 @@
 }
 
 .popup__error {
-  margin: 5px 0 0;
-  color: #ff0000;
-  font-size: 12px;
-  display: none;
 }
 
 .popup__error_visible {
-  display: block;
+  margin: 5px 0 0;
+  color: #ff0000;
+  font-size: 12px;
+  border-color: #ff0000;
+  overflow: hidden;
+  max-height: 20px;
 }
 
 .modal__form-input {
@@ -71,11 +72,7 @@
   border-color: #ff0000;
 } */
 
-/* .modal__form-input:invalid {
-  border-color: #ff0000;
-} */
-
-.popup__input_type_error {
+.modal__form-input_error {
   border-color: #ff0000;
 }
 
@@ -87,19 +84,11 @@
   color: rgba(0, 0, 0, 0.2);
 }
 
-/* .modal__form-input:nth-child(3) {
-  margin-bottom: 40px;
-} */
-
 .modal__form-divider {
   width: 100%;
   border-bottom: solid 1px #000;
   margin-bottom: 27px;
 }
-
-/* .modal__form-divider_error {
-  border-bottom: solid 1px #ff0000;
-} */
 
 .modal__form-divider_inactive {
   border-color: rgba(0, 0, 0, 0.2);
@@ -120,7 +109,7 @@
   font-weight: 400;
   border-radius: 2px;
   padding: 0;
-  margin-top: 26px;
+  margin-top: 40px;
   border: none;
 }
 
