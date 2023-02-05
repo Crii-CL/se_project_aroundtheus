@@ -23,11 +23,12 @@ function enableValidation(options) {
 function showInputError(
   formElement,
   inputElement,
-  { inputErrorClass, errorClass, inputSelector }
+  { inputErrorClass, errorClass }
 ) {
   const errorMessageElement = formElement.querySelector(
     `#${inputElement.id}-error`
   );
+
   inputElement.classList.add(inputErrorClass);
   errorMessageElement.textContent = inputElement.validationMessage;
   errorMessageElement.classList.add(errorClass);
@@ -49,9 +50,9 @@ const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__form-input",
   submitButtonSelector: ".modal__form-button",
-  inactiveButtonClass: ".modal__form-button_inactive",
-  inputErrorClass: ".modal__form-input_error",
-  errorClass: ".popup__error_visible",
+  inactiveButtonClass: "modal__form-button_inactive",
+  inputErrorClass: "modal__form-input_error",
+  errorClass: "popup__error_visible",
 };
 
 enableValidation(config);
