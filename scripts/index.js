@@ -30,14 +30,10 @@ const initialCards = [
 /* -------------------------------------------------------------------------- */
 
 /* ------------------------------ Card Elements ----------------------------- */
-const likeButton = document.querySelector(".card__like-button");
-
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 
 const cardListEl = document.querySelector(".cards__list");
-
-const cardDelBtn = document.querySelector("#card-delete-button");
 
 const card = document.querySelector("#card");
 
@@ -47,13 +43,11 @@ const closeButtons = document.querySelectorAll(".modal__close");
 
 const modal = document.querySelectorAll(".modal");
 
-const modalFormInput = document.querySelectorAll(".modal__form-input");
+const modalFormInputs = document.querySelectorAll(".modal__form-input");
 
 const modalFormError = document.querySelector(".modal__form-input_error");
 
-const modalForm = document.querySelectorAll(".modal__form");
-
-const modalOpened = document.querySelectorAll(".modal_opened");
+const modalForms = document.querySelectorAll(".modal__form");
 
 /* ------------------------------ ^CardElements^ ------------------------------ */
 
@@ -138,30 +132,23 @@ modalEditProfileForm.addEventListener("submit", handleProfileEditSubmit);
 
 modalAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 
-modalAddCardCloseBtn.addEventListener("click", modalAddCloseButtonReset);
-
-document.addEventListener("click", modalCloseOverlay);
-
-document.addEventListener("keydown", modalEscape);
-
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
 /* -------------------------------------------------------------------------- */
 
-function modalEscape(e) {
+function closeByEscape(e) {
   if (e.key === "Escape") {
-    document.querySelector(".modal_opened").classList.remove("modal_opened");
+    const openedPopup = document.querySelector(".modal_opened");
+    closePopup(openedPopup);
   }
 }
 
-function modalCloseOverlay(e) {
-  e.target.classList.remove("modal_opened");
-}
-
-function modalAddCloseButtonReset() {
-  closePopup(addCardModal);
-  modalAddCardTitleInput.value = "";
-  modalAddCardLinkInput.value = "";
+function closeOverlay(e) {
+  // e.target.classList.remove("modal_opened");
+  if (e.target.classList.contains("modal_opened")) {
+    const openedPopup = document.querySelector(".modal_opened");
+    closePopup(openedPopup);
+  }
 }
 
 function handleProfileEditSubmit(e) {
@@ -201,10 +188,14 @@ function handleImagePreview(cardData) {
 
 function openPopup(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closeByEscape);
+  document.addEventListener("click", closeOverlay);
 }
 
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", closeByEscape);
+  document.removeEventListener("click", closeOverlay);
 }
 
 function openProfileEditForm() {
@@ -236,16 +227,6 @@ function renderCard(cardData) {
   cardListEl.prepend(cardElement);
 }
 
-const showError = (input, errorMessage) => {
-  input.classList.add("modal__form-input_type_error");
-  modalFormError.textContent = errorMessage;
-  modalFormInput.classList.add("modal__form-input_error_active");
-};
-
-const hideError = (input) => {
-  input.classList.remove("modal__form-input_type_error");
-};
-
 /* -------------------------------------------------------------------------- */
 /*                                    Loops                                   */
 /* -------------------------------------------------------------------------- */
@@ -258,5 +239,18 @@ closeButtons.forEach((button) => {
     closePopup(popup);
   });
 });
+
+// const popups = document.querySelectorAll(".popup");
+
+// popups.forEach((popup) => {
+//   popup.addEventListener("mousedown", (evt) => {
+//     if (evt.target.classList.contains("modal_opened")) {
+//       closePopup(popup);
+//     }
+//     if (evt.target.classList.contains("modal__close")) {
+//       closePopup(popup);
+//     }
+//   });
+// });
 
 /* -------------------------------------------------------------------------- */

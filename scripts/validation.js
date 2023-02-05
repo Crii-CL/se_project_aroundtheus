@@ -12,14 +12,25 @@ function enableValidation(options) {
 
 function setEventListeners(formElement, options) {
   const { inputSelector } = options;
+  const { submitButtonSelector } = options;
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
-  const submitButton = formElement.querySelector(".modal__form-button");
+  const submitButton = formElement.querySelector(submitButtonSelector);
 
-  inputElements.forEach((inputElement) => {
-    inputElement.addEventListener("input", () => {
-      checkInputValidity(formElement, inputElement, options);
+  formElement.addEventListener("reset", () => {
+    setTimeout(() => {
       toggleButtonState(inputElements, submitButton, options);
     });
+  });
+
+  inputElements.forEach((inputElement) => {
+    inputElement.addEventListener(
+      "input",
+      () => {
+        checkInputValidity(formElement, inputElement, options);
+        toggleButtonState(inputElements, submitButton, options);
+      },
+      0
+    );
   });
 }
 
