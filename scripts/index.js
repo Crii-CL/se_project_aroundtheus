@@ -258,5 +258,5 @@ closeButtons.forEach((button) => {
     closePopup(popup);
   });
 });
-console.log(popup);
+
 /* -------------------------------------------------------------------------- */
