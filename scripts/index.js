@@ -45,6 +45,8 @@ const closeButtons = document.querySelectorAll(".modal__close");
 
 /* ----------------------------- Modal Elements ----------------------------- */
 
+const modal = document.querySelectorAll(".modal");
+
 const modalFormInput = document.querySelectorAll(".modal__form-input");
 
 const modalFormError = document.querySelector(".modal__form-input_error");
@@ -138,10 +140,8 @@ modalAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 
 modalAddCardCloseBtn.addEventListener("click", modalCloseButtonReset);
 
-document.addEventListener("click", modalCloseOverlay);
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
     modalOpened.forEach((modal) => {
       modal.classList.remove("modal_opened");
     });
@@ -158,7 +158,7 @@ document.addEventListener("keydown", (event) => {
 // }
 
 function modalCloseOverlay() {
-  closePopup(modalPreview);
+  closePopup();
 }
 
 function modalCloseButtonReset() {
