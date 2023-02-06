@@ -23,14 +23,10 @@ function setEventListeners(formElement, options) {
   });
 
   inputElements.forEach((inputElement) => {
-    inputElement.addEventListener(
-      "input",
-      () => {
-        checkInputValidity(formElement, inputElement, options);
-        toggleButtonState(inputElements, submitButton, options);
-      },
-      0
-    );
+    inputElement.addEventListener("input", () => {
+      checkInputValidity(formElement, inputElement, options);
+      toggleButtonState(inputElements, submitButton, options);
+    });
   });
 }
 

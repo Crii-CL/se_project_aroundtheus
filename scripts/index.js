@@ -41,8 +41,6 @@ const closeButtons = document.querySelectorAll(".modal__close");
 
 /* ----------------------------- Modal Elements ----------------------------- */
 
-const modal = document.querySelectorAll(".modal");
-
 const modalFormInputs = document.querySelectorAll(".modal__form-input");
 
 const modalFormError = document.querySelector(".modal__form-input_error");
@@ -143,11 +141,9 @@ function closeByEscape(e) {
   }
 }
 
-function closeOverlay(e) {
-  // e.target.classList.remove("modal_opened");
+function handleOverlay(e) {
   if (e.target.classList.contains("modal_opened")) {
-    const openedPopup = document.querySelector(".modal_opened");
-    closePopup(openedPopup);
+    closePopup(e.target);
   }
 }
 
@@ -189,13 +185,13 @@ function handleImagePreview(cardData) {
 function openPopup(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", closeByEscape);
-  document.addEventListener("click", closeOverlay);
+  document.addEventListener("mousedown", handleOverlay);
 }
 
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", closeByEscape);
-  document.removeEventListener("click", closeOverlay);
+  document.removeEventListener("mousedown", handleOverlay);
 }
 
 function openProfileEditForm() {
@@ -240,14 +236,14 @@ closeButtons.forEach((button) => {
   });
 });
 
-// const popups = document.querySelectorAll(".popup");
+// const popups = document.querySelectorAll(".modal");
 
 // popups.forEach((popup) => {
-//   popup.addEventListener("mousedown", (evt) => {
-//     if (evt.target.classList.contains("modal_opened")) {
+//   popup.addEventListener("mousedown", (e) => {
+//     if (e.target.classList.contains("modal_opened")) {
 //       closePopup(popup);
 //     }
-//     if (evt.target.classList.contains("modal__close")) {
+//     if (e.target.classList.contains("modal__close")) {
 //       closePopup(popup);
 //     }
 //   });
