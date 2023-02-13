@@ -294,6 +294,26 @@ class FormValidator {
     });
   }
 
+  _showInputError(inputElement) {
+    this._errorMessageElement = this._formElement.querySelector(
+      `#${inputElement.id}-error`
+    );
+
+    inputElement.classList.add(this._inputErrorClass);
+    this._errorMessageElement.textContent = inputElement.validationMessage;
+    this._errorMessageElement.classList.add(this._errorClass);
+  }
+
+  _hideInputError(inputElement) {
+    this._errorMessageElement = this._formElement.querySelector(
+      `#${inputElement.id}-error`
+    );
+
+    inputElement.classList.remove(this._inputErrorClass);
+    this._errorMessageElement.textContent = " ";
+    this._errorMessageElement.classList.remove(this._errorClass);
+  }
+
   _toggleButtonState() {
     let foundInvalid = false;
 
