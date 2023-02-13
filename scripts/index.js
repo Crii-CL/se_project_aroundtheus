@@ -249,4 +249,67 @@ closeButtons.forEach((button) => {
 //   });
 // });
 
-/* -------------------------------------------------------------------------- */
+/* --------------------------------- Classes -------------------------------- */
+
+class FormValidator {
+  constructor(settings, formElement) {
+    this._formSelector = settings.formSelector;
+    this._inputSelector = settings.inputSelector;
+    this._submitButtonSelector = settings.submitButtonSelector;
+    this._inactiveButtonClass = settings.inactiveButtonClass;
+    this._inputErrorClass = settings.inputErrorClass;
+    this._errorClass = settings.errorClass;
+
+    this._formElement = formElement;
+  }
+
+  enableValidation() {
+    this._formElement.addEventListener("submit", (e) => {
+      e.preventDefault();
+    });
+
+    setEventListeners(this._formElement, options);
+  }
+
+  // _setEventListeners in the class
+  _setEventListeners() {
+    this._inputList = [
+      ...this._formElement.querySelectorAll(this._inputSelector),
+    ];
+    this._submitButton = this._formElement.querySelector(
+      this._submitButtonSelector
+    );
+
+    this._formElement.addEventListener("reset", () => {
+      setTimeout(() => {
+        toggleButtonState(this._inputList, this._submitButton, options);
+      });
+    });
+
+    this._inputList.forEach((inputElement) => {
+      inputElement.addEventListener("input", () => {
+        checkInputValidity(this._formElement, inputElement, options);
+        toggleButtonState(this._inputList, this._submitButton, options);
+      });
+    });
+  }
+
+  _toggleButtonState() {
+    let foundInvalid = false;
+
+    this._inputList.forEach((inputElement) => {
+      if (!inputElement.validity.valid) {
+        foundInvalid = true;
+      }
+    });
+
+    if (foundInvalid) {
+      this._submitButton.classList.add(this._inactiveButtonClass);
+      return (this._submitButton.disabled = true);
+    }
+    this._submitButton.classList.remove(this._inactiveButtonClass);
+    this._submitButton.disabled = false;
+  }
+}
+const editFormvalidator = new FormValidator(settings, editForm);
+editFormvalidator.enableValidation();

@@ -10,22 +10,23 @@ function enableValidation(options) {
   });
 }
 
+// setEventListeners in validation.js
 function setEventListeners(formElement, options) {
   const { inputSelector } = options;
   const { submitButtonSelector } = options;
-  const inputElements = [...formElement.querySelectorAll(inputSelector)];
+  const inputList = [...formElement.querySelectorAll(inputSelector)];
   const submitButton = formElement.querySelector(submitButtonSelector);
 
   formElement.addEventListener("reset", () => {
     setTimeout(() => {
-      toggleButtonState(inputElements, submitButton, options);
+      toggleButtonState(inputList, submitButton, options);
     });
   });
 
-  inputElements.forEach((inputElement) => {
+  inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
       checkInputValidity(formElement, inputElement, options);
-      toggleButtonState(inputElements, submitButton, options);
+      toggleButtonState(inputList, submitButton, options);
     });
   });
 }
@@ -65,14 +66,10 @@ function hideInputError(
   errorMessageElement.classList.remove(errorClass);
 }
 
-function toggleButtonState(
-  inputElements,
-  submitButton,
-  { inactiveButtonClass }
-) {
+function toggleButtonState(inputList, submitButton, { inactiveButtonClass }) {
   let foundInvalid = false;
 
-  inputElements.forEach((inputElement) => {
+  inputList.forEach((inputElement) => {
     if (!inputElement.validity.valid) {
       foundInvalid = true;
     }
