@@ -26,11 +26,12 @@ class FormValidator {
 
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
-        this._checkInputValidity(this._formElement, inputElement, settings);
-        this._toggleButtonState(inputList, submitButton, settings);
+        this._checkInputValidity(inputElement);
+        this._toggleButtonState();
       });
     });
   }
+  /* -------------------------- problem might be this^ ------------------------- */
 
   _toggleButtonState() {
     let foundInvalid = false;
@@ -49,11 +50,11 @@ class FormValidator {
     submitButton.disabled = false;
   }
 
-  _checkInputValidity(inputElement, settings) {
+  _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
-      return this._showInputError(this._formElement, inputElement, settings);
+      return this._showInputError(inputElement);
     }
-    this._hideInputError(this._formElement, inputElement, options);
+    this._hideInputError(inputElement);
   }
 
   _showInputError(inputElement) {
