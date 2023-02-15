@@ -1,6 +1,5 @@
 class FormValidator {
   constructor(settings, formElement) {
-    this._formSelector = settings.formSelector;
     this._inputSelector = settings.inputSelector;
     this._submitButtonSelector = settings.submitButtonSelector;
     this._inactiveButtonClass = settings.inactiveButtonClass;
@@ -15,13 +14,17 @@ class FormValidator {
       e.preventDefault();
     });
 
-    this._setEventListeners();
+    _setEventListeners(formElement, settings);
   }
 
   // _setEventListeners in the class
   _setEventListeners() {
-    this._inputList = [...this._formElement.querySelectorAll(inputSelector)];
-    submitButton = formElement.querySelector(submitButtonSelector);
+    this._inputList = [
+      ...this._formElement.querySelectorAll(this._inputSelector),
+    ];
+    this._submitButton = this._formElement.querySelector(
+      this._submitButtonSelector
+    );
 
     this._formElement.addEventListener("reset", () => {
       setTimeout(() => {
@@ -29,9 +32,9 @@ class FormValidator {
       });
     });
 
-    this._inputList.forEach((inputElement) => {
+    inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
-        checkInputValidity(formElement, inputElement, options);
+        checkInputValidity(this._formElement, inputElement, options);
         toggleButtonState(inputList, submitButton, options);
       });
     });
@@ -66,15 +69,15 @@ class FormValidator {
     });
 
     if (foundInvalid) {
-      submitButton.classList.add(inactiveButtonClass);
+      submitButton.classList.add(this._inactiveButtonClass);
       return (submitButton.disabled = true);
     }
-    submitButton.classList.remove(inactiveButtonClass);
+    submitButton.classList.remove(this._inactiveButtonClass);
     submitButton.disabled = false;
   }
 }
 
-const config = {
+const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__form-input",
   submitButtonSelector: ".modal__form-button",
@@ -83,5 +86,6 @@ const config = {
   errorClass: "modal__error_visible",
 };
 
-const editFormvalidator = new FormValidator(config);
+const editFormvalidator = new FormValidator(settings, editForm);
+const addFormValidator = new FormValidator(settings, addForm);
 editFormvalidator.enableValidation();
