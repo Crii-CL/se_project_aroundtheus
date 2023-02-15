@@ -26,8 +26,8 @@ class FormValidator {
 
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
-        this._checkInputValidity(this._formElement, inputElement, options);
-        this._toggleButtonState(inputList, submitButton, options);
+        this._checkInputValidity(this._formElement, inputElement, settings);
+        this._toggleButtonState(inputList, submitButton, settings);
       });
     });
   }
@@ -49,8 +49,15 @@ class FormValidator {
     submitButton.disabled = false;
   }
 
+  _checkInputValidity(inputElement, settings) {
+    if (!inputElement.validity.valid) {
+      return this._showInputError(this._formElement, inputElement, settings);
+    }
+    this._hideInputError(this._formElement, inputElement, options);
+  }
+
   _showInputError(inputElement) {
-    const errorMessageElement = formElement.querySelector(
+    const errorMessageElement = this._formElement.querySelector(
       `#${inputElement.id}-error`
     );
 
@@ -60,7 +67,7 @@ class FormValidator {
   }
 
   _hideInputError(inputElement) {
-    const errorMessageElement = this._formElement.querySelector(
+    const errorMessageElement = formElement.querySelector(
       `#${inputElement.id}-error`
     );
 
@@ -73,8 +80,6 @@ class FormValidator {
     this._formElement.addEventListener("submit", (e) => {
       e.preventDefault();
     });
-
-    this._hideInputError(this._formElement);
 
     this._setEventListeners(this._formElement, settings);
   }
