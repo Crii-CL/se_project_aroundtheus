@@ -9,14 +9,6 @@ class FormValidator {
     this._formElement = formElement;
   }
 
-  enableValidation() {
-    this._formElement.addEventListener("submit", (e) => {
-      e.preventDefault();
-    });
-
-    _setEventListeners(formElement, settings);
-  }
-
   // _setEventListeners in the class
   _setEventListeners() {
     this._inputList = [
@@ -28,14 +20,14 @@ class FormValidator {
 
     this._formElement.addEventListener("reset", () => {
       setTimeout(() => {
-        toggleButtonState(inputList, submitButton, options);
+        this._toggleButtonState(inputList, submitButton, options);
       });
     });
 
-    inputList.forEach((inputElement) => {
+    this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
-        checkInputValidity(this._formElement, inputElement, options);
-        toggleButtonState(inputList, submitButton, options);
+        this._checkInputValidity(this._formElement, inputElement, options);
+        this._toggleButtonState(inputList, submitButton, options);
       });
     });
   }
@@ -58,23 +50,33 @@ class FormValidator {
   }
 
   _showInputError(inputElement) {
-    const errorMessageElement = this._formElement.querySelector(
-      `#${inputElement.id}-error`
-    );
-
-    inputElement.classList.add(inputErrorClass);
-    errorMessageElement.textContent = inputElement.validationMessage;
-    errorMessageElement.classList.add(errorClass);
-  }
-
-  _hideInputError(inputElement) {
     const errorMessageElement = formElement.querySelector(
       `#${inputElement.id}-error`
     );
 
-    inputElement.classList.remove(inputErrorClass);
+    inputElement.classList.add(this._inputErrorClass);
+    errorMessageElement.textContent = inputElement.validationMessage;
+    errorMessageElement.classList.add(this._errorClass);
+  }
+
+  _hideInputError(inputElement) {
+    const errorMessageElement = this._formElement.querySelector(
+      `#${inputElement.id}-error`
+    );
+
+    inputElement.classList.remove(this._inputErrorClass);
     errorMessageElement.textContent = " ";
-    errorMessageElement.classList.remove(errorClass);
+    errorMessageElement.classList.remove(this._errorClass);
+  }
+
+  enableValidation(settings) {
+    this._formElement.addEventListener("submit", (e) => {
+      e.preventDefault();
+    });
+
+    this._hideInputError(this._formElement);
+
+    this._setEventListeners(this._formElement, settings);
   }
 }
 
@@ -87,6 +89,8 @@ const settings = {
   errorClass: "modal__error_visible",
 };
 
+const editForm = document.querySelector(".modal__form");
+
 const editFormvalidator = new FormValidator(settings, editForm);
-const addFormValidator = new FormValidator(settings, addForm);
+// const addFormValidator = new FormValidator(settings, addForm);
 editFormvalidator.enableValidation();
