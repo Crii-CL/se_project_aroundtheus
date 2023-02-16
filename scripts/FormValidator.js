@@ -68,7 +68,7 @@ class FormValidator {
   }
 
   _hideInputError(inputElement) {
-    const errorMessageElement = formElement.querySelector(
+    const errorMessageElement = this._formElement.querySelector(
       `#${inputElement.id}-error`
     );
 
@@ -77,12 +77,12 @@ class FormValidator {
     errorMessageElement.classList.remove(this._errorClass);
   }
 
-  enableValidation(settings) {
+  enableValidation() {
     this._formElement.addEventListener("submit", (e) => {
       e.preventDefault();
     });
 
-    this._setEventListeners(this._formElement, settings);
+    this._setEventListeners();
   }
 }
 
@@ -95,8 +95,9 @@ const settings = {
   errorClass: "modal__error_visible",
 };
 
-const editForm = document.querySelector(".modal__form");
+const editForm = document.querySelector("#modal-profile-form");
+const addForm = document.querySelector("#modal-add-card");
 
 const editFormvalidator = new FormValidator(settings, editForm);
-// const addFormValidator = new FormValidator(settings, addForm);
+const addFormValidator = new FormValidator(settings, addForm);
 editFormvalidator.enableValidation();
