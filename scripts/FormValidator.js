@@ -100,3 +100,5 @@ const addForm = document.querySelector("#modal-add-card");
 const editFormvalidator = new FormValidator(settings, editForm);
 const addFormValidator = new FormValidator(settings, addForm);
 editFormvalidator.enableValidation();
+
+export default FormValidator;
