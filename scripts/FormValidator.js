@@ -42,11 +42,11 @@ class FormValidator {
     });
 
     if (foundInvalid) {
-      this._submitButtonSelector.classList.add(this._inactiveButtonClass);
-      return (this._submitButtonSelector.disabled = true);
+      this._submitButton.classList.add(this._inactiveButtonClass);
+      return (this._submitButton.disabled = true);
     }
-    this._submitButtonSelector.classList.remove(this._inactiveButtonClass);
-    this._submitButtonSelector.disabled = false;
+    this._submitButton.classList.remove(this._inactiveButtonClass);
+    this._submitButton.disabled = false;
   }
 
   _checkInputValidity(inputElement) {
