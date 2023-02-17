@@ -31,23 +31,22 @@ class FormValidator {
       });
     });
   }
-  /* -------------------------- problem might be this^ ------------------------- */
 
-  _toggleButtonState() {
+  _toggleButtonState(submitButtonSelector) {
     let foundInvalid = false;
 
-    inputList.forEach((inputElement) => {
+    this._inputList.forEach((inputElement) => {
       if (!inputElement.validity.valid) {
         foundInvalid = true;
       }
     });
 
     if (foundInvalid) {
-      submitButton.classList.add(this._inactiveButtonClass);
-      return (submitButton.disabled = true);
+      this._submitButtonSelector.classList.add(this._inactiveButtonClass);
+      return (this._submitButtonSelector.disabled = true);
     }
-    submitButton.classList.remove(this._inactiveButtonClass);
-    submitButton.disabled = false;
+    this._submitButtonSelector.classList.remove(this._inactiveButtonClass);
+    this._submitButtonSelector.disabled = false;
   }
 
   _checkInputValidity(inputElement) {
