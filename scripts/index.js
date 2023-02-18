@@ -254,7 +254,7 @@ closeButtons.forEach((button) => {
 /* -------------------------------------------------------------------------- */
 /*                                 Validation                                 */
 /* -------------------------------------------------------------------------- */
-
+/* ------------------------------ Edit Profile ------------------------------ */
 const validationSettings = {
   inputSelector: ".modal__form-input",
   submitButtonSelector: ".modal__form-button",
@@ -271,3 +271,7 @@ const editFormValidator = new FormValidator(
   editFormElement
 );
 const addFormValidator = new FormValidator(validationSettings, addFormElement);
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
+/* ----------------------------- ^Edit Profile^ ----------------------------- */
