@@ -222,7 +222,7 @@ closeButtons.forEach((button) => {
 /* -------------------------------------------------------------------------- */
 /*                                 Validation                                 */
 /* -------------------------------------------------------------------------- */
-/* ------------------------------ Edit Profile ------------------------------ */
+/* ---------------------------- FormValidator.js ---------------------------- */
 const validationSettings = {
   inputSelector: ".modal__form-input",
   submitButtonSelector: ".modal__form-button",
@@ -242,4 +242,6 @@ const addFormValidator = new FormValidator(
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
-/* ----------------------------- ^Edit Profile^ ----------------------------- */
+/* --------------------------------- Card.js -------------------------------- */
+const card = new Card(initialCards, "#card-template");
+console.log(card);
