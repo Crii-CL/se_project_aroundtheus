@@ -38,19 +38,7 @@ const cardTemplate =
 
 const cardListEl = document.querySelector(".cards__list");
 
-const card = document.querySelector("#card");
-
 const closeButtons = document.querySelectorAll(".modal__close");
-
-/* ----------------------------- Modal Elements ----------------------------- */
-
-const modalFormInputs = document.querySelectorAll(".modal__form-input");
-
-const modalFormError = document.querySelector(".modal__form-input_error");
-
-const modalForms = document.querySelectorAll(".modal__form");
-
-/* ------------------------------ ^CardElements^ ------------------------------ */
 
 /* ----------------------------- Profile Section ---------------------------- */
 const profileEditButton = document.querySelector("#profile-edit-button");
@@ -58,10 +46,6 @@ const profileEditButton = document.querySelector("#profile-edit-button");
 const modalEditProfile = document.querySelector("#modal-edit-profile");
 
 const modalEditProfileForm = document.querySelector("#modal-profile-form");
-
-const modalProfileEditClose = document.querySelector(
-  "#modal-profile-edit-close"
-);
 
 const profileTitle = document.querySelector("#profile-title");
 
@@ -73,24 +57,13 @@ const modalEditSubtitleInput = document.querySelector(
   "#modal-edit-subtitle-input"
 );
 
-const profileModalSaveBtn = modalEditProfile.querySelector(
-  ".modal__form_button"
-);
-
 const profileAddCardBtn = document.querySelector("#profile-add-card-button");
 /* ----------------------------- ^Profile Section^ ---------------------------- */
 
 /* -------------------------------- Add Card -------------------------------- */
-const modalAddCardCloseBtn = document.querySelector(
-  "#modal-add-card-close-button"
-);
 const addCardModal = document.querySelector("#modal-add-card");
 
 const modalAddCardForm = document.querySelector("#modal-add-card-form");
-
-const modalAddCardHeading = document.querySelector("#modal-add-card-heading");
-
-const modalAddCardFieldset = document.querySelector("#modal-add-card-fieldset");
 
 const modalAddCardTitleInput = modalAddCardForm.querySelector(
   "#modal-add-card-title"
@@ -100,23 +73,15 @@ const modalAddCardLinkInput = modalAddCardForm.querySelector(
   "#modal-add-card-link"
 );
 
-const modalAddCardDivider = document.querySelector("#modal-add-card-divider");
-
-const modalAddCardCreateBtn = document.querySelector("#modal-add-card-create");
 /* -------------------------------- ^AddCard^ ------------------------------- */
 
 /* --------------------------------- Preview -------------------------------- */
 const modalPreview = document.querySelector("#modal-preview");
 
-const modalPreviewContainer = document.querySelector(
-  "#modal-preview-container"
-);
-
 const modalPreviewImage = document.querySelector("#modal-preview-image");
 
 const modalPreviewTitle = document.querySelector("#modal-preview-title");
 
-const modalPreviewCloseBtn = document.querySelector("#modal-close-preview");
 /* -------------------------------- ^Preview^ ------------------------------- */
 
 /* -------------------------------------------------------------------------- */
