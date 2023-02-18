@@ -266,14 +266,14 @@ const validationSettings = {
   errorClass: "modal__error_visible",
 };
 
-const editFormElement = document.querySelector("#modal-profile-form");
-const addFormElement = document.querySelector("#modal-add-card-form");
-
 const editFormValidator = new FormValidator(
   validationSettings,
-  editFormElement
+  modalEditProfileForm
 );
-const addFormValidator = new FormValidator(validationSettings, addFormElement);
+const addFormValidator = new FormValidator(
+  validationSettings,
+  modalAddCardForm
+);
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
