@@ -105,13 +105,15 @@ const modalAddCardCreateBtn = document.querySelector("#modal-add-card-create");
 /* -------------------------------- ^AddCard^ ------------------------------- */
 
 /* --------------------------------- Preview -------------------------------- */
-const modalPreview = document.querySelector("#modalpreview");
+const modalPreview = document.querySelector("#modal-preview");
 
-const modalPreviewContainer = document.querySelector("#modalpreview-container");
+const modalPreviewContainer = document.querySelector(
+  "#modal-preview-container"
+);
 
-const modalPreviewImage = document.querySelector("#modalpreview-image");
+const modalPreviewImage = document.querySelector("#modal-preview-image");
 
-const modalPreviewTitle = document.querySelector("#modalpreview-title");
+const modalPreviewTitle = document.querySelector("#modal-preview-title");
 
 const modalPreviewCloseBtn = document.querySelector("#modal-close-preview");
 /* -------------------------------- ^Preview^ ------------------------------- */
@@ -207,7 +209,7 @@ function getCardElement(cardData) {
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
   const cardLikeBtn = cardElement.querySelector(".card__like-button");
-  const cardDelBtn = cardElement.querySelector(".card__delete_button");
+  const cardDelBtn = cardElement.querySelector(".card__delete-button");
   cardDelBtn.addEventListener("click", handleDelButton);
   cardLikeBtn.addEventListener("click", handleLikeButton);
   cardImageEl.addEventListener("click", () => {

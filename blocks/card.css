@@ -65,7 +65,7 @@
   opacity: 0.6;
 }
 
-.card__delete_button {
+.card__delete-button {
   border: none;
   background: transparent;
   display: flex;

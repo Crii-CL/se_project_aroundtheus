@@ -14,20 +14,16 @@ class Card {
   }
 
   _setEventListeners() {
-    this._cardDelBtn
-      .querySelector(".card__delete-button")
-      .addEventListener("click", this._handleDelButton);
-    this._cardLikeBtn
-      .querySelector(".card__like-button")
-      .addEventListener("click", this._handleLikeButton);
-    this._cardImageEl
+    this._element
       .querySelector(".card__image")
-      .addEventListener("click", () => {
-        handleImagePreview(cardData);
-        openPopup(modalPreview);
-      });
+      .addEventListener("click", () => this._handlePreview);
+    this._element
+      .querySelector(".card__delete-button")
+      .addEventListener("click", () => this._handleDelBtn);
+    this._element
+      .querySelector(".card__like-button")
+      .addEventListener("click", () => this._handleLikeBtn);
   }
-
   _handleDelBtn(e) {
     const card = e.target.closest("#card");
     card.remove();
@@ -37,8 +33,26 @@ class Card {
     e.target.classList.toggle("card__like-button_active");
   }
 
+  _handlePreview() {
+    this._element.querySelector(
+      "#modal-preview-image"
+    ).src = `url(${this._link})`;
+    this._element.querySelector("#modal-preview-title").textContent =
+      this._name;
+  }
+
   getView() {
-    const template = this._getTemplate;
+    this._element = this._getTemplate;
+
+    this._element.querySelector(
+      ".card__image"
+    ).style.backgroundImage = `url(${this._link})`;
+
+    this._element.querySelector("#modal-preview-image").textContent =
+      this._name;
+
+    this._element.querySelector("card__title").textContent = this._name;
+
     this._setEventListeners();
   }
 }
