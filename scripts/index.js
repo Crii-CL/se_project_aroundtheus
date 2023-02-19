@@ -189,8 +189,9 @@ function getCardElement(cardData) {
 }
 
 function renderCard(cardData) {
-  const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
+  // const cardElement = getCardElement(cardData);
+  const card = new Card(cardData, "#card-template").renderCard();
+  cardListEl.prepend(card);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -206,18 +207,18 @@ closeButtons.forEach((button) => {
   });
 });
 
-// const popups = document.querySelectorAll(".modal");
+const popups = document.querySelectorAll(".modal");
 
-// popups.forEach((popup) => {
-//   popup.addEventListener("mousedown", (e) => {
-//     if (e.target.classList.contains("modal_opened")) {
-//       closePopup(popup);
-//     }
-//     if (e.target.classList.contains("modal__close")) {
-//       closePopup(popup);
-//     }
-//   });
-// });
+popups.forEach((popup) => {
+  popup.addEventListener("mousedown", (e) => {
+    if (e.target.classList.contains("modal_opened")) {
+      closePopup(popup);
+    }
+    if (e.target.classList.contains("modal__close")) {
+      closePopup(popup);
+    }
+  });
+});
 
 /* -------------------------------------------------------------------------- */
 /*                                 Validation                                 */
@@ -243,5 +244,3 @@ const addFormValidator = new FormValidator(
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 /* --------------------------------- Card.js -------------------------------- */
-const card = new Card(initialCards, "#card-template");
-console.log(card);

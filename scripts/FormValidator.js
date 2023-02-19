@@ -20,7 +20,7 @@ class FormValidator {
 
     this._formElement.addEventListener("reset", () => {
       setTimeout(() => {
-        this._toggleButtonState(inputList, submitButton, options);
+        this._toggleButtonState();
       });
     });
 

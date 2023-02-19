@@ -1,7 +1,5 @@
 const modalPreview = document.querySelector("#modal-preview");
-
 const modalPreviewImage = document.querySelector("#modal-preview-image");
-
 const modalPreviewTitle = document.querySelector("#modal-preview-title");
 
 function closeByEscape(e) {
@@ -16,11 +14,6 @@ function handleOverlay(e) {
   if (e.target.classList.contains("modal_opened")) {
     closePopup(e.target);
   }
-}
-function openPopup(modal) {
-  modal.classList.add("modal_opened");
-  document.addEventListener("keydown", closeByEscape);
-  document.addEventListener("mousedown", handleOverlay);
 }
 
 function closePopup(modal) {
@@ -77,7 +70,7 @@ class Card {
   }
 
   renderCard() {
-    this._element = this._getTemplate;
+    this._element = this._getTemplate();
 
     this._element.querySelector(
       ".card__image"
