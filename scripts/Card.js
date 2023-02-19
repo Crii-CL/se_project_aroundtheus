@@ -53,7 +53,7 @@ class Card {
   renderCard() {
     this._element = this._getTemplate();
 
-    this._element.querySelector(".card__image").src = `url(${this._link});`;
+    this._element.querySelector(".card__image").src = this._link;
 
     this._element.querySelector(".card__title").textContent = this._name;
 
