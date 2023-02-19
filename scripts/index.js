@@ -170,26 +170,27 @@ function openProfileEditForm() {
   openPopup(modalEditProfile);
 }
 
-function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__title");
-  const cardLikeBtn = cardElement.querySelector(".card__like-button");
-  const cardDelBtn = cardElement.querySelector(".card__delete-button");
-  cardDelBtn.addEventListener("click", handleDelButton);
-  cardLikeBtn.addEventListener("click", handleLikeButton);
-  cardImageEl.addEventListener("click", () => {
-    handleImagePreview(cardData);
-    openPopup(modalPreview);
-  });
-  cardImageEl.alt = cardData.name;
-  cardImageEl.src = cardData.link;
-  cardTitleEl.textContent = cardData.name;
-  return cardElement;
-}
+// function getCardElement(cardData) {
+//   const cardElement = cardTemplate.cloneNode(true);
+//   const cardImageEl = cardElement.querySelector(".card__image");
+//   const cardTitleEl = cardElement.querySelector(".card__title");
+//   const cardLikeBtn = cardElement.querySelector(".card__like-button");
+//   const cardDelBtn = cardElement.querySelector(".card__delete-button");
+//   cardDelBtn.addEventListener("click", handleDelButton);
+//   cardLikeBtn.addEventListener("click", handleLikeButton);
+//   cardImageEl.addEventListener("click", () => {
+//     handleImagePreview(cardData);
+//     openPopup(modalPreview);
+//   });
+//   cardImageEl.alt = cardData.name;
+//   cardImageEl.src = cardData.link;
+//   cardTitleEl.textContent = cardData.name;
+//   return cardElement;
+// }
 
 function renderCard(cardData) {
   // const cardElement = getCardElement(cardData);
+  // cardListEl.prepend(cardElement);
   const card = new Card(cardData, "#card-template").renderCard();
   cardListEl.prepend(card);
 }
