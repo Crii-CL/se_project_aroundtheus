@@ -52,6 +52,7 @@ class Card {
       .querySelector(".card__like-button")
       .addEventListener("click", () => this._handleLikeBtn);
   }
+
   _handleDelBtn(e) {
     const card = e.target.closest("#card");
     card.remove();
@@ -76,13 +77,9 @@ class Card {
       ".card__image"
     ).style.backgroundImage = `url(${this._link})`;
 
-    this._element.querySelector("#modal-preview-image").textContent =
-      this._name;
-
-    this._element.querySelector("card__title").textContent = this._name;
+    this._element.querySelector(".card__title").textContent = this._name;
 
     this._setEventListeners();
-    console.log(this._element);
   }
 }
 
