@@ -18,36 +18,32 @@ class Card {
   _setEventListeners() {
     this._element
       .querySelector(".card__image")
-      .addEventListener("click", () => this._handlePreview);
+      .addEventListener("click", this._handlePreview);
     this._element
       .querySelector(".card__delete-button")
-      .addEventListener("click", () => this._handleDelBtn);
+      .addEventListener("click", this._handleDelCard);
     this._element
       .querySelector(".card__like-button")
-      .addEventListener("click", () => this._handleLikeBtn);
+      .addEventListener("click", this._handleLikeBtn);
   }
 
-  _handleDelBtn() {
-    // const card = e.target.closest("#card");
-    // card.remove();
-    this._element
-      .querySelector(".card__delete-button")
-      .closest("#card")
-      .remove();
+  _handleDelCard(e) {
+    const card = e.target.closest("#card");
+    card.remove();
   }
 
-  _handleLikeBtn() {
-    this._element
-      .querySelector(".card__like-button")
-      .classList.toggle("card__like-button_active");
+  _handleLikeBtn(e) {
+    e.target.classList.toggle("card__like-button_active");
   }
 
   _handlePreview() {
-    this._element.querySelector(
-      "#modal-preview-image"
-    ).src = `url(${this._link})`;
+    this._element.querySelector("#modal-preview").src = this._link;
     this._element.querySelector("#modal-preview-title").textContent =
       this._name;
+    modalPreviewImage.src = data.link;
+    modalPreviewImage.alt = data.name;
+    modalPreviewTitle.textContent = data.name;
+    console.log(this._element);
   }
 
   renderCard() {

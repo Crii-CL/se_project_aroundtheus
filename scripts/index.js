@@ -133,20 +133,20 @@ function handleProfileAddCardSubmit(e) {
   e.target.reset();
 }
 
-function handleLikeButton(e) {
-  e.target.classList.toggle("card__like-button_active");
-}
+// function handleLikeButton(e) {
+//   e.target.classList.toggle("card__like-button_active");
+// }
 
-function handleDelButton(e) {
-  const card = e.target.closest("#card");
-  card.remove();
-}
+// function handleDelCard(e) {
+//   const card = e.target.closest("#card");
+//   card.remove();
+// }
 
-function handleImagePreview(cardData) {
-  modalPreviewImage.src = cardData.link;
-  modalPreviewImage.alt = cardData.name;
-  modalPreviewTitle.textContent = cardData.name;
-}
+// function handleImagePreview(cardData) {
+//   modalPreviewImage.src = cardData.link;
+//   modalPreviewImage.alt = cardData.name;
+//   modalPreviewTitle.textContent = cardData.name;
+// }
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
@@ -176,7 +176,7 @@ function openProfileEditForm() {
 //   const cardTitleEl = cardElement.querySelector(".card__title");
 //   const cardLikeBtn = cardElement.querySelector(".card__like-button");
 //   const cardDelBtn = cardElement.querySelector(".card__delete-button");
-//   cardDelBtn.addEventListener("click", handleDelButton);
+//   cardDelBtn.addEventListener("click", handleDelCard);
 //   cardLikeBtn.addEventListener("click", handleLikeButton);
 //   cardImageEl.addEventListener("click", () => {
 //     handleImagePreview(cardData);
