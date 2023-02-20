@@ -18,7 +18,7 @@ class Card {
   _setEventListeners() {
     this._element
       .querySelector(".card__image")
-      .addEventListener("click", this._handlePreview);
+      .addEventListener("click", () => this._handlePreview());
     this._element
       .querySelector(".card__delete-button")
       .addEventListener("click", this._handleDelCard);
@@ -37,13 +37,8 @@ class Card {
   }
 
   _handlePreview() {
-    this._element.querySelector("#modal-preview").src = this._link;
-    this._element.querySelector("#modal-preview-title").textContent =
-      this._name;
-    modalPreviewImage.src = data.link;
-    modalPreviewImage.alt = data.name;
-    modalPreviewTitle.textContent = data.name;
-    console.log(this._element);
+    document.querySelector("#modal-preview-image").src = this._link;
+    document.querySelector("#modal-preview-title").textContent = this._name;
   }
 
   renderCard() {
