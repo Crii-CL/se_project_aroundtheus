@@ -85,20 +85,4 @@ class formValidator {
   }
 }
 
-const settings = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__form-input",
-  submitButtonSelector: ".modal__form-button",
-  inactiveButtonClass: "modal__form-button_inactive",
-  inputErrorClass: "modal__form-input_error",
-  errorClass: "modal__error_visible",
-};
-
-const editForm = document.querySelector("#modal-profile-form");
-const addForm = document.querySelector("#modal-add-card");
-
-const editFormvalidator = new formValidator(settings, editForm);
-const addFormValidator = new formValidator(settings, addForm);
-editFormvalidator.enableValidation();
-
 export default formValidator;

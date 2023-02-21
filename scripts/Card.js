@@ -13,7 +13,6 @@ class Card {
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
-    11;
 
     return cardElement;
   }
@@ -30,13 +29,12 @@ class Card {
       .addEventListener("click", this._handleLikeBtn);
   }
 
-  _handleDelCard(e) {
-    const card = e.target.closest("#card");
-    card.remove();
-  }
+  _handleDelCard = () => {
+    this._element.remove();
+  };
 
-  _handleLikeBtn(e) {
-    e.target.classList.toggle("card__like-button_active");
+  _handleLikeBtn() {
+    this._likeBtn.classList.toggle("card__like-button_active");
   }
 
   _handlePreview() {
@@ -48,6 +46,8 @@ class Card {
 
   renderCard() {
     this._element = this._getTemplate();
+
+    this._likeBtn = this._element.querySelector(".card__like-button");
 
     this._element.querySelector(".card__image").src = this._link;
 

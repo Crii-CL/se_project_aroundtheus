@@ -102,6 +102,12 @@ function handleProfileAddCardSubmit(e) {
   e.target.reset();
 }
 
+// function handleImagePreview(cardData) {
+//   modalPreviewImage.src = cardData.link;
+//   modalPreviewImage.alt = cardData.name;
+//   modalPreviewTitle.textContent = cardData.name;
+// }
+
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
@@ -164,9 +170,6 @@ closeButtons.forEach((button) => {
 //   });
 // });
 
-/* -------------------------------------------------------------------------- */
-/*                                 Validation                                 */
-/* -------------------------------------------------------------------------- */
 /* ---------------------------- FormValidator.js ---------------------------- */
 const validationSettings = {
   inputSelector: ".modal__form-input",
