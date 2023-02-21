@@ -60,30 +60,14 @@ function handleOverlay(e) {
   }
 }
 
-function handleProfileEditSubmit(e) {
-  e.preventDefault();
-  profileTitle.textContent = modalEditTitleInput.value;
-  profileSubtitle.textContent = modalEditSubtitleInput.value;
-  closePopup(modalEditProfile);
-}
-
-function handleProfileAddCardSubmit(e) {
-  e.preventDefault();
-  const name = modalAddCardTitleInput.value;
-  const link = modalAddCardLinkInput.value;
-  renderCard({ name, link }, cardListEl);
-  closePopup(addCardModal);
-  e.target.reset();
-}
-
-function openPopup(modal) {
-  modal.classList.add("modal_opened");
+export function openPopup(popup) {
+  popup.classList.add("modal_opened");
   document.addEventListener("keydown", closeByEscape);
   document.addEventListener("mousedown", handleOverlay);
 }
 
-function closePopup(modal) {
-  modal.classList.remove("modal_opened");
+export function closePopup(popup) {
+  popup.classList.remove("modal_opened");
   document.removeEventListener("keydown", closeByEscape);
   document.removeEventListener("mousedown", handleOverlay);
 }
@@ -93,5 +77,3 @@ function openProfileEditForm() {
   modalEditSubtitleInput.value = profileSubtitle.textContent;
   openPopup(modalEditProfile);
 }
-
-// export default Utils;

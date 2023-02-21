@@ -1,4 +1,4 @@
-// import Utils from "./Utils.js";
+import { openPopup, closePopup } from "./Utils.js";
 
 // const previewElement = document.querySelector(".modalPreview");
 // const preview = new Popup(previewElement);
@@ -32,9 +32,6 @@ class Card {
     this._element
       .querySelector(".card__like-button")
       .addEventListener("click", this._handleLikeBtn);
-    document
-      .querySelector(".modal__close")
-      .addEventListener("click", () => this._handleClose());
   }
 
   _handleDelCard(e) {
@@ -47,8 +44,10 @@ class Card {
   }
 
   _handlePreview() {
+    const modalPreview = document.querySelector(".modalPreview");
     document.querySelector("#modal-preview-image").src = this._link;
     document.querySelector("#modal-preview-title").textContent = this._name;
+    openPopup(modalPreview);
   }
 
   renderCard() {
