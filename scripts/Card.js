@@ -1,4 +1,4 @@
-import Utils from "./Utils.js";
+// import Utils from "./Utils.js";
 
 // const previewElement = document.querySelector(".modalPreview");
 // const preview = new Popup(previewElement);
@@ -49,7 +49,6 @@ class Card {
   _handlePreview() {
     document.querySelector("#modal-preview-image").src = this._link;
     document.querySelector("#modal-preview-title").textContent = this._name;
-    Utils.openPopup("modalPreview");
   }
 
   renderCard() {

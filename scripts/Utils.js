@@ -46,52 +46,52 @@
 // }
 
 /* ------------------------------------ . ----------------------------------- */
-const Utils = {
-  closeByEscape: function (e) {
-    if (e.key === "Escape") {
-      const openedPopup = document.querySelector(".modal_opened");
-      closePopup(openedPopup);
-    }
-  },
 
-  handleOverlay: function (e) {
-    if (e.target.classList.contains("modal_opened")) {
-      closePopup(e.target);
-    }
-  },
+function closeByEscape(e) {
+  if (e.key === "Escape") {
+    const openedPopup = document.querySelector(".modal_opened");
+    closePopup(openedPopup);
+  }
+}
 
-  handleProfileEditSubmit: function (e) {
-    e.preventDefault();
-    profileTitle.textContent = modalEditTitleInput.value;
-    profileSubtitle.textContent = modalEditSubtitleInput.value;
-    closePopup(modalEditProfile);
-  },
+function handleOverlay(e) {
+  if (e.target.classList.contains("modal_opened")) {
+    closePopup(e.target);
+  }
+}
 
-  handleProfileAddCardSubmit: function (e) {
-    e.preventDefault();
-    const name = modalAddCardTitleInput.value;
-    const link = modalAddCardLinkInput.value;
-    renderCard({ name, link }, cardListEl);
-    closePopup(addCardModal);
-    e.target.reset();
-  },
-  openPopup: function (modal) {
-    modal.classList.add("modal_opened");
-    document.addEventListener("keydown", closeByEscape);
-    document.addEventListener("mousedown", handleOverlay);
-  },
+function handleProfileEditSubmit(e) {
+  e.preventDefault();
+  profileTitle.textContent = modalEditTitleInput.value;
+  profileSubtitle.textContent = modalEditSubtitleInput.value;
+  closePopup(modalEditProfile);
+}
 
-  closePopup: function (modal) {
-    modal.classList.remove("modal_opened");
-    document.removeEventListener("keydown", closeByEscape);
-    document.removeEventListener("mousedown", handleOverlay);
-  },
+function handleProfileAddCardSubmit(e) {
+  e.preventDefault();
+  const name = modalAddCardTitleInput.value;
+  const link = modalAddCardLinkInput.value;
+  renderCard({ name, link }, cardListEl);
+  closePopup(addCardModal);
+  e.target.reset();
+}
 
-  openProfileEditForm: function () {
-    modalEditTitleInput.value = profileTitle.textContent;
-    modalEditSubtitleInput.value = profileSubtitle.textContent;
-    openPopup(modalEditProfile);
-  },
-};
+function openPopup(modal) {
+  modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closeByEscape);
+  document.addEventListener("mousedown", handleOverlay);
+}
 
-export default Utils;
+function closePopup(modal) {
+  modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", closeByEscape);
+  document.removeEventListener("mousedown", handleOverlay);
+}
+
+function openProfileEditForm() {
+  modalEditTitleInput.value = profileTitle.textContent;
+  modalEditSubtitleInput.value = profileSubtitle.textContent;
+  openPopup(modalEditProfile);
+}
+
+// export default Utils;
