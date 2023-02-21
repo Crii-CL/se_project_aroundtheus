@@ -1,3 +1,10 @@
+import Popup from "./Utils.js";
+
+const previewElement = document.querySelector(".modalPreview");
+const preview = new Popup(previewElement);
+const modalElement = document.querySelector(".modal");
+const modal = new Popup(modalElement);
+
 class Card {
   constructor(data, cardSelector) {
     this._name = data.name;
@@ -25,6 +32,9 @@ class Card {
     this._element
       .querySelector(".card__like-button")
       .addEventListener("click", this._handleLikeBtn);
+    document
+      .querySelector(".modal__close")
+      .addEventListener("click", () => this._handleClose());
   }
 
   _handleDelCard(e) {
@@ -39,6 +49,15 @@ class Card {
   _handlePreview() {
     document.querySelector("#modal-preview-image").src = this._link;
     document.querySelector("#modal-preview-title").textContent = this._name;
+    preview.openPopup("modalPreview");
+  }
+
+  _handleClose() {
+    if (this._element.contains(".modal")) {
+      modal.close("modal");
+      return _handleClose();
+    }
+    preview.closePopup("modalPreview");
   }
 
   renderCard() {
@@ -53,5 +72,7 @@ class Card {
     return this._element;
   }
 }
+
+const popup = new Popup();
 
 export default Card;

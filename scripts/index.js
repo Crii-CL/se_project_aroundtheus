@@ -1,5 +1,6 @@
 import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
+import Popup from "./Utils.js";
 
 const initialCards = [
   {
@@ -57,7 +58,6 @@ const modalEditSubtitleInput = document.querySelector(
   "#modal-edit-subtitle-input"
 );
 
-const profileAddCardBtn = document.querySelector("#profile-add-card-button");
 /* ----------------------------- ^Profile Section^ ---------------------------- */
 
 /* -------------------------------- Add Card -------------------------------- */
@@ -72,6 +72,8 @@ const modalAddCardTitleInput = modalAddCardForm.querySelector(
 const modalAddCardLinkInput = modalAddCardForm.querySelector(
   "#modal-add-card-link"
 );
+
+const profileAddCardBtn = document.querySelector("#profile-add-card-button");
 
 /* -------------------------------- ^AddCard^ ------------------------------- */
 
@@ -104,18 +106,18 @@ modalAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 /*                               Event Handlers                               */
 /* -------------------------------------------------------------------------- */
 
-function closeByEscape(e) {
-  if (e.key === "Escape") {
-    const openedPopup = document.querySelector(".modal_opened");
-    closePopup(openedPopup);
-  }
-}
+// function closeByEscape(e) {
+//   if (e.key === "Escape") {
+//     const openedPopup = document.querySelector(".modal_opened");
+//     closePopup(openedPopup);
+//   }
+// }
 
-function handleOverlay(e) {
-  if (e.target.classList.contains("modal_opened")) {
-    closePopup(e.target);
-  }
-}
+// function handleOverlay(e) {
+//   if (e.target.classList.contains("modal_opened")) {
+//     closePopup(e.target);
+//   }
+// }
 
 function handleProfileEditSubmit(e) {
   e.preventDefault();
@@ -152,23 +154,23 @@ function handleProfileAddCardSubmit(e) {
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
-function openPopup(modal) {
-  modal.classList.add("modal_opened");
-  document.addEventListener("keydown", closeByEscape);
-  document.addEventListener("mousedown", handleOverlay);
-}
+// function openPopup(modal) {
+//   modal.classList.add("modal_opened");
+//   document.addEventListener("keydown", closeByEscape);
+//   document.addEventListener("mousedown", handleOverlay);
+// }
 
-function closePopup(modal) {
-  modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", closeByEscape);
-  document.removeEventListener("mousedown", handleOverlay);
-}
+// function closePopup(modal) {
+//   modal.classList.remove("modal_opened");
+//   document.removeEventListener("keydown", closeByEscape);
+//   document.removeEventListener("mousedown", handleOverlay);
+// }
 
-function openProfileEditForm() {
-  modalEditTitleInput.value = profileTitle.textContent;
-  modalEditSubtitleInput.value = profileSubtitle.textContent;
-  openPopup(modalEditProfile);
-}
+// function openProfileEditForm() {
+//   modalEditTitleInput.value = profileTitle.textContent;
+//   modalEditSubtitleInput.value = profileSubtitle.textContent;
+//   openPopup(modalEditProfile);
+// }
 
 // function getCardElement(cardData) {
 //   const cardElement = cardTemplate.cloneNode(true);
@@ -204,6 +206,7 @@ initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 closeButtons.forEach((button) => {
   const popup = button.closest(".modal");
   button.addEventListener("click", () => {
+    // closePopup(popup);
     closePopup(popup);
   });
 });
@@ -245,3 +248,4 @@ const addFormValidator = new FormValidator(
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 /* --------------------------------- Card.js -------------------------------- */
+const popup = new Popup();

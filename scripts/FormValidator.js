@@ -32,7 +32,7 @@ class FormValidator {
     });
   }
 
-  _toggleButtonState(submitButtonSelector) {
+  _toggleButtonState() {
     let foundInvalid = false;
 
     this._inputList.forEach((inputElement) => {
