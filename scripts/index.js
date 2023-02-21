@@ -106,18 +106,18 @@ modalAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 /*                               Event Handlers                               */
 /* -------------------------------------------------------------------------- */
 
-// function closeByEscape(e) {
-//   if (e.key === "Escape") {
-//     const openedPopup = document.querySelector(".modal_opened");
-//     closePopup(openedPopup);
-//   }
-// }
+function closeByEscape(e) {
+  if (e.key === "Escape") {
+    const openedPopup = document.querySelector(".modal_opened");
+    closePopup(openedPopup);
+  }
+}
 
-// function handleOverlay(e) {
-//   if (e.target.classList.contains("modal_opened")) {
-//     closePopup(e.target);
-//   }
-// }
+function handleOverlay(e) {
+  if (e.target.classList.contains("modal_opened")) {
+    closePopup(e.target);
+  }
+}
 
 function handleProfileEditSubmit(e) {
   e.preventDefault();
@@ -154,23 +154,23 @@ function handleProfileAddCardSubmit(e) {
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
-// function openPopup(modal) {
-//   modal.classList.add("modal_opened");
-//   document.addEventListener("keydown", closeByEscape);
-//   document.addEventListener("mousedown", handleOverlay);
-// }
+function openPopup(modal) {
+  modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closeByEscape);
+  document.addEventListener("mousedown", handleOverlay);
+}
 
-// function closePopup(modal) {
-//   modal.classList.remove("modal_opened");
-//   document.removeEventListener("keydown", closeByEscape);
-//   document.removeEventListener("mousedown", handleOverlay);
-// }
+function closePopup(modal) {
+  modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", closeByEscape);
+  document.removeEventListener("mousedown", handleOverlay);
+}
 
-// function openProfileEditForm() {
-//   modalEditTitleInput.value = profileTitle.textContent;
-//   modalEditSubtitleInput.value = profileSubtitle.textContent;
-//   openPopup(modalEditProfile);
-// }
+function openProfileEditForm() {
+  modalEditTitleInput.value = profileTitle.textContent;
+  modalEditSubtitleInput.value = profileSubtitle.textContent;
+  openPopup(modalEditProfile);
+}
 
 // function getCardElement(cardData) {
 //   const cardElement = cardTemplate.cloneNode(true);
@@ -203,26 +203,25 @@ function renderCard(cardData) {
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 
-closeButtons.forEach((button) => {
-  const popup = button.closest(".modal");
-  button.addEventListener("click", () => {
-    // closePopup(popup);
-    closePopup(popup);
-  });
-});
+// closeButtons.forEach((button) => {
+//   const popup = button.closest(".modal");
+//   button.addEventListener("click", () => {
+//     closePopup(popup);
+//   });
+// });
 
-const popups = document.querySelectorAll(".modal");
+// const popups = document.querySelectorAll(".modal");
 
-popups.forEach((popup) => {
-  popup.addEventListener("mousedown", (e) => {
-    if (e.target.classList.contains("modal_opened")) {
-      closePopup(popup);
-    }
-    if (e.target.classList.contains("modal__close")) {
-      closePopup(popup);
-    }
-  });
-});
+// popups.forEach((popup) => {
+//   popup.addEventListener("mousedown", (e) => {
+//     if (e.target.classList.contains("modal_opened")) {
+//       closePopup(popup);
+//     }
+//     if (e.target.classList.contains("modal__close")) {
+//       closePopup(popup);
+//     }
+//   });
+// });
 
 /* -------------------------------------------------------------------------- */
 /*                                 Validation                                 */
@@ -248,4 +247,5 @@ const addFormValidator = new FormValidator(
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 /* --------------------------------- Card.js -------------------------------- */
-const popup = new Popup();
+// const popupElement = document.querySelector(".modal");
+// const popup = new Popup(popupElement);

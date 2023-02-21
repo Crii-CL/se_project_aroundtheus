@@ -1,9 +1,9 @@
-import Popup from "./Utils.js";
+import Utils from "./Utils.js";
 
-const previewElement = document.querySelector(".modalPreview");
-const preview = new Popup(previewElement);
-const modalElement = document.querySelector(".modal");
-const modal = new Popup(modalElement);
+// const previewElement = document.querySelector(".modalPreview");
+// const preview = new Popup(previewElement);
+// const modalElement = document.querySelector(".modal");
+// const modal = new Popup(modalElement);
 
 class Card {
   constructor(data, cardSelector) {
@@ -49,15 +49,7 @@ class Card {
   _handlePreview() {
     document.querySelector("#modal-preview-image").src = this._link;
     document.querySelector("#modal-preview-title").textContent = this._name;
-    preview.openPopup("modalPreview");
-  }
-
-  _handleClose() {
-    if (this._element.contains(".modal")) {
-      modal.close("modal");
-      return _handleClose();
-    }
-    preview.closePopup("modalPreview");
+    Utils.openPopup("modalPreview");
   }
 
   renderCard() {
@@ -72,7 +64,5 @@ class Card {
     return this._element;
   }
 }
-
-const popup = new Popup();
 
 export default Card;
