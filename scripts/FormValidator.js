@@ -1,4 +1,4 @@
-class FormValidator {
+class formValidator {
   constructor(settings, formElement) {
     this._inputSelector = settings.inputSelector;
     this._submitButtonSelector = settings.submitButtonSelector;
@@ -33,27 +33,27 @@ class FormValidator {
   }
 
   _toggleButtonState() {
-    let foundInvalid = false;
+    // let foundInvalid = false;
+    const isFormValid = this._checkFormValidity();
 
-    this._inputList.forEach((inputElement) => {
-      if (!inputElement.validity.valid) {
-        foundInvalid = true;
-      }
-    });
-
-    if (foundInvalid) {
+    if (!isFormValid) {
       this._submitButton.classList.add(this._inactiveButtonClass);
-      return (this._submitButton.disabled = true);
+      this._submitButton.disabled = true;
+    } else {
+      this._submitButton.classList.remove(this._inactiveButtonClass);
+      this._submitButton.disabled = false;
     }
-    this._submitButton.classList.remove(this._inactiveButtonClass);
-    this._submitButton.disabled = false;
   }
+
+  _checkFormValidity = () =>
+    this._inputList.every((input) => input.validity.valid);
 
   _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
-      return this._showInputError(inputElement);
+      this._showInputError(inputElement);
+    } else {
+      this._hideInputError(inputElement);
     }
-    this._hideInputError(inputElement);
   }
 
   _showInputError(inputElement) {
@@ -97,8 +97,8 @@ const settings = {
 const editForm = document.querySelector("#modal-profile-form");
 const addForm = document.querySelector("#modal-add-card");
 
-const editFormvalidator = new FormValidator(settings, editForm);
-const addFormValidator = new FormValidator(settings, addForm);
+const editFormvalidator = new formValidator(settings, editForm);
+const addFormValidator = new formValidator(settings, addForm);
 editFormvalidator.enableValidation();
 
-export default FormValidator;
+export default formValidator;

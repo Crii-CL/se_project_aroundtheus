@@ -119,6 +119,12 @@
 
 .modal__form-button:hover {
   cursor: pointer;
+  opacity: 0.8;
+}
+
+.modal__form-button_inactive:hover {
+  opacity: 1;
+  cursor: default;
 }
 
 .modal__close {

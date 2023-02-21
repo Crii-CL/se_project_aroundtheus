@@ -1,6 +1,6 @@
-import FormValidator from "./FormValidator.js";
-import Card from "./Card.js";
-import { openPopup, closePopup } from "./Utils.js";
+import formValidator from "./formValidator.js";
+import Card from "./card.js";
+import { openPopup, closePopup } from "./utils.js";
 
 const initialCards = [
   {
@@ -176,11 +176,11 @@ const validationSettings = {
   errorClass: "modal__error_visible",
 };
 
-const editFormValidator = new FormValidator(
+const editFormValidator = new formValidator(
   validationSettings,
   modalEditProfileForm
 );
-const addFormValidator = new FormValidator(
+const addFormValidator = new formValidator(
   validationSettings,
   modalAddCardForm
 );
