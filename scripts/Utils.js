@@ -71,9 +71,3 @@ export function closePopup(popup) {
   document.removeEventListener("keydown", closeByEscape);
   document.removeEventListener("mousedown", handleOverlay);
 }
-
-function openProfileEditForm() {
-  modalEditTitleInput.value = profileTitle.textContent;
-  modalEditSubtitleInput.value = profileSubtitle.textContent;
-  openPopup(modalEditProfile);
-}

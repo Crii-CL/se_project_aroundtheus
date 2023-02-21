@@ -1,5 +1,6 @@
 import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
+import { openPopup, closePopup } from "./Utils.js";
 
 const initialCards = [
   {
@@ -105,19 +106,6 @@ modalAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 /*                               Event Handlers                               */
 /* -------------------------------------------------------------------------- */
 
-// function closeByEscape(e) {
-//   if (e.key === "Escape") {
-//     const openedPopup = document.querySelector(".modal_opened");
-//     closePopup(openedPopup);
-//   }
-// }
-
-// function handleOverlay(e) {
-//   if (e.target.classList.contains("modal_opened")) {
-//     closePopup(e.target);
-//   }
-// }
-
 function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = modalEditTitleInput.value;
@@ -165,11 +153,11 @@ function handleProfileAddCardSubmit(e) {
 //   document.removeEventListener("mousedown", handleOverlay);
 // }
 
-// function openProfileEditForm() {
-//   modalEditTitleInput.value = profileTitle.textContent;
-//   modalEditSubtitleInput.value = profileSubtitle.textContent;
-//   openPopup(modalEditProfile);
-// }
+function openProfileEditForm() {
+  modalEditTitleInput.value = profileTitle.textContent;
+  modalEditSubtitleInput.value = profileSubtitle.textContent;
+  openPopup(modalEditProfile);
+}
 
 // function getCardElement(cardData) {
 //   const cardElement = cardTemplate.cloneNode(true);
