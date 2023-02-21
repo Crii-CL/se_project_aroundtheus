@@ -1,9 +1,4 @@
-import { openPopup, closePopup } from "./Utils.js";
-
-// const previewElement = document.querySelector(".modalPreview");
-// const preview = new Popup(previewElement);
-// const modalElement = document.querySelector(".modal");
-// const modal = new Popup(modalElement);
+import { openPopup } from "./Utils.js";
 
 class Card {
   constructor(data, cardSelector) {
@@ -18,6 +13,7 @@ class Card {
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
+    11;
 
     return cardElement;
   }
