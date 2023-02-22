@@ -34,6 +34,8 @@ const cardListEl = document.querySelector(".cards__list");
 
 const closeButtons = document.querySelectorAll(".modal__close");
 
+const modalPreview = document.querySelector(".modalPreview");
+
 /* ----------------------------- Profile Section ---------------------------- */
 const profileEditButton = document.querySelector("#profile-edit-button");
 
@@ -144,16 +146,15 @@ function openProfileEditForm() {
 // }
 
 function renderCard(cardData) {
+  const card = new Card(cardData, "#card-template").renderCard();
+  cardListEl.prepend(card);
+
   // const cardElement = getCardElement(cardData);
   // cardListEl.prepend(cardElement);
-  const card = new Card(
-    cardData,
-    "#card-template"
-    // {handleImageClick () => {
-    // }
-    // }
-  ).renderCard();
-  cardListEl.prepend(card);
+}
+
+function handleImageClick() {
+  openPopup(modalPreview);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -203,3 +204,5 @@ const addFormValidator = new formValidator(
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
+
+export { handleImageClick };

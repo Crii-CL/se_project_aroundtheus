@@ -1,4 +1,4 @@
-import { openPopup } from "./utils.js";
+import { handleImageClick } from "./index.js";
 
 class Card {
   constructor(data, cardSelector) {
@@ -32,14 +32,13 @@ class Card {
   }
 
   _handlePreview() {
-    const modalPreview = document.querySelector(".modalPreview");
     const modalPreviewImage = document.querySelector("#modal-preview-image");
     const modalPreviewTitle = document.querySelector("#modal-preview-title");
 
     modalPreviewImage.src = this._link;
     modalPreviewImage.alt = "Photo of ${this._name}";
     modalPreviewTitle.textContent = this._name;
-    openPopup(modalPreview);
+    handleImageClick();
   }
 
   renderCard() {
