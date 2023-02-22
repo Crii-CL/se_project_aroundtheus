@@ -33,7 +33,6 @@ class formValidator {
   }
 
   _toggleButtonState() {
-    // let foundInvalid = false;
     const isFormValid = this._checkFormValidity();
 
     if (!isFormValid) {

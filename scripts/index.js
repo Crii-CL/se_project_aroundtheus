@@ -102,10 +102,17 @@ function handleProfileAddCardSubmit(e) {
   e.target.reset();
 }
 
+//this is the old function
 // function handleImagePreview(cardData) {
 //   modalPreviewImage.src = cardData.link;
 //   modalPreviewImage.alt = cardData.name;
 //   modalPreviewTitle.textContent = cardData.name;
+// }
+
+// function handlePreview() {
+//   document.querySelector("#modal-preview-image").src = this._link;
+//   document.querySelector("#modal-preview-image").alt = "Photo of ${this._name}";
+//   document.querySelector("#modal-preview-title").textContent = this._name;
 // }
 
 /* -------------------------------------------------------------------------- */
@@ -139,7 +146,13 @@ function openProfileEditForm() {
 function renderCard(cardData) {
   // const cardElement = getCardElement(cardData);
   // cardListEl.prepend(cardElement);
-  const card = new Card(cardData, "#card-template").renderCard();
+  const card = new Card(
+    cardData,
+    "#card-template"
+    // {handleImageClick () => {
+    // }
+    // }
+  ).renderCard();
   cardListEl.prepend(card);
 }
 
