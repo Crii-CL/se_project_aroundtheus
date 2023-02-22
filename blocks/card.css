@@ -41,9 +41,10 @@
   margin-right: 20px;
   transition: 0.2s ease-in;
   background-image: url(../images/heart.svg);
+  background-repeat: no-repeat;
+  background-color: transparent;
   border: none;
   cursor: pointer;
-  background-repeat: no-repeat;
   width: 23px;
   height: 19px;
   align-self: center;

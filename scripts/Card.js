@@ -27,16 +27,16 @@ class Card {
     this._element.remove();
   };
 
-  _handleLikeBtn() {
-    this.classList.toggle("card__like-button_active");
-  }
+  _handleLikeBtn = () => {
+    this._likeBtn.classList.toggle("card__like-button_active");
+  };
 
   _handlePreview() {
     const modalPreviewImage = document.querySelector("#modal-preview-image");
     const modalPreviewTitle = document.querySelector("#modal-preview-title");
 
     modalPreviewImage.src = this._link;
-    modalPreviewImage.alt = "Photo of ${this._name}";
+    modalPreviewImage.alt = `Photo of ${this._name}`;
     modalPreviewTitle.textContent = this._name;
     handleImageClick();
   }
@@ -49,7 +49,7 @@ class Card {
     this._cardDelBtn = this._element.querySelector(".card__delete-button");
 
     this._cardImg.src = this._link;
-    this._cardImg.alt = "Photo of ${this._name}";
+    this._cardImg.alt = `Photo of ${this._name}`;
     this._cardTitle.textContent = this._name;
 
     this._setEventListeners();
