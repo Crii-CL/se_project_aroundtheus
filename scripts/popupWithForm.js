@@ -1,31 +1,19 @@
 import Popup from "./popup.js";
-import {
-  modalAddCardTitleInput,
-  modalAddCardLinkInput,
-  profileTitle,
-  profileSubtitle,
-  modalEditTitleInput,
-  modalEditSubtitleInput,
-} from "./index.js";
+import Card from "./card.js";
 
 export default class PopupForm extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super({ popupSelector });
     this._popupForm = this._popupElement.querySelector(".modal__form");
+    this._formInputs = this._popupForm.querySelectorAll(".modal__form-input");
     this._handleFormSubmit = handleFormSubmit;
   }
 
   _getInputValues() {
-    this._profileTitle = this._popupForm.querySelector("#profile-title");
-    this._profileSubtitle = this._popupForm.querySelector("#profile-subtitle");
-    this._cardTitle = this._popupForm.querySelector("#modal-add-card-title");
-    this._cardLink = this._popupForm.querySelector("#modal-add-card-link");
-    this._profileTitleInput = this._popupForm.querySelector(
-      "#modal-edit-title-input"
-    );
-    this._profileSubtitleInput = this._popupForm.querySelector(
-      "#modal-edit-subtitle-input"
-    );
+    console.log(this._formInputs);
+    this._formInputs.forEach((input) => {
+      console.log(input.name, input.value);
+    });
   }
 
   close() {
