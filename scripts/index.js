@@ -216,3 +216,5 @@ export { handleImageClick };
 
 /* -------------------------------- popup.js -------------------------------- */
 const handlePopup = new Popup({ popupSelector: ".modal" });
+handlePopup.open();
+handlePopup.close();
