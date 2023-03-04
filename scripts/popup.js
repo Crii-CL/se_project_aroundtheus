@@ -14,7 +14,6 @@ export default class Popup {
     this._popupElement.classList.remove("modal_opened");
     document.removeEventListener("keydown", (e) => this._handleEscClose(e));
     document.removeEventListener("mousedown", (e) => this._handleOverlay(e));
-    console.log("close");
   }
 
   _handleEscClose(e) {
@@ -24,9 +23,8 @@ export default class Popup {
   }
 
   _handleOverlay(e) {
-    if (e.target.classList.contains(".modal_opened")) {
+    if (e.target.classList.contains("modal_opened")) {
       this.close();
-      console.log("handledoverlay");
     }
   }
 }
