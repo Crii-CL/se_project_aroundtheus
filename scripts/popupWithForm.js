@@ -16,11 +16,16 @@ export default class PopupForm extends Popup {
   }
 
   _getInputValues() {
-    this._profileTitle = document.querySelector("#profile-title");
-    this._profileSubtitle = document.querySelector("#profile-subtitle");
-    this._cardTitle = document.querySelector("#modal-add-card-title");
-    this._cardLink = document.querySelector("#modal-add-card-link");
-    //should I use this._popupForm instead of document?
+    this._profileTitle = this._popupForm.querySelector("#profile-title");
+    this._profileSubtitle = this._popupForm.querySelector("#profile-subtitle");
+    this._cardTitle = this._popupForm.querySelector("#modal-add-card-title");
+    this._cardLink = this._popupForm.querySelector("#modal-add-card-link");
+    this._profileTitleInput = this._popupForm.querySelector(
+      "#modal-edit-title-input"
+    );
+    this._profileSubtitleInput = this._popupForm.querySelector(
+      "#modal-edit-subtitle-input"
+    );
   }
 
   close() {
@@ -31,18 +36,22 @@ export default class PopupForm extends Popup {
 
 const addCardForm = new PopupForm("#modal-add-card", (e) => {
   e.preventDefault();
-  const name = this._modalAddCardTitleInput.value;
-  const link = this._modalAddCardLinkInput.value;
+  const name = this._cardTitle.value;
+  const link = this._cardLink.value;
+  const cardListEl = document.querySelector(".cards__list");
   renderCard({ name, link }, cardListEl);
-  this._popupForm.close();
-  this._popupForm.reset();
+  addCardForm.close();
+  addCardForm.reset();
 });
 
 const editProfileForm = new PopupForm("#modal-edit-profile", (e) => {
   e.preventDefault();
-  this._profileTitle.textContent = this._modalEditTitleInput.value;
-  this._profileSubtitle.textContent = this._modalEditSubtitleInput.value;
-  this.close(modalEditProfile);
+  editProfileForm._profileTitle.textContent =
+    editProfileForm._profileTitleInput.value;
+
+  editProfileForm._profileSubtitle.textContent =
+    editProfileForm._profileSubtitleInput.value;
+  editProfileForm.close();
 });
 
 addCardForm.close();
