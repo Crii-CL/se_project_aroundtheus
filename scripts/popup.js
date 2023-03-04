@@ -29,7 +29,7 @@ export default class Popup {
   }
 }
 
-const newPopup = new Popup(popupSelector);
+const newPopup = new Popup("modal");
 newPopup.open();
 newPopup.close();
 newPopup._handleEscClose();

@@ -1,7 +1,7 @@
 import formValidator from "./formValidator.js";
 import Card from "./card.js";
-import { openPopup, closePopup } from "./utils.js";
-import { open, close } from "./popup.js";
+// import { openPopup, closePopup } from "./utils.js";
+import Popup from "./popup.js";
 
 const initialCards = [
   {
@@ -95,7 +95,7 @@ function handleProfileEditSubmit(e) {
   profileTitle.textContent = modalEditTitleInput.value;
   profileSubtitle.textContent = modalEditSubtitleInput.value;
   // closePopup(modalEditProfile);
-  close(modalEditProfile);
+  Popup.close(modalEditProfile);
 }
 
 function handleProfileAddCardSubmit(e) {
@@ -104,7 +104,7 @@ function handleProfileAddCardSubmit(e) {
   const link = modalAddCardLinkInput.value;
   renderCard({ name, link }, cardListEl);
   // closePopup(addCardModal);
-  close(addCardModal);
+  Popup.close(addCardModal);
   e.target.reset();
 }
 
@@ -173,7 +173,7 @@ closeButtons.forEach((button) => {
   const popup = button.closest(".modal");
   button.addEventListener("click", () => {
     // closePopup(popup);
-    close(popup);
+    Popup.close(popup);
   });
 });
 
