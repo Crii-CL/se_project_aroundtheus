@@ -79,7 +79,7 @@ profileEditButton.addEventListener("click", () => {
 
 profileAddCardBtn.addEventListener("click", () => {
   // openPopup(addCardModal);
-  open(addCardModal);
+  handlePopup.open(addCardModal);
 });
 
 modalEditProfileForm.addEventListener("submit", handleProfileEditSubmit);
@@ -95,7 +95,7 @@ function handleProfileEditSubmit(e) {
   profileTitle.textContent = modalEditTitleInput.value;
   profileSubtitle.textContent = modalEditSubtitleInput.value;
   // closePopup(modalEditProfile);
-  Popup.close(modalEditProfile);
+  handlePopup.close(modalEditProfile);
 }
 
 function handleProfileAddCardSubmit(e) {
@@ -104,7 +104,7 @@ function handleProfileAddCardSubmit(e) {
   const link = modalAddCardLinkInput.value;
   renderCard({ name, link }, cardListEl);
   // closePopup(addCardModal);
-  Popup.close(addCardModal);
+  handlePopup.close(addCardModal);
   e.target.reset();
 }
 
@@ -129,7 +129,7 @@ function openProfileEditForm() {
   modalEditTitleInput.value = profileTitle.textContent;
   modalEditSubtitleInput.value = profileSubtitle.textContent;
   // openPopup(modalEditProfile);
-  open(modalEditProfile);
+  handlePopup.open(modalEditProfile);
 }
 
 // function getCardElement(cardData) {
@@ -160,7 +160,7 @@ function renderCard(cardData) {
 
 function handleImageClick() {
   // openPopup(modalPreview);
-  open(modalPreview);
+  handlePopup.open(modalPreview);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -173,7 +173,7 @@ closeButtons.forEach((button) => {
   const popup = button.closest(".modal");
   button.addEventListener("click", () => {
     // closePopup(popup);
-    Popup.close(popup);
+    handlePopup.close(popup);
   });
 });
 
@@ -191,7 +191,7 @@ closeButtons.forEach((button) => {
 //   });
 // });
 
-/* ---------------------------- FormValidator.js ---------------------------- */
+/* ---------------------------- formValidator.js ---------------------------- */
 const validationSettings = {
   inputSelector: ".modal__form-input",
   submitButtonSelector: ".modal__form-button",
@@ -213,3 +213,6 @@ editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
 export { handleImageClick };
+
+/* -------------------------------- popup.js -------------------------------- */
+const handlePopup = new Popup({ popupSelector: ".modal" });

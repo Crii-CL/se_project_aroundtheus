@@ -30,3 +30,5 @@ export default class Popup {
 }
 
 const newPopup = new Popup({ popupSelector: ".modal" });
+newPopup.open();
+newPopup.close();

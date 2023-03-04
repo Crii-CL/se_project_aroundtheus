@@ -16,5 +16,5 @@ class PopupForm extends Popup {
 const newPopupForm = new PopupForm(".modal__form", () => {
   //handleFormSubmit code
 });
-newPopupForm.open();
-newPopupForm.close();
+// newPopupForm.open();
+// newPopupForm.close();
