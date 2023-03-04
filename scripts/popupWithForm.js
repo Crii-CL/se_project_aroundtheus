@@ -13,8 +13,8 @@ class PopupForm extends Popup {
   }
 }
 
-const newCardPopup = new PopupForm(".modal", () => {
+const newPopupForm = new PopupForm(".modal", () => {
   //handleFormSubmit code
 });
-newCardPopup.open();
-newCardPopup.close();
+newPopupForm.open();
+newPopupForm.close();

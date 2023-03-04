@@ -1,6 +1,7 @@
 import formValidator from "./formValidator.js";
 import Card from "./card.js";
 import { openPopup, closePopup } from "./utils.js";
+import { open, close } from "./popup.js";
 
 const initialCards = [
   {
@@ -77,7 +78,8 @@ profileEditButton.addEventListener("click", () => {
 });
 
 profileAddCardBtn.addEventListener("click", () => {
-  openPopup(addCardModal);
+  // openPopup(addCardModal);
+  open(addCardModal);
 });
 
 modalEditProfileForm.addEventListener("submit", handleProfileEditSubmit);
@@ -92,7 +94,8 @@ function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = modalEditTitleInput.value;
   profileSubtitle.textContent = modalEditSubtitleInput.value;
-  closePopup(modalEditProfile);
+  // closePopup(modalEditProfile);
+  close(modalEditProfile);
 }
 
 function handleProfileAddCardSubmit(e) {
@@ -100,7 +103,8 @@ function handleProfileAddCardSubmit(e) {
   const name = modalAddCardTitleInput.value;
   const link = modalAddCardLinkInput.value;
   renderCard({ name, link }, cardListEl);
-  closePopup(addCardModal);
+  // closePopup(addCardModal);
+  close(addCardModal);
   e.target.reset();
 }
 
@@ -124,7 +128,8 @@ function handleProfileAddCardSubmit(e) {
 function openProfileEditForm() {
   modalEditTitleInput.value = profileTitle.textContent;
   modalEditSubtitleInput.value = profileSubtitle.textContent;
-  openPopup(modalEditProfile);
+  // openPopup(modalEditProfile);
+  open(modalEditProfile);
 }
 
 // function getCardElement(cardData) {
@@ -154,7 +159,8 @@ function renderCard(cardData) {
 }
 
 function handleImageClick() {
-  openPopup(modalPreview);
+  // openPopup(modalPreview);
+  open(modalPreview);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -166,7 +172,8 @@ initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 closeButtons.forEach((button) => {
   const popup = button.closest(".modal");
   button.addEventListener("click", () => {
-    closePopup(popup);
+    // closePopup(popup);
+    close(popup);
   });
 });
 
