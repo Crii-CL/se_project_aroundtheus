@@ -18,12 +18,9 @@ export default class PopupForm extends Popup {
   _getInputValues() {
     this._profileTitle = document.querySelector("#profile-title");
     this._profileSubtitle = document.querySelector("#profile-subtitle");
-    this._modalAddCardTitleInput = modalAddCardForm.querySelector(
-      "#modal-add-card-title"
-    );
-    this._modalAddCardLinkInput = modalAddCardForm.querySelector(
-      "#modal-add-card-link"
-    );
+    this._cardTitle = document.querySelector("#modal-add-card-title");
+    this._cardLink = document.querySelector("#modal-add-card-link");
+    //should I use this._popupForm instead of document?
   }
 
   close() {
@@ -34,9 +31,18 @@ export default class PopupForm extends Popup {
 
 const addCardForm = new PopupForm("#modal-add-card", (e) => {
   e.preventDefault();
+  const name = this._modalAddCardTitleInput.value;
+  const link = this._modalAddCardLinkInput.value;
+  renderCard({ name, link }, cardListEl);
+  this._popupForm.close();
+  this._popupForm.reset();
 });
+
 const editProfileForm = new PopupForm("#modal-edit-profile", (e) => {
   e.preventDefault();
+  this._profileTitle.textContent = this._modalEditTitleInput.value;
+  this._profileSubtitle.textContent = this._modalEditSubtitleInput.value;
+  this.close(modalEditProfile);
 });
 
 addCardForm.close();
