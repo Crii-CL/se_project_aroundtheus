@@ -2,6 +2,7 @@ import formValidator from "./formValidator.js";
 import Card from "./card.js";
 // import { openPopup, closePopup } from "./utils.js";
 import Popup from "./popup.js";
+import PopupForm from "./popupWithForm.js";
 
 const initialCards = [
   {
@@ -82,31 +83,29 @@ profileAddCardBtn.addEventListener("click", () => {
   handlePopup.open(addCardModal);
 });
 
-modalEditProfileForm.addEventListener("submit", handleProfileEditSubmit);
+// modalEditProfileForm.addEventListener("submit", handleProfileEditSubmit);
 
-modalAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
+// modalAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
 /* -------------------------------------------------------------------------- */
 
-function handleProfileEditSubmit(e) {
-  e.preventDefault();
-  profileTitle.textContent = modalEditTitleInput.value;
-  profileSubtitle.textContent = modalEditSubtitleInput.value;
-  // closePopup(modalEditProfile);
-  handlePopup.close(modalEditProfile);
-}
+// function handleProfileEditSubmit(e) {
+//   e.preventDefault();
+//   profileTitle.textContent = modalEditTitleInput.value;
+//   profileSubtitle.textContent = modalEditSubtitleInput.value;
+//   handlePopup.close(modalEditProfile);
+// }
 
-function handleProfileAddCardSubmit(e) {
-  e.preventDefault();
-  const name = modalAddCardTitleInput.value;
-  const link = modalAddCardLinkInput.value;
-  renderCard({ name, link }, cardListEl);
-  // closePopup(addCardModal);
-  handlePopup.close(addCardModal);
-  e.target.reset();
-}
+// function handleProfileAddCardSubmit(e) {
+//   e.preventDefault();
+//   const name = modalAddCardTitleInput.value;
+//   const link = modalAddCardLinkInput.value;
+//   renderCard({ name, link }, cardListEl);
+//   handlePopup.close(addCardModal);
+//   e.target.reset();
+// }
 
 //this is the old function
 // function handleImagePreview(cardData) {
@@ -159,7 +158,6 @@ function renderCard(cardData) {
 }
 
 function handleImageClick() {
-  // openPopup(modalPreview);
   handlePopup.open(modalPreview);
 }
 
@@ -176,20 +174,6 @@ closeButtons.forEach((button) => {
     handlePopup.close(popup);
   });
 });
-
-//this code is a recommendation from a code reviewer, never got it to work.
-// const popups = document.querySelectorAll(".modal");
-
-// popups.forEach((popup) => {
-//   popup.addEventListener("mousedown", (e) => {
-//     if (e.target.classList.contains("modal_opened")) {
-//       closePopup(popup);
-//     }
-//     if (e.target.classList.contains("modal__close")) {
-//       closePopup(popup);
-//     }
-//   });
-// });
 
 /* ---------------------------- formValidator.js ---------------------------- */
 const validationSettings = {
@@ -218,3 +202,12 @@ export { handleImageClick };
 const handlePopup = new Popup({ popupSelector: ".modal" });
 handlePopup.open();
 handlePopup.close();
+
+export {
+  modalAddCardTitleInput,
+  modalAddCardLinkInput,
+  profileTitle,
+  profileSubtitle,
+  modalEditTitleInput,
+  modalEditSubtitleInput,
+};
