@@ -24,14 +24,17 @@ export default class PopupForm extends Popup {
   }
 
   _setEventListeners() {
-    const closeBtn = document.querySelector(".modal__close");
+    this._closeBtn = document.querySelector(".modal__close");
 
-    closeBtn.addEventListener("click", () => {
-      console.log(this._closeBtn);
+    this._closeBtn.addEventListener("click", () => {
       super.close();
     });
-    this._popupForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-    });
+
+    document
+      .querySelector("#modal-add-card")
+      .addEventListener("submit", () => {});
+    document
+      .querySelector("#modal-edit-profile")
+      .addEventListener("submit", () => {});
   }
 }

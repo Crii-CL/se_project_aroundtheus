@@ -71,10 +71,6 @@ const modalAddCardLinkInput = modalAddCardForm.querySelector(
 
 const profileAddCardBtn = document.querySelector("#profile-add-card-button");
 
-/* -------------------------------------------------------------------------- */
-/*                               Event Listeners                              */
-/* -------------------------------------------------------------------------- */
-
 profileEditButton.addEventListener("click", () => {
   openProfileEditForm();
 });
@@ -87,10 +83,6 @@ profileAddCardBtn.addEventListener("click", () => {
 // modalEditProfileForm.addEventListener("submit", handleProfileEditSubmit);
 
 // modalAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
-
-/* -------------------------------------------------------------------------- */
-/*                               Event Handlers                               */
-/* -------------------------------------------------------------------------- */
 
 // function handleProfileEditSubmit(e) {
 //   e.preventDefault();
@@ -120,10 +112,6 @@ profileAddCardBtn.addEventListener("click", () => {
 //   document.querySelector("#modal-preview-image").alt = "Photo of ${this._name}";
 //   document.querySelector("#modal-preview-title").textContent = this._name;
 // }
-
-/* -------------------------------------------------------------------------- */
-/*                                  Functions                                 */
-/* -------------------------------------------------------------------------- */
 
 function openProfileEditForm() {
   modalEditTitleInput.value = profileTitle.textContent;
@@ -161,21 +149,7 @@ function handleImageClick() {
   imagePopup.open(modalPreview);
 }
 
-/* -------------------------------------------------------------------------- */
-/*                                    Loops                                   */
-/* -------------------------------------------------------------------------- */
-
 // initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
-const section = new Section(
-  {
-    items: initialCards,
-    renderer: renderCard,
-  },
-  cardListEl
-);
-section.renderItems();
-
-console.log(section);
 
 // closeButtons.forEach((button) => {
 //   // const popup = button.closest(".modal");
@@ -185,7 +159,15 @@ console.log(section);
 //     imagePopup.close();
 //   });
 // });
-
+/* --------------------------------- Section.js -------------------------------- */
+const section = new Section(
+  {
+    items: initialCards,
+    renderer: renderCard,
+  },
+  cardListEl
+);
+section.renderItems();
 /* ---------------------------- formValidator.js ---------------------------- */
 const validationSettings = {
   inputSelector: ".modal__form-input",
@@ -215,5 +197,9 @@ const imagePopup = new Popup({ popupSelector: "#modal-preview" });
 editPopup._setEventListeners();
 cardPopup._setEventListeners();
 imagePopup._setEventListeners();
+
+const popupForm = new PopupForm(".modal__form", () => {});
+
+popupForm._setEventListeners();
 
 export { handleImageClick };

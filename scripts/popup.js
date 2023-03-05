@@ -35,5 +35,3 @@ export default class Popup {
     document.removeEventListener("mousedown", (e) => this._handleOverlay(e));
   }
 }
-
-// const newPopup = new Popup({ popupSelector: ".modal" });
