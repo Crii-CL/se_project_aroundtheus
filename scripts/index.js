@@ -3,6 +3,7 @@ import Card from "./card.js";
 // import { openPopup, closePopup } from "./utils.js";
 import Popup from "./popup.js";
 import PopupForm from "./popupWithForm.js";
+import Section from "./section.js";
 
 const initialCards = [
   {
@@ -164,7 +165,17 @@ function handleImageClick() {
 /*                                    Loops                                   */
 /* -------------------------------------------------------------------------- */
 
-initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+// initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+const section = new Section(
+  {
+    items: initialCards,
+    renderer: renderCard,
+  },
+  cardListEl
+);
+section.renderItems();
+
+console.log(section);
 
 closeButtons.forEach((button) => {
   const popup = button.closest(".modal");
