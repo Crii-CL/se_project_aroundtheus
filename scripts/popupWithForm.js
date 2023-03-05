@@ -10,36 +10,27 @@ export default class PopupForm extends Popup {
   }
 
   _getInputValues() {
-    console.log(this._formInputs);
+    const inputValues = {};
+
     this._formInputs.forEach((input) => {
-      console.log(input.name, input.value);
+      inputValues[input.name] = input.value;
     });
+    console.log(inputValues);
+    return inputValues;
   }
 
   close() {
     this._popupForm.reset();
+    this._getInputValues();
     super.close();
   }
 }
+const editProfileForm = new PopupForm("#modal-edit-profile", (e) => {
+  e.preventDefault();
+});
 
 const addCardForm = new PopupForm("#modal-add-card", (e) => {
   e.preventDefault();
-  const name = this._cardTitle.value;
-  const link = this._cardLink.value;
-  const cardListEl = document.querySelector(".cards__list");
-  renderCard({ name, link }, cardListEl);
-  addCardForm.close();
-  addCardForm.reset();
-});
-
-const editProfileForm = new PopupForm("#modal-edit-profile", (e) => {
-  e.preventDefault();
-  editProfileForm._profileTitle.textContent =
-    editProfileForm._profileTitleInput.value;
-
-  editProfileForm._profileSubtitle.textContent =
-    editProfileForm._profileSubtitleInput.value;
-  editProfileForm.close();
 });
 
 addCardForm.close();

@@ -80,7 +80,7 @@ profileEditButton.addEventListener("click", () => {
 
 profileAddCardBtn.addEventListener("click", () => {
   // openPopup(addCardModal);
-  handlePopup.open(addCardModal);
+  editPopup.open(addCardModal);
 });
 
 // modalEditProfileForm.addEventListener("submit", handleProfileEditSubmit);
@@ -95,7 +95,7 @@ profileAddCardBtn.addEventListener("click", () => {
 //   e.preventDefault();
 //   profileTitle.textContent = modalEditTitleInput.value;
 //   profileSubtitle.textContent = modalEditSubtitleInput.value;
-//   handlePopup.close(modalEditProfile);
+//   editPopup.close(modalEditProfile);
 // }
 
 // function handleProfileAddCardSubmit(e) {
@@ -103,7 +103,7 @@ profileAddCardBtn.addEventListener("click", () => {
 //   const name = modalAddCardTitleInput.value;
 //   const link = modalAddCardLinkInput.value;
 //   renderCard({ name, link }, cardListEl);
-//   handlePopup.close(addCardModal);
+//   editPopup.close(addCardModal);
 //   e.target.reset();
 // }
 
@@ -128,7 +128,7 @@ function openProfileEditForm() {
   modalEditTitleInput.value = profileTitle.textContent;
   modalEditSubtitleInput.value = profileSubtitle.textContent;
   // openPopup(modalEditProfile);
-  handlePopup.open(modalEditProfile);
+  editPopup.open(modalEditProfile);
 }
 
 // function getCardElement(cardData) {
@@ -158,7 +158,7 @@ function renderCard(cardData) {
 }
 
 function handleImageClick() {
-  handlePopup.open(modalPreview);
+  editPopup.open(modalPreview);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -171,7 +171,7 @@ closeButtons.forEach((button) => {
   const popup = button.closest(".modal");
   button.addEventListener("click", () => {
     // closePopup(popup);
-    handlePopup.close(popup);
+    editPopup.close(popup);
   });
 });
 
@@ -196,18 +196,18 @@ const addFormValidator = new formValidator(
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-export { handleImageClick };
-
-/* -------------------------------- popup.js -------------------------------- */
+/* -------------------------------- popups -------------------------------- */
 const handlePopup = new Popup({ popupSelector: ".modal" });
 handlePopup.open();
 handlePopup.close();
+const editPopup = new Popup({ popupSelector: "#modal-edit-profile" });
+editPopup.open();
+editPopup.close();
+const cardPopup = new Popup({ popupSelector: "#modal-add-card" });
+cardPopup.open();
+cardPopup.close();
+const imagePopup = new Popup({ popupSelector: "#modalPreview" });
+imagePopup.open();
+imagePopup.close();
 
-export {
-  modalAddCardTitleInput,
-  modalAddCardLinkInput,
-  profileTitle,
-  profileSubtitle,
-  modalEditTitleInput,
-  modalEditSubtitleInput,
-};
+export { handleImageClick };
