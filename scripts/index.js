@@ -177,14 +177,14 @@ section.renderItems();
 
 console.log(section);
 
-closeButtons.forEach((button) => {
-  // const popup = button.closest(".modal");
-  button.addEventListener("click", () => {
-    editPopup.close();
-    cardPopup.close();
-    imagePopup.close();
-  });
-});
+// closeButtons.forEach((button) => {
+//   // const popup = button.closest(".modal");
+//   button.addEventListener("click", () => {
+//     editPopup.close();
+//     cardPopup.close();
+//     imagePopup.close();
+//   });
+// });
 
 /* ---------------------------- formValidator.js ---------------------------- */
 const validationSettings = {
