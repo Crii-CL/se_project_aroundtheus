@@ -36,4 +36,4 @@ export default class Popup {
   }
 }
 
-const newPopup = new Popup({ popupSelector: ".modal" });
+// const newPopup = new Popup({ popupSelector: ".modal" });

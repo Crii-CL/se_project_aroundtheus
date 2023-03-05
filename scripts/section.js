@@ -7,17 +7,15 @@ export default class Section {
     //renderer is a function responsible for createing and rendering data
   }
 
-  renderItems() {
-    this._items.forEach((cardData) =>
-      this._renderer(this._items, this._cardsList)
-    );
-    // initialCards => this._items;
-    //rendereCard => this._renderer
+  renderItems(item) {
+    this._items.forEach((item) => this._renderer(item));
     //renders all elements on the page
     //renderer will render them
   }
 
-  addItem() {
+  addItem(item) {
+    const newItem = this._renderer(item);
+    this._cardsList.prepend(newItem);
     //takes DOM element and adds it to the container
   }
 }

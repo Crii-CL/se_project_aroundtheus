@@ -178,7 +178,7 @@ section.renderItems();
 console.log(section);
 
 closeButtons.forEach((button) => {
-  const popup = button.closest(".modal");
+  // const popup = button.closest(".modal");
   button.addEventListener("click", () => {
     editPopup.close();
     cardPopup.close();
