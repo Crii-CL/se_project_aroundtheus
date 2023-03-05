@@ -167,7 +167,7 @@ function handleImageClick() {
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 
 closeButtons.forEach((button) => {
-  const popup = button.closest(".modal_opened");
+  const popup = button.closest(".modal");
   button.addEventListener("click", () => {
     editPopup.close();
     cardPopup.close();
@@ -200,7 +200,6 @@ addFormValidator.enableValidation();
 const editPopup = new Popup({ popupSelector: "#modal-edit-profile" });
 const cardPopup = new Popup({ popupSelector: "#modal-add-card" });
 const imagePopup = new Popup({ popupSelector: "#modal-preview" });
-const handlePopup = new Popup({ popupSelector: ".modal" });
 
 editPopup._setEventListeners();
 cardPopup._setEventListeners();
