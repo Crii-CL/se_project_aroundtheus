@@ -80,7 +80,7 @@ profileEditButton.addEventListener("click", () => {
 
 profileAddCardBtn.addEventListener("click", () => {
   // openPopup(addCardModal);
-  editPopup.open(addCardModal);
+  cardPopup.open(addCardModal);
 });
 
 // modalEditProfileForm.addEventListener("submit", handleProfileEditSubmit);
@@ -127,7 +127,6 @@ profileAddCardBtn.addEventListener("click", () => {
 function openProfileEditForm() {
   modalEditTitleInput.value = profileTitle.textContent;
   modalEditSubtitleInput.value = profileSubtitle.textContent;
-  // openPopup(modalEditProfile);
   editPopup.open(modalEditProfile);
 }
 
@@ -158,7 +157,7 @@ function renderCard(cardData) {
 }
 
 function handleImageClick() {
-  editPopup.open(modalPreview);
+  imagePopup.open(modalPreview);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -168,10 +167,11 @@ function handleImageClick() {
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 
 closeButtons.forEach((button) => {
-  const popup = button.closest(".modal");
+  const popup = button.closest(".modal_opened");
   button.addEventListener("click", () => {
-    // closePopup(popup);
-    editPopup.close(popup);
+    editPopup.close();
+    cardPopup.close();
+    imagePopup.close();
   });
 });
 
@@ -197,17 +197,13 @@ editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
 /* -------------------------------- popups -------------------------------- */
-const handlePopup = new Popup({ popupSelector: ".modal" });
-handlePopup.open();
-handlePopup.close();
 const editPopup = new Popup({ popupSelector: "#modal-edit-profile" });
-editPopup.open();
-editPopup.close();
 const cardPopup = new Popup({ popupSelector: "#modal-add-card" });
-cardPopup.open();
-cardPopup.close();
-const imagePopup = new Popup({ popupSelector: "#modalPreview" });
-imagePopup.open();
-imagePopup.close();
+const imagePopup = new Popup({ popupSelector: "#modal-preview" });
+const handlePopup = new Popup({ popupSelector: ".modal" });
+
+editPopup._setEventListeners();
+cardPopup._setEventListeners();
+imagePopup._setEventListeners();
 
 export { handleImageClick };

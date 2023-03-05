@@ -33,9 +33,6 @@ const addCardForm = new PopupForm("#modal-add-card", (e) => {
   e.preventDefault();
 });
 
-addCardForm.close();
-editProfileForm.close();
-
 // function handleProfileEditSubmit(e) {
 //   e.preventDefault();
 //   profileTitle.textContent = modalEditTitleInput.value;
