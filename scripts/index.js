@@ -214,8 +214,8 @@ editPopup._setEventListeners();
 cardPopup._setEventListeners();
 imagePopup._setEventListeners();
 
-const editFormPopup = new editFormPopup(".modal__form", submitEditProfile);
-const addFormPopup = new addFormPopup(".modal__form", submitAddCard);
+const editFormPopup = new PopupForm("#modal-edit-profile", submitEditProfile);
+const addFormPopup = new PopupForm("#modal-add-card", submitAddCard);
 
 editFormPopup._setEventListeners();
 addFormPopup._setEventListeners();
