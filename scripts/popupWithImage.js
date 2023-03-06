@@ -2,3 +2,8 @@
 //the parent open() method. In the open() method of the PopupWithImage class, you
 //need to add an image to the popup and the corresponding image src attribute
 //along with a caption for the image.
+export default class PopupImage extends Popup {
+  open() {
+    super.open();
+  }
+}

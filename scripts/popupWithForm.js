@@ -35,6 +35,5 @@ export default class PopupForm extends Popup {
       this._handleFormSubmit();
       this.close();
     });
-    //check if correct
   }
 }

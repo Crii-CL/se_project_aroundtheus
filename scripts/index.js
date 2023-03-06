@@ -84,33 +84,17 @@ profileAddCardBtn.addEventListener("click", () => {
 
 // modalAddCardForm.addEventListener("submit", submitAddCard);
 
-// function submitEditProfile(e) {
-//   e.preventDefault();
-//   profileTitle.textContent = modalEditTitleInput.value;
-//   profileSubtitle.textContent = modalEditSubtitleInput.value;
-//   editPopup.close(modalEditProfile);
-// }
-
-// function submitAddCard(e) {
-//   e.preventDefault();
-//   const name = modalAddCardTitleInput.value;
-//   const link = modalAddCardLinkInput.value;
-//   renderCard({ name, link }, cardListEl);
-//   editPopup.close(addCardModal);
-//   e.target.reset();
-// }
-
-function submitEditProfile(e) {
+function submitEditProfile() {
   profileTitle.textContent = modalEditTitleInput.value;
   profileSubtitle.textContent = modalEditSubtitleInput.value;
   editPopup.close(modalEditProfile);
 }
 
-function submitAddCard(e) {
+function submitAddCard() {
   const name = modalAddCardTitleInput.value;
   const link = modalAddCardLinkInput.value;
   renderCard({ name, link }, cardListEl);
-  editPopup.close(addCardModal);
+  cardPopup.close(addCardModal);
 }
 
 //this is the old function
