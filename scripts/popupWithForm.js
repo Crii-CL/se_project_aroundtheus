@@ -6,6 +6,7 @@ export default class PopupForm extends Popup {
     this._popupForm = this._popupElement.querySelector(".modal__form");
     this._formInputs = this._popupForm.querySelectorAll(".modal__form-input");
     this._handleFormSubmit = handleFormSubmit;
+    this._closeBtn = this._popupElement.querySelector(".modal__close");
   }
 
   _getInputValues() {
@@ -24,17 +25,13 @@ export default class PopupForm extends Popup {
   }
 
   _setEventListeners() {
-    this._closeBtn = document.querySelector(".modal__close");
-
     this._closeBtn.addEventListener("click", () => {
-      super.close();
+      this.close();
     });
 
-    document
-      .querySelector("#modal-add-card")
-      .addEventListener("submit", () => {});
-    document
-      .querySelector("#modal-edit-profile")
-      .addEventListener("submit", () => {});
+    this._handleFormSubmit.addEventListener("submit", (e) => {
+      e.preventDefault();
+      this.close();
+    });
   }
 }

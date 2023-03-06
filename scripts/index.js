@@ -80,18 +80,18 @@ profileAddCardBtn.addEventListener("click", () => {
   cardPopup.open(addCardModal);
 });
 
-// modalEditProfileForm.addEventListener("submit", handleProfileEditSubmit);
+// modalEditProfileForm.addEventListener("submit", submitEditProfile);
 
-// modalAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
+// modalAddCardForm.addEventListener("submit", submitAddCard);
 
-// function handleProfileEditSubmit(e) {
+// function submitEditProfile(e) {
 //   e.preventDefault();
 //   profileTitle.textContent = modalEditTitleInput.value;
 //   profileSubtitle.textContent = modalEditSubtitleInput.value;
 //   editPopup.close(modalEditProfile);
 // }
 
-// function handleProfileAddCardSubmit(e) {
+// function submitAddCard(e) {
 //   e.preventDefault();
 //   const name = modalAddCardTitleInput.value;
 //   const link = modalAddCardLinkInput.value;
@@ -99,6 +99,22 @@ profileAddCardBtn.addEventListener("click", () => {
 //   editPopup.close(addCardModal);
 //   e.target.reset();
 // }
+
+function submitEditProfile(e) {
+  e.preventDefault();
+  profileTitle.textContent = modalEditTitleInput.value;
+  profileSubtitle.textContent = modalEditSubtitleInput.value;
+  editPopup.close(modalEditProfile);
+}
+
+function submitAddCard(e) {
+  e.preventDefault();
+  const name = modalAddCardTitleInput.value;
+  const link = modalAddCardLinkInput.value;
+  renderCard({ name, link }, cardListEl);
+  editPopup.close(addCardModal);
+  e.target.reset();
+}
 
 //this is the old function
 // function handleImagePreview(cardData) {
@@ -198,8 +214,10 @@ editPopup._setEventListeners();
 cardPopup._setEventListeners();
 imagePopup._setEventListeners();
 
-const popupForm = new PopupForm(".modal__form", () => {});
+const editFormPopup = new editFormPopup(".modal__form", submitEditProfile);
+const addFormPopup = new addFormPopup(".modal__form", submitAddCard);
 
-popupForm._setEventListeners();
+editFormPopup._setEventListeners();
+addFormPopup._setEventListeners();
 
 export { handleImageClick };
