@@ -101,19 +101,16 @@ profileAddCardBtn.addEventListener("click", () => {
 // }
 
 function submitEditProfile(e) {
-  e.preventDefault();
   profileTitle.textContent = modalEditTitleInput.value;
   profileSubtitle.textContent = modalEditSubtitleInput.value;
   editPopup.close(modalEditProfile);
 }
 
 function submitAddCard(e) {
-  e.preventDefault();
   const name = modalAddCardTitleInput.value;
   const link = modalAddCardLinkInput.value;
   renderCard({ name, link }, cardListEl);
   editPopup.close(addCardModal);
-  e.target.reset();
 }
 
 //this is the old function
