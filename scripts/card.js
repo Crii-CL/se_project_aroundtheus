@@ -1,9 +1,10 @@
 import { handleImageClick } from "./index.js";
 
 export default class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector, handleImageClick) {
     this._name = data.name;
     this._link = data.link;
+    this._handleImageClick = handleImageClick;
 
     this._cardSelector = cardSelector;
   }
@@ -39,6 +40,8 @@ export default class Card {
     modalPreviewImage.alt = `Photo of ${this._name}`;
     modalPreviewTitle.textContent = this._name;
     handleImageClick();
+
+    //implement handleImageClick()
   }
 
   renderCard() {
