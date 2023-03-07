@@ -1,11 +1,17 @@
-//Take an object with the selectors of two elements into the constructor: one
-//containing the user's name, and another containing the user's job.
+export default class UserInfo {
+  constructor({ nameSelector, jobSelector }) {
+    this._nameElement = document.querySelector(nameSelector);
+    this._jobElement = document.querySelector(jobSelector);
+    console.log(nameSelector);
+    console.log(jobSelector);
+  }
 
-//Store a public method named getUserInfo(), which returns an object with
-//information about the user. This method will be handy for cases when it's
-//necessary to display the user data in the open form.
+  getUserInfo() {
+    return {
+      name: this._nameElement.textContent,
+      job: this._jobElement.textContent,
+    };
+  }
 
-//Store a public method named setUserInfo(), which takes new user data and adds it on the page.
-
-//Create an instance of the UserInfo class in index.js. Use its method setUserInfo()
-//to handle the form submission inside an instance of the PopupWithForm class.
+  setUserInfo() {}
+}
