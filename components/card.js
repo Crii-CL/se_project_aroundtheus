@@ -1,5 +1,5 @@
-import { handleImageClick } from "./index.js";
-import PopupImage from "./popupWithImage.js";
+import { handleImageClick } from "../scripts/index.js";
+import PopupImage from "../components/popupWithImage.js";
 
 export default class Card {
   constructor(data, cardSelector, handleImageClick) {
