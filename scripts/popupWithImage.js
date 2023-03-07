@@ -2,7 +2,6 @@
 //add caption to the popup
 
 import Popup from "./popup.js";
-import Card from "./card.js";
 
 export default class PopupImage extends Popup {
   constructor() {
@@ -12,8 +11,9 @@ export default class PopupImage extends Popup {
   }
 
   open() {
+    this._previewPopup.textContent = this._caption;
     this._previewPopup.src = this._image;
-    this._previewPopup.alt = this._caption;
+    this._previewPopup.alt = `Photo of ${this._name}`;
     super.open();
   }
 }

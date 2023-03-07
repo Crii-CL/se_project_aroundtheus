@@ -4,6 +4,7 @@ import Card from "./card.js";
 import Popup from "./popup.js";
 import PopupForm from "./popupWithForm.js";
 import Section from "./section.js";
+import PopupImage from "./popupWithImage.js";
 
 const initialCards = [
   {
