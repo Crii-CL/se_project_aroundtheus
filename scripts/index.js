@@ -87,8 +87,8 @@ profileAddCardBtn.addEventListener("click", () => {
 // modalAddCardForm.addEventListener("submit", submitAddCard);
 
 function submitEditProfile() {
-  profileTitle.textContent = modalEditTitleInput.value;
-  profileSubtitle.textContent = modalEditSubtitleInput.value;
+  // profileTitle.textContent = modalEditTitleInput.value;
+  // profileSubtitle.textContent = modalEditSubtitleInput.value;
   editPopup.close(modalEditProfile);
 }
 
@@ -113,8 +113,12 @@ function submitAddCard() {
 // }
 
 function openProfileEditForm() {
-  modalEditTitleInput.value = profileTitle.textContent;
-  modalEditSubtitleInput.value = profileSubtitle.textContent;
+  // modalEditTitleInput.value = profileTitle.textContent;
+  // modalEditSubtitleInput.value = profileSubtitle.textContent;
+  userInfo.setUserInfo({
+    name: profileTitle.textContent,
+    job: profileSubtitle.textContent,
+  });
   editPopup.open(modalEditProfile);
 }
 
@@ -207,4 +211,8 @@ const addFormPopup = new PopupForm("#modal-add-card", submitAddCard);
 editFormPopup._setEventListeners();
 addFormPopup._setEventListeners();
 
+const userInfo = new UserInfo({
+  nameSelector: "#modal-edit-title-input",
+  jobSelector: "#modal-edit-subtitle-input",
+});
 export { handleImageClick };
