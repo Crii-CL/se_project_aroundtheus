@@ -1,4 +1,4 @@
-import { handleImageClick } from "../scripts/index.js";
+// import { handleImageClick } from "../scripts/index.js";
 import PopupImage from "../components/popupWithImage.js";
 
 export default class Card {
@@ -41,7 +41,7 @@ export default class Card {
     // modalPreviewImage.alt = `Photo of ${this._name}`;
     // modalPreviewTitle.textContent = this._name;
 
-    handleImageClick();
+    this._handleImageClick(this._name, this._link);
 
     //implement handleImageClick()
   }

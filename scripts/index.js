@@ -2,7 +2,7 @@ import formValidator from "../components/formValidator.js";
 import Card from "../components/card.js";
 // import { openPopup, closePopup } from "./utils.js";
 import Popup from "../components/popup.js";
-import PopupForm from "../components/popupWithForm.js";
+import PopupForm from "../components/popupWithForms.js";
 import Section from "../components/section.js";
 import PopupImage from "../components/popupWithImage.js";
 
@@ -136,15 +136,19 @@ function openProfileEditForm() {
 // }
 
 function renderCard(cardData) {
-  const card = new Card(cardData, "#card-template").renderCard();
+  const card = new Card(
+    cardData,
+    "#card-template",
+    handleImageClick
+  ).renderCard();
   cardListEl.prepend(card);
 
   // const cardElement = getCardElement(cardData);
   // cardListEl.prepend(cardElement);
 }
 
-function handleImageClick() {
-  imagePopup.open(modalPreview);
+function handleImageClick(name, link) {
+  imagePopup.open(name, link);
 }
 
 // initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
@@ -190,7 +194,7 @@ addFormValidator.enableValidation();
 /* -------------------------------- popups -------------------------------- */
 const editPopup = new Popup({ popupSelector: "#modal-edit-profile" });
 const cardPopup = new Popup({ popupSelector: "#modal-add-card" });
-const imagePopup = new Popup({ popupSelector: "#modal-preview" });
+const imagePopup = new PopupImage({ popupSelector: "#modal-preview" });
 
 editPopup._setEventListeners();
 cardPopup._setEventListeners();
