@@ -33,12 +33,12 @@ export default class Card {
   };
 
   _handlePreview() {
-    const modalPreviewImage = document.querySelector("#modal-preview-image");
-    const modalPreviewTitle = document.querySelector("#modal-preview-title");
+    // const modalPreviewImage = document.querySelector("#modal-preview-image");
+    // const modalPreviewTitle = document.querySelector("#modal-preview-title");
 
-    modalPreviewImage.src = this._link;
-    modalPreviewImage.alt = `Photo of ${this._name}`;
-    modalPreviewTitle.textContent = this._name;
+    // modalPreviewImage.src = this._link;
+    // modalPreviewImage.alt = `Photo of ${this._name}`;
+    // modalPreviewTitle.textContent = this._name;
     handleImageClick();
 
     //implement handleImageClick()

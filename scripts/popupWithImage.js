@@ -6,11 +6,14 @@ import Card from "./card.js";
 
 export default class PopupImage extends Popup {
   constructor() {
-    this._image = this._popupElement.querySelector(".card__image");
-    this._caption = this._popupElement.querySelector(".card__caption");
+    this._image = this._popupElement.querySelector(".modalPreview__image");
+    this._caption = this._popupElement.querySelector(".modalPreview__title");
+    this._previewPopup = document.querySelector("#modal-preview");
   }
 
   open() {
+    this._previewPopup.src = this._image;
+    this._previewPopup.alt = this._caption;
     super.open();
   }
 }
