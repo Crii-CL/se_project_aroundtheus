@@ -1,8 +1,14 @@
-//Create the PopupWithImage class as a child class of Popup. This class has to change
-//the parent open() method. In the open() method of the PopupWithImage class, you
-//need to add an image to the popup and the corresponding image src attribute
-//along with a caption for the image.
+// add image to the popup with he corresponding src att
+//add caption to the popup
+
+import Popup from "./popup.js";
+
 export default class PopupImage extends Popup {
+  constructor({ src, caption }) {
+    this._src = src;
+    this._caption = caption;
+  }
+
   open() {
     super.open();
   }

@@ -7,7 +7,7 @@ export default class Section {
     //renderer is a function responsible for createing and rendering data
   }
 
-  renderItems(item) {
+  renderItems() {
     this._items.forEach((item) => this._renderer(item));
     //renders all elements on the page
     //renderer will render them
