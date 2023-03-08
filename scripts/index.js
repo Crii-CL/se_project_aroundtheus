@@ -108,7 +108,7 @@ function openProfileEditForm() {
   // modalEditTitleInput.value = profileTitle.textContent;
   // modalEditSubtitleInput.value = profileSubtitle.textContent;
 
-  userInfo.setUserInfo({
+  userInfo.getUserInfo({
     name: (modalEditTitleInput.value = profileTitle.textContent),
     job: (modalEditSubtitleInput.value = profileSubtitle.textContent),
   });
