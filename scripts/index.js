@@ -89,6 +89,11 @@ profileAddCardBtn.addEventListener("click", () => {
 function submitEditProfile() {
   // profileTitle.textContent = modalEditTitleInput.value;
   // profileSubtitle.textContent = modalEditSubtitleInput.value;
+
+  userInfo.setUserInfo({
+    name: (profileTitle.textContent = modalEditTitleInput.value),
+    job: (profileSubtitle.textContent = modalEditSubtitleInput.value),
+  });
   editPopup.close(modalEditProfile);
 }
 
@@ -99,6 +104,17 @@ function submitAddCard() {
   cardPopup.close(addCardModal);
 }
 
+function openProfileEditForm() {
+  // modalEditTitleInput.value = profileTitle.textContent;
+  // modalEditSubtitleInput.value = profileSubtitle.textContent;
+
+  userInfo.setUserInfo({
+    name: (modalEditTitleInput.value = profileTitle.textContent),
+    job: (modalEditSubtitleInput.value = profileSubtitle.textContent),
+  });
+  modalEditTitleInput;
+  editPopup.open(modalEditProfile);
+}
 //this is the old function
 // function handleImagePreview(cardData) {
 //   modalPreviewImage.src = cardData.link;
@@ -111,16 +127,6 @@ function submitAddCard() {
 //   document.querySelector("#modal-preview-image").alt = "Photo of ${this._name}";
 //   document.querySelector("#modal-preview-title").textContent = this._name;
 // }
-
-function openProfileEditForm() {
-  // modalEditTitleInput.value = profileTitle.textContent;
-  // modalEditSubtitleInput.value = profileSubtitle.textContent;
-  userInfo.setUserInfo({
-    name: profileTitle.textContent,
-    job: profileSubtitle.textContent,
-  });
-  editPopup.open(modalEditProfile);
-}
 
 // function getCardElement(cardData) {
 //   const cardElement = cardTemplate.cloneNode(true);
