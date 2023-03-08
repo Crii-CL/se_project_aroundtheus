@@ -221,4 +221,5 @@ const userInfo = new UserInfo({
   nameSelector: "#modal-edit-title-input",
   jobSelector: "#modal-edit-subtitle-input",
 });
+
 export { handleImageClick };
