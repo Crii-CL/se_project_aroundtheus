@@ -5,5 +5,5 @@
 @import url(../blocks/profile.css);
 @import url(../blocks/footer.css);
 @import url(../blocks/header.css);
-@import url(../fonts/fonts.css);
+@import url(../vendor/fonts/fonts.css);
 @import url(../blocks/modal.css);
