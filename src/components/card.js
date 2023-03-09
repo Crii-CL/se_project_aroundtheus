@@ -24,6 +24,7 @@ export default class Card {
 
   _handleDelCard = () => {
     this._element.remove();
+    this._element = null;
   };
 
   _handleLikeBtn = () => {
@@ -31,28 +32,19 @@ export default class Card {
   };
 
   _handlePreview() {
-    // const modalPreviewImage = document.querySelector("#modal-preview-image");
-    // const modalPreviewTitle = document.querySelector("#modal-preview-title");
-
-    // modalPreviewImage.src = this._link;
-    // modalPreviewImage.alt = `Photo of ${this._name}`;
-    // modalPreviewTitle.textContent = this._name;
-
     this._handleImageClick(this._name, this._link);
-
-    //implement handleImageClick()
   }
 
   renderCard() {
     this._element = this._getTemplate();
     this._likeBtn = this._element.querySelector(".card__like-button");
     this._cardImg = this._element.querySelector(".card__image");
-    this._cardTitle = this._element.querySelector(".card__title");
     this._cardDelBtn = this._element.querySelector(".card__delete-button");
+    const cardTitle = this._element.querySelector(".card__title");
 
     this._cardImg.src = this._link;
     this._cardImg.alt = `Photo of ${this._name}`;
-    this._cardTitle.textContent = this._name;
+    cardTitle.textContent = this._name;
 
     this._setEventListeners();
 
