@@ -1,6 +1,3 @@
-// import { handleImageClick } from "../scripts/index.js";
-import PopupImage from "../components/popupWithImage.js";
-
 export default class Card {
   constructor(data, cardSelector, handleImageClick) {
     this._name = data.name;
