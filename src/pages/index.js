@@ -1,12 +1,12 @@
-import "./pages/index.css";
+import "./index.css";
 
-import formValidator from "./components/formValidator.js";
-import Card from "./components/card.js";
-import Popup from "./components/popup.js";
-import PopupForm from "./components/popupWithForms.js";
-import Section from "./components/section.js";
-import PopupImage from "./components/popupWithImage.js";
-import UserInfo from "./components/userInfo.js";
+import formValidator from "../components/formValidator.js";
+import Card from "../components/card.js";
+import Popup from "../components/popup.js";
+import PopupForm from "../components/popupWithForms.js";
+import Section from "../components/section.js";
+import PopupImage from "../components/popupWithImage.js";
+import UserInfo from "../components/userInfo.js";
 
 const initialCards = [
   {
@@ -37,10 +37,6 @@ const initialCards = [
 
 /* ------------------------------ Card Elements ----------------------------- */
 const cardListEl = document.querySelector(".cards__list");
-
-const closeButtons = document.querySelectorAll(".modal__close");
-
-const modalPreview = document.querySelector(".modalPreview");
 
 /* ----------------------------- Profile Section ---------------------------- */
 const profileEditButton = document.querySelector("#profile-edit-button");
@@ -79,18 +75,10 @@ profileEditButton.addEventListener("click", () => {
 });
 
 profileAddCardBtn.addEventListener("click", () => {
-  // openPopup(addCardModal);
   cardPopup.open(addCardModal);
 });
 
-// modalEditProfileForm.addEventListener("submit", submitEditProfile);
-
-// modalAddCardForm.addEventListener("submit", submitAddCard);
-
 function submitEditProfile() {
-  // profileTitle.textContent = modalEditTitleInput.value;
-  // profileSubtitle.textContent = modalEditSubtitleInput.value;
-
   userInfo.setUserInfo({
     name: (profileTitle.textContent = modalEditTitleInput.value),
     job: (profileSubtitle.textContent = modalEditSubtitleInput.value),
@@ -106,9 +94,6 @@ function submitAddCard() {
 }
 
 function openProfileEditForm() {
-  // modalEditTitleInput.value = profileTitle.textContent;
-  // modalEditSubtitleInput.value = profileSubtitle.textContent;
-
   userInfo.getUserInfo({
     name: (modalEditTitleInput.value = profileTitle.textContent),
     job: (modalEditSubtitleInput.value = profileSubtitle.textContent),
@@ -116,36 +101,6 @@ function openProfileEditForm() {
   modalEditTitleInput;
   editPopup.open(modalEditProfile);
 }
-//this is the old function
-// function handleImagePreview(cardData) {
-//   modalPreviewImage.src = cardData.link;
-//   modalPreviewImage.alt = cardData.name;
-//   modalPreviewTitle.textContent = cardData.name;
-// }
-
-// function handlePreview() {
-//   document.querySelector("#modal-preview-image").src = this._link;
-//   document.querySelector("#modal-preview-image").alt = "Photo of ${this._name}";
-//   document.querySelector("#modal-preview-title").textContent = this._name;
-// }
-
-// function getCardElement(cardData) {
-//   const cardElement = cardTemplate.cloneNode(true);
-//   const cardImageEl = cardElement.querySelector(".card__image");
-//   const cardTitleEl = cardElement.querySelector(".card__title");
-//   const cardLikeBtn = cardElement.querySelector(".card__like-button");
-//   const cardDelBtn = cardElement.querySelector(".card__delete-button");
-//   cardDelBtn.addEventListener("click", handleDelCard);
-//   cardLikeBtn.addEventListener("click", handleLikeButton);
-//   cardImageEl.addEventListener("click", () => {
-//     handleImagePreview(cardData);
-//     openPopup(modalPreview);
-//   });
-//   cardImageEl.alt = cardData.name;
-//   cardImageEl.src = cardData.link;
-//   cardTitleEl.textContent = cardData.name;
-//   return cardElement;
-// }
 
 function renderCard(cardData) {
   const card = new Card(
@@ -154,25 +109,12 @@ function renderCard(cardData) {
     handleImageClick
   ).renderCard();
   cardListEl.prepend(card);
-
-  // const cardElement = getCardElement(cardData);
-  // cardListEl.prepend(cardElement);
 }
 
 function handleImageClick(name, link) {
   imagePopup.open(name, link);
 }
 
-// initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
-
-// closeButtons.forEach((button) => {
-//   // const popup = button.closest(".modal");
-//   button.addEventListener("click", () => {
-//     editPopup.close();
-//     cardPopup.close();
-//     imagePopup.close();
-//   });
-// });
 /* --------------------------------- Section.js -------------------------------- */
 const section = new Section(
   {
