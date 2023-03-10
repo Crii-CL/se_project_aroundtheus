@@ -1,21 +1,18 @@
 import "./index.css";
 
-import formValidator from "../components/formValidator.js";
-import card from "../components/card.js";
-import popup from "../components/popup.js";
-import popupForm from "../components/popupWithForms.js";
-import section from "../components/section.js";
-import popupImage from "../components/popupWithImage.js";
-import userInfo from "../components/userInfo.js";
-import { initialCards, validationSettings } from "../components/constants.js";
+import FormValidator from "../components/FormValidator.js";
+import Card from "../components/Card.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import Section from "../components/Section.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import UserInfo from "../components/UserInfo.js";
+import { initialCards, validationSettings } from "../utils/constants.js";
 
 /* ------------------------------ Card Elements ----------------------------- */
 const cardListEl = document.querySelector(".cards__list");
 /* ----------------------------- Profile Section ---------------------------- */
 const profileEditButton = document.querySelector("#profile-edit-button");
 const modalEditProfileForm = document.querySelector("#modal-profile-form");
-const profileTitle = document.querySelector("#profile-title");
-const profileSubtitle = document.querySelector("#profile-subtitle");
 const modalEditTitleInput = document.querySelector("#modal-edit-title-input");
 const modalEditSubtitleInput = document.querySelector(
   "#modal-edit-subtitle-input"
@@ -23,12 +20,6 @@ const modalEditSubtitleInput = document.querySelector(
 /* -------------------------------- Add Card -------------------------------- */
 const addCardModal = document.querySelector("#modal-add-card");
 const modalAddCardForm = document.querySelector("#modal-add-card-form");
-const modalAddCardTitleInput = modalAddCardForm.querySelector(
-  "#modal-add-card-title"
-);
-const modalAddCardLinkInput = modalAddCardForm.querySelector(
-  "#modal-add-card-link"
-);
 const profileAddCardBtn = document.querySelector("#profile-add-card-button");
 
 profileEditButton.addEventListener("click", () => {
@@ -59,7 +50,7 @@ function openProfileEditForm() {
 }
 
 function renderCard(cardData) {
-  const cardElement = new card(
+  const cardElement = new Card(
     cardData,
     "#card-template",
     handleImageClick
@@ -72,7 +63,7 @@ function handleImageClick(name, link) {
 }
 
 /* --------------------------------- Section.js -------------------------------- */
-const sectionElement = new section(
+const sectionElement = new Section(
   {
     items: initialCards,
     renderer: renderCard,
@@ -80,12 +71,12 @@ const sectionElement = new section(
   cardListEl
 );
 sectionElement.renderItems();
-/* ---------------------------- formValidator.js ---------------------------- */
-const editFormValidator = new formValidator(
+/* ---------------------------- FormValidator.js ---------------------------- */
+const editFormValidator = new FormValidator(
   validationSettings,
   modalEditProfileForm
 );
-const addFormValidator = new formValidator(
+const addFormValidator = new FormValidator(
   validationSettings,
   modalAddCardForm
 );
@@ -94,15 +85,13 @@ editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
 /* -------------------------------- popups -------------------------------- */
-const editFormPopup = new popupForm("#modal-edit-profile", submitEditProfile);
-const addFormPopup = new popupForm("#modal-add-card", submitAddCard);
-const imagePopup = new popupImage({ popupSelector: "#modal-preview" });
-
-editFormPopup.setEventListeners();
-addFormPopup.setEventListeners();
-imagePopup.setEventListeners();
-
-const userInfoElement = new userInfo({
+const editFormPopup = new PopupWithForm(
+  "#modal-edit-profile",
+  submitEditProfile
+);
+const addFormPopup = new PopupWithForm("#modal-add-card", submitAddCard);
+const imagePopup = new PopupWithImage({ popupSelector: "#modal-preview" });
+const userInfoElement = new UserInfo({
   nameSelector: "#profile-title",
   descriptionSelector: "#profile-subtitle",
 });

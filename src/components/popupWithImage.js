@@ -1,9 +1,6 @@
-// add image to the popup with he corresponding src att
-//add caption to the popup
+import Popup from "./Popup.js";
 
-import popup from "./popup.js";
-
-export default class popupImage extends popup {
+export default class PopupWithImage extends Popup {
   open(name, link) {
     const popupPreview = this._popupElement.querySelector(
       ".modalPreview__image"
