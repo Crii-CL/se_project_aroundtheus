@@ -24,6 +24,7 @@ const initialCards = [
     link: "https://code.s3.yandex.net/web-code/lago.jpg",
   },
 ];
+
 const validationSettings = {
   inputSelector: ".modal__form-input",
   submitButtonSelector: ".modal__form-button",
