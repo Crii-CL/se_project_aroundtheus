@@ -39,29 +39,22 @@ profileAddCardBtn.addEventListener("click", () => {
   addFormPopup.open(addCardModal);
 });
 
-function submitEditProfile() {
+function submitEditProfile(inputValues) {
   userInfoElement.setUserInfo({
-    name: (profileTitle.textContent = modalEditTitleInput.value),
-    job: (profileSubtitle.textContent = modalEditSubtitleInput.value),
+    name: inputValues.title,
+    description: inputValues.subtitle,
   });
-  editFormPopup.close();
 }
 
-function submitAddCard() {
-  const name = modalAddCardTitleInput.value;
-  const link = modalAddCardLinkInput.value;
-  renderCard({ name, link }, cardListEl);
+function submitAddCard(inputValues) {
+  renderCard({ name: inputValues.name, link: inputValues.link }, cardListEl);
   addFormPopup.close();
 }
 
 function openProfileEditForm() {
-  userInfoElement.getUserInfo({
-    name: (modalEditTitleInput.value = profileTitle.textContent),
-    job: (modalEditSubtitleInput.value = profileSubtitle.textContent),
-  });
-  // const { name, job } = userInfo.getUserInfo();
-  // modalEditTitleInput.value = name;
-  // modalEditSubtitleInput.value = job;
+  const { name, description } = userInfoElement.getUserInfo();
+  modalEditTitleInput.value = name;
+  modalEditSubtitleInput.value = description;
   editFormPopup.open();
 }
 
@@ -110,6 +103,6 @@ addFormPopup.setEventListeners();
 imagePopup.setEventListeners();
 
 const userInfoElement = new userInfo({
-  nameSelector: "#modal-edit-title-input",
-  jobSelector: "#modal-edit-subtitle-input",
+  nameSelector: "#profile-title",
+  descriptionSelector: "#profile-subtitle",
 });
