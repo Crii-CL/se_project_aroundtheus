@@ -16,7 +16,7 @@ export default class card {
     return cardElement;
   }
 
-  _setEventListeners() {
+  setEventListeners() {
     this._cardImg.addEventListener("click", () => this._handlePreview());
     this._cardDelBtn.addEventListener("click", this._handleDelCard);
     this._likeBtn.addEventListener("click", this._handleLikeBtn);
@@ -46,7 +46,7 @@ export default class card {
     this._cardImg.alt = `Photo of ${this._name}`;
     cardTitle.textContent = this._name;
 
-    this._setEventListeners();
+    this.setEventListeners();
 
     return this._element;
   }

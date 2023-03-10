@@ -10,7 +10,7 @@ class formValidator {
   }
 
   // _setEventListeners in the class
-  _setEventListeners() {
+  setEventListeners() {
     this._inputList = [
       ...this._formElement.querySelectorAll(this._inputSelector),
     ];
@@ -81,7 +81,7 @@ class formValidator {
       e.preventDefault();
     });
 
-    this._setEventListeners();
+    this.setEventListeners();
   }
 }
 
