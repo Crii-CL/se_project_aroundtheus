@@ -7,7 +7,15 @@ import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import { initialCards, validationSettings } from "../utils/constants.js";
+import Api from "../components/api.js";
 
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/group-12",
+  headers: {
+    authorization: "2fee5a13-ea32-4770-a359-bbaf2b3da470",
+    "Content-Type": "application/json",
+  },
+});
 /* ------------------------------ Card Elements ----------------------------- */
 const cardListEl = document.querySelector(".cards__list");
 /* ----------------------------- Profile Section ---------------------------- */
@@ -95,3 +103,5 @@ const userInfoElement = new UserInfo({
   nameSelector: "#profile-title",
   descriptionSelector: "#profile-subtitle",
 });
+
+api.getInitialCards();
