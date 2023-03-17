@@ -3,20 +3,29 @@
 // https://around.nomoreparties.co/v1/group-12/
 
 export default class Api {
-  constructor(options) {
-    this._options = options;
+  constructor(baseUrl, headers) {
+    this._baseUrl = baseUrl;
+    this._header = headers;
     // constructor body
   }
 
-  getInitialCards() {
-    return fetch("https://around.nomoreparties.co/v1/group-12/cards", {
+  _checkResponse() {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Error ${res.status}`);
+  }
+
+  _getUserInfo() {
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: "GET",
       headers: {
-        authorization: "2fee5a13-ea32-4770-a359-bbaf2b3da470",
+        authorization: `Bearer ${this._headers}`,
       },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
     });
+  }
+
+  _getInitialCards() {
+    return fetch("https://around.nomoreparties.co/v1/group-12/cards "), {};
   }
 }

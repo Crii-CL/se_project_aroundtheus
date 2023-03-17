@@ -12,7 +12,7 @@ import Api from "../components/api.js";
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
   headers: {
-    authorization: "2fee5a13-ea32-4770-a359-bbaf2b3da470",
+    authorization: "Bearer 2fee5a13-ea32-4770-a359-bbaf2b3da470",
     "Content-Type": "application/json",
   },
 });
@@ -57,14 +57,14 @@ function openProfileEditForm() {
   editFormPopup.open();
 }
 
-function renderCard(cardData) {
-  const cardElement = new Card(
-    cardData,
-    "#card-template",
-    handleImageClick
-  ).renderCard();
-  cardListEl.prepend(cardElement);
-}
+// function renderCard(cardData) {
+//   const cardElement = new Card(
+//     cardData,
+//     "#card-template",
+//     handleImageClick
+//   ).renderCard();
+//   cardListEl.prepend(cardElement);
+// }
 
 function handleImageClick(name, link) {
   imagePopup.open(name, link);
