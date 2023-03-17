@@ -5,7 +5,7 @@
 export default class Api {
   constructor(baseUrl, headers) {
     this._baseUrl = baseUrl;
-    this._header = headers;
+    this._token = headers;
     // constructor body
   }
 
@@ -19,13 +19,14 @@ export default class Api {
   _getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",
-      headers: {
-        authorization: `Bearer ${this._headers}`,
-      },
-    });
+      headers: this._token,
+    }).then(this._checkResponse);
   }
 
   _getInitialCards() {
-    return fetch("https://around.nomoreparties.co/v1/group-12/cards "), {};
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "GET",
+      headers: this._token,
+    }).then(this._checkResponse);
   }
 }
