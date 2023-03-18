@@ -64,6 +64,11 @@ function handleImageClick(name, link) {
   imagePopup.open(name, link);
 }
 
+function editProfileImg(e) {
+  if (e.target.classList.contains(".profile__image")) {
+  }
+}
+
 function renderCard(cardData) {
   const cardElement = new Card(
     cardData,

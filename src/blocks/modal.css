@@ -44,6 +44,9 @@
   height: 330px;
 }
 
+#modal-change-profile-img {
+}
+
 .modal__form-heading {
   margin: 36px 36px 54px 36px;
 }
@@ -106,7 +109,7 @@
   font-family: Inter, Arial, sans-serif;
   font-size: 18px;
   font-weight: 400;
-  border-radius: 2px;
+  border-radius: 4px;
   padding: 0;
   margin-top: 40px;
   border: none;
@@ -123,7 +126,8 @@
   opacity: 0.8;
 }
 
-.modal__form-button-del {
+/* Confirm Delete Modal*/
+#confirm-del-btn {
   margin-top: 0;
 }
 
@@ -222,6 +226,21 @@
   margin-bottom: 38px;
 }
 
+#avatar-form-container {
+  height: 272px;
+}
+
+#avatar-form-heading {
+  margin-bottom: 54px;
+}
+
+#avatar-form-link {
+  padding: 0;
+}
+
+#avatar-form-submit {
+  margin-top: 54px;
+}
 @media screen and (min-width: 767px) and (max-width: 1279px) {
   .modal {
     padding: 0 19px;
@@ -274,6 +293,23 @@
     justify-content: center;
     display: flex;
   }
+
+  #avatar-form-submit {
+    margin-top: 70px;
+  }
+
+  #avatar-form-heading {
+    font-size: 20.5px;
+    align-content: center;
+    width: 230px;
+    margin-bottom: 60px;
+    margin-left: 25px;
+  }
+
+  #avatar-form-link {
+    width: 230px;
+    font-size: 12px;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 766px) {
@@ -313,5 +349,17 @@
   .modal__form-heading {
     justify-content: center;
     display: flex;
+  }
+
+  #avatar-form-submit {
+    margin-top: 70px;
+  }
+
+  #avatar-form-heading {
+    font-size: 20px;
+    align-content: center;
+    width: 230px;
+    margin-bottom: 60px;
+    margin-left: 25px;
   }
 }
