@@ -16,17 +16,43 @@ export default class Api {
     return Promise.reject(`Error ${res.status}`);
   }
 
-  _getUserInfo() {
+  getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",
       headers: this._token,
     }).then(this._checkResponse);
   }
 
-  _getInitialCards() {
+  getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       method: "GET",
       headers: this._token,
+    }).then(this._checkResponse);
+  }
+
+  getAPiInfo() {
+    return Promise.all([this.getUserInfo(), this.getInitialCards()]);
+  }
+
+  updateProfileInfo(name, about) {
+    return fetch(`${this._baseUrl}`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        name,
+        about,
+      }),
+    }).then(this._checkResponse);
+  }
+
+  addNewCard(name, link) {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        name,
+        link,
+      }),
     }).then(this._checkResponse);
   }
 }
