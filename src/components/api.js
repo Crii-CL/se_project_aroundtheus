@@ -35,7 +35,7 @@ export default class Api {
   }
 
   updateProfileInfo(name, about) {
-    return fetch(`${this._baseUrl}`, {
+    return fetch(`${this._baseUrl}/user/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({

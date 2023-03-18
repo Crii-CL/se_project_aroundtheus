@@ -12,7 +12,7 @@ import Api from "../components/api.js";
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
   headers: {
-    authorization: "Bearer 2fee5a13-ea32-4770-a359-bbaf2b3da470",
+    authorization: "2fee5a13-ea32-4770-a359-bbaf2b3da470",
     "Content-Type": "application/json",
   },
 });
@@ -71,14 +71,14 @@ function handleImageClick(name, link) {
 }
 
 /* --------------------------------- Section.js -------------------------------- */
-const sectionElement = new Section(
-  {
-    items: initialCards,
-    renderer: renderCard,
-  },
-  cardListEl
-);
-sectionElement.renderItems();
+// const sectionElement = new Section(
+//   {
+//     items: initialCards,
+//     renderer: renderCard,
+//   },
+//   cardListEl
+// );
+// sectionElement.renderItems();
 /* ---------------------------- FormValidator.js ---------------------------- */
 const editFormValidator = new FormValidator(
   validationSettings,
@@ -104,4 +104,4 @@ const userInfoElement = new UserInfo({
   descriptionSelector: "#profile-subtitle",
 });
 
-api.getInitialCards();
+api.getUserInfo().then((res) => console.log(res));
