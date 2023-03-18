@@ -30,10 +30,6 @@ export default class Api {
     }).then((res) => this._checkResponse(res));
   }
 
-  getAPiInfo() {
-    return Promise.all([this.getUserInfo(), this.getInitialCards()]);
-  }
-
   updateProfileInfo(name, about) {
     return fetch(`${this._baseUrl}/user/me`, {
       method: "PATCH",
@@ -62,4 +58,8 @@ export default class Api {
   //     headers: this._headers,
   //   }
   // }
+
+  getAPiInfo() {
+    return Promise.all([this.getUserInfo(), this.getInitialCards()]);
+  }
 }

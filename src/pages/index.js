@@ -11,6 +11,7 @@ import {
   addCardModal,
   modalAddCardForm,
   profileAddCardBtn,
+  profileImg,
 } from "../utils/constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
@@ -36,6 +37,10 @@ profileAddCardBtn.addEventListener("click", () => {
   addFormPopup.open(addCardModal);
 });
 
+profileImg.addEventListener("click", () => {
+  editProfileImg;
+});
+
 function submitEditProfile(inputValues) {
   userInfoElement.setUserInfo({
     name: inputValues.title,
@@ -55,6 +60,10 @@ function openProfileEditForm() {
   editFormPopup.open();
 }
 
+function handleImageClick(name, link) {
+  imagePopup.open(name, link);
+}
+
 function renderCard(cardData) {
   const cardElement = new Card(
     cardData,
@@ -64,19 +73,15 @@ function renderCard(cardData) {
   cardListEl.prepend(cardElement);
 }
 
-function handleImageClick(name, link) {
-  imagePopup.open(name, link);
-}
-
 /* --------------------------------- Section.js -------------------------------- */
-const sectionElement = new Section(
+const cardSection = new Section(
   {
     items: initialCards,
     renderer: renderCard,
   },
   cardListEl
 );
-sectionElement.renderItems();
+cardSection.renderItems();
 /* ---------------------------- FormValidator.js ---------------------------- */
 const editFormValidator = new FormValidator(
   validationSettings,
@@ -101,5 +106,3 @@ const userInfoElement = new UserInfo({
   nameSelector: "#profile-title",
   descriptionSelector: "#profile-subtitle",
 });
-
-api.getInitialCards();

@@ -46,6 +46,8 @@ const modalEditSubtitleInput = document.querySelector(
 const addCardModal = document.querySelector("#modal-add-card");
 const modalAddCardForm = document.querySelector("#modal-add-card-form");
 const profileAddCardBtn = document.querySelector("#profile-add-card-button");
+/* ---------------------------- Profile Elements ---------------------------- */
+const profileImg = document.querySelector(".profile__image");
 
 export {
   initialCards,
@@ -58,4 +60,5 @@ export {
   addCardModal,
   modalAddCardForm,
   profileAddCardBtn,
+  profileImg,
 };
