@@ -1,12 +1,23 @@
 import "./index.css";
 
+import {
+  initialCards,
+  validationSettings,
+  cardListEl,
+  profileEditButton,
+  modalEditProfileForm,
+  modalEditTitleInput,
+  modalEditSubtitleInput,
+  addCardModal,
+  modalAddCardForm,
+  profileAddCardBtn,
+} from "../utils/constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
-import { initialCards, validationSettings } from "../utils/constants.js";
 import Api from "../components/api.js";
 
 const api = new Api({
@@ -16,19 +27,6 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
-/* ------------------------------ Card Elements ----------------------------- */
-const cardListEl = document.querySelector(".cards__list");
-/* ----------------------------- Profile Section ---------------------------- */
-const profileEditButton = document.querySelector("#profile-edit-button");
-const modalEditProfileForm = document.querySelector("#modal-profile-form");
-const modalEditTitleInput = document.querySelector("#modal-edit-title-input");
-const modalEditSubtitleInput = document.querySelector(
-  "#modal-edit-subtitle-input"
-);
-/* -------------------------------- Add Card -------------------------------- */
-const addCardModal = document.querySelector("#modal-add-card");
-const modalAddCardForm = document.querySelector("#modal-add-card-form");
-const profileAddCardBtn = document.querySelector("#profile-add-card-button");
 
 profileEditButton.addEventListener("click", () => {
   openProfileEditForm();
@@ -57,28 +55,28 @@ function openProfileEditForm() {
   editFormPopup.open();
 }
 
-// function renderCard(cardData) {
-//   const cardElement = new Card(
-//     cardData,
-//     "#card-template",
-//     handleImageClick
-//   ).renderCard();
-//   cardListEl.prepend(cardElement);
-// }
+function renderCard(cardData) {
+  const cardElement = new Card(
+    cardData,
+    "#card-template",
+    handleImageClick
+  ).renderCard();
+  cardListEl.prepend(cardElement);
+}
 
 function handleImageClick(name, link) {
   imagePopup.open(name, link);
 }
 
 /* --------------------------------- Section.js -------------------------------- */
-// const sectionElement = new Section(
-//   {
-//     items: initialCards,
-//     renderer: renderCard,
-//   },
-//   cardListEl
-// );
-// sectionElement.renderItems();
+const sectionElement = new Section(
+  {
+    items: initialCards,
+    renderer: renderCard,
+  },
+  cardListEl
+);
+sectionElement.renderItems();
 /* ---------------------------- FormValidator.js ---------------------------- */
 const editFormValidator = new FormValidator(
   validationSettings,
@@ -104,4 +102,4 @@ const userInfoElement = new UserInfo({
   descriptionSelector: "#profile-subtitle",
 });
 
-api.getUserInfo().then((res) => console.log(res));
+api.getInitialCards();

@@ -3,13 +3,13 @@
 // https://around.nomoreparties.co/v1/group-12/
 
 export default class Api {
-  constructor(baseUrl, headers) {
+  constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
     this._token = headers;
     // constructor body
   }
 
-  _checkResponse() {
+  _checkResponse(res) {
     if (res.ok) {
       return res.json();
     }
@@ -20,14 +20,14 @@ export default class Api {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",
       headers: this._token,
-    }).then(this._checkResponse);
+    }).then((res) => this._checkResponse(res));
   }
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       method: "GET",
       headers: this._token,
-    }).then(this._checkResponse);
+    }).then((res) => this._checkResponse(res));
   }
 
   getAPiInfo() {
@@ -42,7 +42,7 @@ export default class Api {
         name,
         about,
       }),
-    }).then(this._checkResponse);
+    }).then((res) => this._checkResponse(res));
   }
 
   addNewCard(name, link) {
@@ -53,6 +53,13 @@ export default class Api {
         name,
         link,
       }),
-    }).then(this._checkResponse);
+    }).then((res) => this._checkResponse(res));
   }
+
+  // showLikes() {
+  //   return fetch(`${this._baseUrl}/cards`), {
+  //     method: "GET";
+  //     headers: this._headers,
+  //   }
+  // }
 }
