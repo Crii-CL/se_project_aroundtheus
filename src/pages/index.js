@@ -29,6 +29,27 @@ const api = new Api({
   },
 });
 
+//get cards
+//send card data out
+let cardSection;
+
+api.getInitialCards().then((res) => {
+  cardSection = new Section(
+    {
+      items: res,
+      renderer: renderCard,
+    },
+    cardListEl
+  );
+  cardSection.renderItems();
+});
+
+// Promise.all([api.getInitialCards(), api.getUserInfo()]).then(
+//   ([initialCards, userInfo]) => {
+
+//   }
+// );
+
 profileEditButton.addEventListener("click", () => {
   openProfileEditForm();
 });
@@ -79,14 +100,7 @@ function renderCard(cardData) {
 }
 
 /* --------------------------------- Section.js -------------------------------- */
-const cardSection = new Section(
-  {
-    items: initialCards,
-    renderer: renderCard,
-  },
-  cardListEl
-);
-cardSection.renderItems();
+
 /* ---------------------------- FormValidator.js ---------------------------- */
 const editFormValidator = new FormValidator(
   validationSettings,
