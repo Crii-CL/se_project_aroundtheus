@@ -21,6 +21,9 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/api.js";
 
+let cardSection;
+// let userInfo;
+
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
   headers: {
@@ -29,14 +32,8 @@ const api = new Api({
   },
 });
 
-let cardSection;
-let userInfo;
-
 api.getUserInfo().then((res) => {
-  userInfo = new UserInfo({
-    nameSelector: "#profile-title",
-    descriptionSelector: "#profile-subtitle",
-  });
+  userInfo.setUserinfo(res);
 });
 
 api.getInitialCards().then((res) => {
@@ -123,7 +120,7 @@ const editFormPopup = new PopupWithForm(
 const addFormPopup = new PopupWithForm("#modal-add-card", submitAddCard);
 const imagePopup = new PopupWithImage({ popupSelector: "#modal-preview" });
 
-// const userInfo = new UserInfo({
-//   nameSelector: "#profile-title",
-//   descriptionSelector: "#profile-subtitle",
-// });
+const userInfo = new UserInfo({
+  nameSelector: "#profile-title",
+  descriptionSelector: "#profile-subtitle",
+});
