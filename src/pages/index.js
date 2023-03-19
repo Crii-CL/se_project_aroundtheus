@@ -6,8 +6,8 @@ import {
   cardListEl,
   profileEditButton,
   modalEditProfileForm,
-  modalEditTitleInput,
-  modalEditSubtitleInput,
+  profileName,
+  profileDescription,
   addCardModal,
   modalAddCardForm,
   profileAddCardBtn,
@@ -29,9 +29,8 @@ const api = new Api({
   },
 });
 
-//get cards
-//send card data out
 let cardSection;
+let userInfo;
 
 api.getInitialCards().then((res) => {
   cardSection = new Section(
@@ -44,9 +43,15 @@ api.getInitialCards().then((res) => {
   cardSection.renderItems();
 });
 
+api.getUserInfo().then((res) => {
+  userInfo = new UserInfo({
+    name: profileName,
+    description: profileDescription,
+  });
+});
+
 // Promise.all([api.getInitialCards(), api.getUserInfo()]).then(
 //   ([initialCards, userInfo]) => {
-
 //   }
 // );
 
@@ -63,7 +68,7 @@ profileImg.addEventListener("click", () => {
 });
 
 function submitEditProfile(inputValues) {
-  userInfoElement.setUserInfo({
+  userInfo.setUserInfo({
     name: inputValues.title,
     description: inputValues.subtitle,
   });
@@ -75,9 +80,9 @@ function submitAddCard(inputValues) {
 }
 
 function openProfileEditForm() {
-  const { name, description } = userInfoElement.getUserInfo();
-  modalEditTitleInput.value = name;
-  modalEditSubtitleInput.value = description;
+  const { name, description } = userInfo.getUserInfo();
+  profileName.value = name;
+  profileDescription.value = description;
   editFormPopup.open();
 }
 
@@ -99,9 +104,6 @@ function renderCard(cardData) {
   cardListEl.prepend(cardElement);
 }
 
-/* --------------------------------- Section.js -------------------------------- */
-
-/* ---------------------------- FormValidator.js ---------------------------- */
 const editFormValidator = new FormValidator(
   validationSettings,
   modalEditProfileForm
@@ -114,14 +116,13 @@ const addFormValidator = new FormValidator(
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-/* -------------------------------- popups -------------------------------- */
 const editFormPopup = new PopupWithForm(
   "#modal-edit-profile",
   submitEditProfile
 );
 const addFormPopup = new PopupWithForm("#modal-add-card", submitAddCard);
 const imagePopup = new PopupWithImage({ popupSelector: "#modal-preview" });
-const userInfoElement = new UserInfo({
-  nameSelector: "#profile-title",
-  descriptionSelector: "#profile-subtitle",
-});
+// const userInfo = new UserInfo({
+//   nameSelector: "#profile-title",
+//   descriptionSelector: "#profile-subtitle",
+// });

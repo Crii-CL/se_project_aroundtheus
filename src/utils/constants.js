@@ -38,10 +38,8 @@ const cardListEl = document.querySelector(".cards__list");
 /* ----------------------------- Profile Section ---------------------------- */
 const profileEditButton = document.querySelector("#profile-edit-button");
 const modalEditProfileForm = document.querySelector("#modal-profile-form");
-const modalEditTitleInput = document.querySelector("#modal-edit-title-input");
-const modalEditSubtitleInput = document.querySelector(
-  "#modal-edit-subtitle-input"
-);
+const profileName = document.querySelector("#modal-edit-title-input");
+const profileDescription = document.querySelector("#modal-edit-subtitle-input");
 /* -------------------------------- Add Card -------------------------------- */
 const addCardModal = document.querySelector("#modal-add-card");
 const modalAddCardForm = document.querySelector("#modal-add-card-form");
@@ -55,8 +53,8 @@ export {
   cardListEl,
   profileEditButton,
   modalEditProfileForm,
-  modalEditTitleInput,
-  modalEditSubtitleInput,
+  profileName,
+  profileDescription,
   addCardModal,
   modalAddCardForm,
   profileAddCardBtn,
