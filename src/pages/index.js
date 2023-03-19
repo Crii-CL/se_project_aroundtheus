@@ -12,6 +12,7 @@ import {
   modalAddCardForm,
   profileAddCardBtn,
   profileImg,
+  avatarForm,
 } from "../utils/constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
@@ -22,7 +23,6 @@ import UserInfo from "../components/UserInfo.js";
 import Api from "../components/api.js";
 
 let cardSection;
-// let userInfo;
 
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
@@ -110,8 +110,11 @@ const addFormValidator = new FormValidator(
   modalAddCardForm
 );
 
+const avatarFormValidator = new FormValidator(validationSettings, avatarForm);
+
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
+avatarFormValidator.enableValidation();
 
 const editFormPopup = new PopupWithForm(
   "#modal-edit-profile",

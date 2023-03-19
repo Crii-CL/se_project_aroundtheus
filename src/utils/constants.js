@@ -46,6 +46,8 @@ const modalAddCardForm = document.querySelector("#modal-add-card-form");
 const profileAddCardBtn = document.querySelector("#profile-add-card-button");
 /* ---------------------------- Profile Elements ---------------------------- */
 const profileImg = document.querySelector(".profile__image");
+/* ------------------------------- AvatarForm ------------------------------- */
+const avatarForm = document.querySelector("#avatar-form");
 
 export {
   initialCards,
@@ -59,4 +61,5 @@ export {
   modalAddCardForm,
   profileAddCardBtn,
   profileImg,
+  avatarForm,
 };
