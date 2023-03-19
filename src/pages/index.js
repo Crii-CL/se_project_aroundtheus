@@ -32,6 +32,13 @@ const api = new Api({
 let cardSection;
 let userInfo;
 
+api.getUserInfo().then((res) => {
+  userInfo = new UserInfo({
+    name: profileName,
+    description: profileDescription,
+  });
+});
+
 api.getInitialCards().then((res) => {
   cardSection = new Section(
     {
@@ -41,13 +48,6 @@ api.getInitialCards().then((res) => {
     cardListEl
   );
   cardSection.renderItems();
-});
-
-api.getUserInfo().then((res) => {
-  userInfo = new UserInfo({
-    name: profileName,
-    description: profileDescription,
-  });
 });
 
 // Promise.all([api.getInitialCards(), api.getUserInfo()]).then(
