@@ -34,8 +34,8 @@ let userInfo;
 
 api.getUserInfo().then((res) => {
   userInfo = new UserInfo({
-    name: profileName,
-    description: profileDescription,
+    nameSelector: "#profile-title",
+    descriptionSelector: "#profile-subtitle",
   });
 });
 
@@ -122,6 +122,7 @@ const editFormPopup = new PopupWithForm(
 );
 const addFormPopup = new PopupWithForm("#modal-add-card", submitAddCard);
 const imagePopup = new PopupWithImage({ popupSelector: "#modal-preview" });
+
 // const userInfo = new UserInfo({
 //   nameSelector: "#profile-title",
 //   descriptionSelector: "#profile-subtitle",
