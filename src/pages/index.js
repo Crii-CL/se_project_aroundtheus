@@ -33,7 +33,7 @@ const api = new Api({
 });
 
 api.getUserInfo().then((res) => {
-  userInfo.setUserinfo(res);
+  userInfo.setUserInfo(res);
 });
 
 api.getInitialCards().then((res) => {
