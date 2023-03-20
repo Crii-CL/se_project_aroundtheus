@@ -23,21 +23,21 @@ export default class Api {
     }).then((res) => this._checkResponse(res));
   }
 
-  getInitialCards() {
-    return fetch(`${this._baseUrl}/cards`, {
-      method: "GET",
-      headers: this._token,
-    }).then((res) => this._checkResponse(res));
-  }
-
   updateProfileInfo(name, about) {
-    return fetch(`${this._baseUrl}/user/me`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._token,
       body: JSON.stringify({
         name,
         about,
       }),
+    }).then((res) => this._checkResponse(res));
+  }
+
+  getInitialCards() {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "GET",
+      headers: this._token,
     }).then((res) => this._checkResponse(res));
   }
 

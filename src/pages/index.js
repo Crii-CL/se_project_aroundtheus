@@ -58,10 +58,20 @@ profileImg.addEventListener("click", () => {
   editProfileImg;
 });
 
+// function submitEditProfile(inputValues) {
+//   userInfo.setUserInfo({
+//     name: inputValues.title,
+//     about: inputValues.subtitle,
+//   });
+// }
+
 function submitEditProfile(inputValues) {
-  userInfo.setUserInfo({
-    name: inputValues.title,
-    about: inputValues.subtitle,
+  debugger;
+  api.updateProfileInfo(inputValues.title, inputValues.subtitle).then(() => {
+    userInfo.setUserInfo({
+      name: inputValues.title,
+      about: inputValues.subtitle,
+    });
   });
 }
 
