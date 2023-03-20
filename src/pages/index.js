@@ -1,7 +1,6 @@
 import "./index.css";
 
 import {
-  initialCards,
   validationSettings,
   cardListEl,
   profileEditButton,
@@ -47,13 +46,6 @@ api.getInitialCards().then((res) => {
   cardSection.renderItems();
 });
 
-// api.addNewCard(name, link).then((res) => {});
-
-// Promise.all([api.getInitialCards(), api.getUserInfo()]).then(
-//   ([initialCards, userInfo]) => {
-//   }
-// );
-
 profileEditButton.addEventListener("click", () => {
   openProfileEditForm();
 });
@@ -74,8 +66,10 @@ function submitEditProfile(inputValues) {
 }
 
 function submitAddCard(inputValues) {
-  renderCard({ name: inputValues.name, link: inputValues.link }, cardListEl);
-  addFormPopup.close();
+  api.addNewCard(inputValues.name, inputValues.link).then(() => {
+    renderCard({ name: inputValues.name, link: inputValues.link }, cardListEl);
+    addFormPopup.close();
+  });
 }
 
 function openProfileEditForm() {
@@ -129,3 +123,8 @@ const userInfo = new UserInfo({
   nameSelector: "#profile-title",
   aboutSelector: "#profile-subtitle",
 });
+
+// Promise.all([api.getInitialCards(), api.getUserInfo()]).then(
+//   ([initialCards, userInfo]) => {
+//   }
+// );

@@ -33,7 +33,7 @@ export default class Api {
   updateProfileInfo(name, about) {
     return fetch(`${this._baseUrl}/user/me`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: this._token,
       body: JSON.stringify({
         name,
         about,
@@ -44,7 +44,7 @@ export default class Api {
   addNewCard(name, link) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
-      headers: this._headers,
+      headers: this._token,
       body: JSON.stringify({
         name,
         link,
