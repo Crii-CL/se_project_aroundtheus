@@ -47,6 +47,8 @@ api.getInitialCards().then((res) => {
   cardSection.renderItems();
 });
 
+// api.addNewCard(name, link).then((res) => {});
+
 // Promise.all([api.getInitialCards(), api.getUserInfo()]).then(
 //   ([initialCards, userInfo]) => {
 //   }
@@ -67,7 +69,7 @@ profileImg.addEventListener("click", () => {
 function submitEditProfile(inputValues) {
   userInfo.setUserInfo({
     name: inputValues.title,
-    description: inputValues.subtitle,
+    about: inputValues.subtitle,
   });
 }
 
@@ -77,9 +79,9 @@ function submitAddCard(inputValues) {
 }
 
 function openProfileEditForm() {
-  const { name, description } = userInfo.getUserInfo();
+  const { name, about } = userInfo.getUserInfo();
   profileName.value = name;
-  profileDescription.value = description;
+  profileDescription.value = about;
   editFormPopup.open();
 }
 
@@ -125,5 +127,5 @@ const imagePopup = new PopupWithImage({ popupSelector: "#modal-preview" });
 
 const userInfo = new UserInfo({
   nameSelector: "#profile-title",
-  descriptionSelector: "#profile-subtitle",
+  aboutSelector: "#profile-subtitle",
 });
