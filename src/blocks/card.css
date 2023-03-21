@@ -83,6 +83,7 @@
   margin: 0;
   font-size: 13px;
   line-height: 13px;
+  align-self: center;
 }
 
 .card__like-container {
