@@ -52,14 +52,20 @@ export default class Api {
     }).then((res) => this._checkResponse(res));
   }
 
-  // showLikes() {
-  //   return fetch(`${this._baseUrl}/cards`), {
-  //     method: "GET";
-  //     headers: this._headers,
-  //   }
-  // }
-
-  getAPiInfo() {
-    return Promise.all([this.getUserInfo(), this.getInitialCards()]);
+  showLikes(likes) {
+    return (
+      fetch(`${this._baseUrl}/cards`),
+      {
+        method: "GET",
+        headers: this._headers,
+        body: JSON.stringify({
+          likes,
+        }),
+      }
+    );
   }
+
+  // getAPiInfo() {
+  //   return Promise.all([this.getUserInfo(), this.getInitialCards()]);
+  // }
 }
