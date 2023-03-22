@@ -12,7 +12,8 @@ import {
   profileAddCardBtn,
   profileImg,
   avatarForm,
-  likeSelector,
+  likeButton,
+  likeCounter,
 } from "../utils/constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
@@ -32,9 +33,12 @@ const api = new Api({
   },
 });
 
-api.getUserInfo().then((res) => {
-  userInfo.setUserInfo(res);
-});
+// api.getAppInfo().then(([cards, userInfo]) => {});
+
+// api.getUserInfo().then((res) => {
+//   userInfo.setUserInfo(res);
+//   console.log(res);
+// });
 
 api.getInitialCards().then((res) => {
   cardSection = new Section(
@@ -51,7 +55,8 @@ function renderCard(cardData) {
   const cardElement = new Card(
     cardData,
     "#card-template",
-    handleImageClick
+    handleImageClick,
+    handleLikeClick
   ).renderCard();
   cardListEl.prepend(cardElement);
 }
@@ -90,9 +95,9 @@ function handleImageClick(name, link) {
   imagePopup.open(name, link);
 }
 
-function handleLikeCounter(inputValues) {
-  api.showLikes(inputValues.likes).then(() => {
-    likes.textContent = inputValues;
+function handleLikeClick(cardId, isLiked) {
+  api.updateLikes(cardId, isLiked).then((res) => {
+    console.log(res);
   });
 }
 
@@ -134,17 +139,3 @@ profileAddCardBtn.addEventListener("click", () => {
 profileImg.addEventListener("click", () => {
   editProfileImg;
 });
-
-// likeButton.addEventListener("click");
-
-// function submitEditProfile(inputValues) {
-//   userInfo.setUserInfo({
-//     name: inputValues.title,
-//     about: inputValues.subtitle,
-//   });
-// }
-
-// Promise.all([api.getInitialCards(), api.getUserInfo()]).then(
-//   ([initialCards, userInfo]) => {
-//   }
-// );
