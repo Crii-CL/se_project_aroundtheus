@@ -52,20 +52,30 @@ export default class Api {
     }).then((res) => this._checkResponse(res));
   }
 
-  showLikes(likes) {
+  showLikes() {
     return (
-      fetch(`${this._baseUrl}/cards`),
+      fetch`${this._baseUrl}/cards`,
       {
         method: "GET",
         headers: this._headers,
-        body: JSON.stringify({
-          likes,
-        }),
       }
     );
+  }
+
+  updateLikes(likes) {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        likes,
+      }),
+    });
   }
 
   // getAPiInfo() {
   //   return Promise.all([this.getUserInfo(), this.getInitialCards()]);
   // }
+
+  // in createcard method do api call for getlikes for the card and display the number the number returned
+  // in the likebutton event handler do api call to update likes that returns total number of likes for that card and then update number of likes element
 }

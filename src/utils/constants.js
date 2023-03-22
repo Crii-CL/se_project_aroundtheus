@@ -49,7 +49,7 @@ const profileImg = document.querySelector(".profile__image");
 /* ------------------------------- AvatarForm ------------------------------- */
 const avatarForm = document.querySelector("#avatar-form");
 /* ------------------------------ Like Counter ------------------------------ */
-const likes = document.querySelector("#like-counter");
+const likeSelector = document.querySelector(".card__like-button");
 
 export {
   initialCards,
@@ -64,5 +64,5 @@ export {
   profileAddCardBtn,
   profileImg,
   avatarForm,
-  likes,
+  likeSelector,
 };

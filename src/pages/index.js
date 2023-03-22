@@ -12,7 +12,7 @@ import {
   profileAddCardBtn,
   profileImg,
   avatarForm,
-  likes,
+  likeSelector,
 } from "../utils/constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
@@ -46,25 +46,6 @@ api.getInitialCards().then((res) => {
   );
   cardSection.renderItems();
 });
-
-profileEditButton.addEventListener("click", () => {
-  openProfileEditForm();
-});
-
-profileAddCardBtn.addEventListener("click", () => {
-  addFormPopup.open(addCardModal);
-});
-
-profileImg.addEventListener("click", () => {
-  editProfileImg;
-});
-
-// function submitEditProfile(inputValues) {
-//   userInfo.setUserInfo({
-//     name: inputValues.title,
-//     about: inputValues.subtitle,
-//   });
-// }
 
 function renderCard(cardData) {
   const cardElement = new Card(
@@ -108,8 +89,8 @@ function handleImageClick(name, link) {
 }
 
 function handleLikeCounter(inputValues) {
-  api.showLikes(inputValues.likes).then((res) => {
-    likes.textContent = likes.value;
+  api.showLikes(inputValues.likes).then(() => {
+    likes.textContent = inputValues;
   });
 }
 
@@ -134,11 +115,30 @@ const editFormPopup = new PopupWithForm(
 );
 const addFormPopup = new PopupWithForm("#modal-add-card", submitAddCard);
 const imagePopup = new PopupWithImage({ popupSelector: "#modal-preview" });
-const likeCounter = new Api("#like-counter", handleLikeCounter);
 const userInfo = new UserInfo({
   nameSelector: "#profile-title",
   aboutSelector: "#profile-subtitle",
 });
+
+/* -------------------------------- Listeners ------------------------------- */
+profileEditButton.addEventListener("click", () => {
+  openProfileEditForm();
+});
+
+profileAddCardBtn.addEventListener("click", () => {
+  addFormPopup.open(addCardModal);
+});
+
+profileImg.addEventListener("click", () => {
+  editProfileImg;
+});
+
+// function submitEditProfile(inputValues) {
+//   userInfo.setUserInfo({
+//     name: inputValues.title,
+//     about: inputValues.subtitle,
+//   });
+// }
 
 // Promise.all([api.getInitialCards(), api.getUserInfo()]).then(
 //   ([initialCards, userInfo]) => {
