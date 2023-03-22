@@ -34,7 +34,10 @@ const api = new Api({
   },
 });
 
+let userId;
+
 api.getUserInfo().then((res) => {
+  userId = res._id;
   userInfo.setUserInfo(res);
 });
 
@@ -52,9 +55,10 @@ api.getInitialCards().then((res) => {
 function renderCard(cardData) {
   const cardElement = new Card(
     cardData,
+    userId,
     "#card-template",
-    handleImageClick
-    // handleLikeClick
+    handleImageClick,
+    handleLikeClick
   ).renderCard();
   cardListEl.prepend(cardElement);
 }
@@ -94,14 +98,7 @@ function handleImageClick(name, link) {
 }
 
 function handleLikeClick(cardId, isLiked) {
-  api.updateLikes(cardId, isLiked).then((res) => {
-    console.log(res);
-    if (isLiked) {
-      api.updateLikes();
-    } else {
-      api.updateLikes();
-    }
-  });
+  api.updateLikes(cardId, isLiked).then((res) => {});
 }
 
 api.getAppInfo().then(([cards, userInfo]) => {});

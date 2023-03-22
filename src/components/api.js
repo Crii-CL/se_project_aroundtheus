@@ -48,7 +48,6 @@ export default class Api {
       body: JSON.stringify({
         name,
         link,
-        likes: [],
       }),
     }).then((res) => this._checkResponse(res));
   }
