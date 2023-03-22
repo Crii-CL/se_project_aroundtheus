@@ -23,6 +23,7 @@
   margin: 0 0 0 35px;
   width: 373px;
   text-overflow: ellipsis;
+  text-align: center;
   white-space: nowrap;
   overflow: hidden;
 }

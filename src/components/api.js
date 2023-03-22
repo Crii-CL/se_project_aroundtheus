@@ -67,16 +67,6 @@ export default class Api {
     });
   }
 
-  // getAPiInfo() {
-  //   return Promise.all([this.getUserInfo(), this.getInitialCards()]);
-  // }
-
-  // in createcard method call api for getlikes for the card and
-  //display the number returned
-
-  // in the likebutton event handler do api call to update likes that
-  //returns total number of likes for that card and then update number of likes element
-
   getAppInfo() {
     return Promise.all([this.getInitialCards(), this.getUserInfo()]);
   }

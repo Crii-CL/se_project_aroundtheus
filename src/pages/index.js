@@ -3,6 +3,7 @@ import "./index.css";
 import {
   validationSettings,
   cardListEl,
+  cardEl,
   profileEditButton,
   modalEditProfileForm,
   profileName,
@@ -33,12 +34,9 @@ const api = new Api({
   },
 });
 
-// api.getAppInfo().then(([cards, userInfo]) => {});
-
-// api.getUserInfo().then((res) => {
-//   userInfo.setUserInfo(res);
-//   console.log(res);
-// });
+api.getUserInfo().then((res) => {
+  userInfo.setUserInfo(res);
+});
 
 api.getInitialCards().then((res) => {
   cardSection = new Section(
@@ -55,8 +53,8 @@ function renderCard(cardData) {
   const cardElement = new Card(
     cardData,
     "#card-template",
-    handleImageClick,
-    handleLikeClick
+    handleImageClick
+    // handleLikeClick
   ).renderCard();
   cardListEl.prepend(cardElement);
 }
@@ -98,8 +96,15 @@ function handleImageClick(name, link) {
 function handleLikeClick(cardId, isLiked) {
   api.updateLikes(cardId, isLiked).then((res) => {
     console.log(res);
+    if (isLiked) {
+      api.updateLikes();
+    } else {
+      api.updateLikes();
+    }
   });
 }
+
+api.getAppInfo().then(([cards, userInfo]) => {});
 
 const editFormValidator = new FormValidator(
   validationSettings,

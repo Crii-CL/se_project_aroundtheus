@@ -35,6 +35,7 @@ const validationSettings = {
 
 /* ------------------------------ Card Elements ----------------------------- */
 const cardListEl = document.querySelector(".cards__list");
+const cardEl = document.querySelector(".card");
 /* ----------------------------- Profile Section ---------------------------- */
 const profileEditButton = document.querySelector("#profile-edit-button");
 const modalEditProfileForm = document.querySelector("#modal-profile-form");
@@ -56,6 +57,7 @@ export {
   initialCards,
   validationSettings,
   cardListEl,
+  cardEl,
   profileEditButton,
   modalEditProfileForm,
   profileName,
