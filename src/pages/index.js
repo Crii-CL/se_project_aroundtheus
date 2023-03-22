@@ -72,6 +72,8 @@ function submitEditProfile(inputValues) {
   });
 }
 
+// function editProfileImg() {}
+
 // function editProfileImg(e) {
 //   if (e.target.classList.contains(".profile__image")) {
 //   }
@@ -132,6 +134,8 @@ profileAddCardBtn.addEventListener("click", () => {
 profileImg.addEventListener("click", () => {
   editProfileImg;
 });
+
+// likeButton.addEventListener("click");
 
 // function submitEditProfile(inputValues) {
 //   userInfo.setUserInfo({

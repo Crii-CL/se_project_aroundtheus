@@ -48,27 +48,22 @@ export default class Api {
       body: JSON.stringify({
         name,
         link,
+        likes: [],
       }),
     }).then((res) => this._checkResponse(res));
   }
 
-  showLikes() {
-    return (
-      fetch`${this._baseUrl}/cards`,
-      {
-        method: "GET",
-        headers: this._headers,
-      }
-    );
-  }
+  // getLikes() {
+  //   return fetch(`${this._baseUrl}/cards`, {
+  //     method: "GET",
+  //     headers: this._token,
+  //   });
+  // }
 
-  updateLikes(likes) {
-    return fetch(`${this._baseUrl}/cards`, {
-      method: "PATCH",
+  updateLikes(cardId, liked) {
+    return fetch(`${this._baseUrl}/cards/like${cardId}`, {
+      method: liked ? "PUT" : "DELETE",
       headers: this._headers,
-      body: JSON.stringify({
-        likes,
-      }),
     });
   }
 
@@ -76,6 +71,9 @@ export default class Api {
   //   return Promise.all([this.getUserInfo(), this.getInitialCards()]);
   // }
 
-  // in createcard method do api call for getlikes for the card and display the number the number returned
-  // in the likebutton event handler do api call to update likes that returns total number of likes for that card and then update number of likes element
+  // in createcard method do call api for getlikes for the card and
+  //display the number returned
+
+  // in the likebutton event handler do api call to update likes that
+  //returns total number of likes for that card and then update number of likes element
 }
