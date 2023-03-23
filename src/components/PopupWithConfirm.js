@@ -1,11 +1,13 @@
-class PopupWithConfirm extends Popup {
-  _handleSubmit = (e) => {
-    e.preventDefault();
+import Popup from "./Popup";
+export default class PopupWithConfirm extends Popup {
+  handleSubmit = (action) => {
+    // action.preventDefault();
+    this._handleSubmitCallback = action;
     this.close();
   };
 
   _setEventListeners() {
-    this._delSubmitBtn.addEventListener("click", this._handleSubmit);
+    this._delSubmitBtn.addEventListener("click", this.handleSubmit);
   }
 }
 //create a method that will allow you to set a callback function that will be called

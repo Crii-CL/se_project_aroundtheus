@@ -16,7 +16,7 @@ import {
 } from "../utils/constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
-import PopupWithConfirm from "../components/Popup.js";
+import PopupWithConfirm from "../components/PopupWithConfirm.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
@@ -101,13 +101,15 @@ function handleImageClick(name, link) {
   imagePopup.open(name, link);
 }
 
-function handleDelClick() {
+function handleDelClick(cardData) {
   delPopup.open();
+  // delPopup.handleSubmit(submitDelCard(cardData._id));
 }
 
-function submitDelCard() {
+function submitDelCard(cardData) {
   api.deleteCard();
-  delPopup.close();
+  delPopup.handleSubmit(cardData);
+  // delPopup.close();
 }
 
 // api.getAppInfo().then(([cards, userInfo]) => {});
