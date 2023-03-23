@@ -96,6 +96,10 @@
     padding: 40px 0 51px 0;
   }
 
+  .profile__title {
+    text-align: left;
+  }
+
   .profile__edit-button {
     margin-top: 4px;
   }
@@ -133,6 +137,7 @@
     font-size: 22px;
     padding-top: 26.25px;
     max-width: 196px;
+    text-align: center;
   }
 
   .profile__subtitle {
@@ -141,6 +146,7 @@
     font-size: 14px;
     padding-bottom: 36px;
     max-width: 320px;
+    text-align: center;
   }
 
   .profile__edit-button {

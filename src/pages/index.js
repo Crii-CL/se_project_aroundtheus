@@ -12,6 +12,7 @@ import {
   profileAddCardBtn,
   profileImg,
   avatarForm,
+  delBtn,
 } from "../utils/constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
@@ -66,7 +67,8 @@ function renderCard(cardData) {
           cardElement.handleLikeBtn(res);
         });
       }
-    }
+    },
+    handleDelClick
   );
   cardListEl.prepend(cardElement.renderCard());
 }
@@ -98,6 +100,15 @@ function handleImageClick(name, link) {
   imagePopup.open(name, link);
 }
 
+function handleDelClick(cardId) {
+  console.log(cardId);
+  delBtnPopup.open();
+}
+
+function submitDelCard() {
+  api.deleteCard();
+}
+
 // api.getAppInfo().then(([cards, userInfo]) => {});
 
 const editFormValidator = new FormValidator(
@@ -125,7 +136,9 @@ const userInfo = new UserInfo({
   nameSelector: "#profile-title",
   aboutSelector: "#profile-subtitle",
 });
-// const delBtnPopup = new PopupWithConfirm({ popupSelector: "#confirm-del" });
+const delBtnPopup = new PopupWithConfirm({
+  popupSelector: "#confirm-del-modal",
+});
 /* -------------------------------- Listeners ------------------------------- */
 profileEditButton.addEventListener("click", () => {
   openProfileEditForm();
@@ -138,7 +151,3 @@ profileAddCardBtn.addEventListener("click", () => {
 profileImg.addEventListener("click", () => {
   editProfileImg;
 });
-
-//
-
-//create Popup with confirm class;

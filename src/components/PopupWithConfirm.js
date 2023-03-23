@@ -1,12 +1,13 @@
 class PopupWithConfirm extends Popup {
-  constructor(popupSelector, handleDelSubmit) {
-    super({ popupSelector });
-    this._delBtn = document.querySelector("#card-delete-button");
-    this._delBtnModal = document.querySelector("#confirm-del");
-    this._handleDelSubmit = handleDelSubmit;
-  }
+  _handleSubmit = (e) => {
+    e.preventDefault();
 
-  _handleDelSubmit() {
-    const 
+    this.close();
+  };
+
+  _setEventListeners() {
+    this._delSubmitBtn.addEventListener("click", handleSubmit);
   }
 }
+//create a method that will allow you to set a callback function that will be called when the
+//form is submitted, you'll call that method inside of handleDelClick

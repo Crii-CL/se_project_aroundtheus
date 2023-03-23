@@ -52,6 +52,8 @@ const avatarForm = document.querySelector("#avatar-form");
 /* ------------------------------ Like Counter ------------------------------ */
 const likeButton = document.querySelector(".card__like-button");
 const likeCounter = document.querySelector(".card__like-counter");
+/* --------------------------------- Delete --------------------------------- */
+const delBtn = document.querySelector("#card-delete-button");
 
 export {
   initialCards,
@@ -69,4 +71,5 @@ export {
   avatarForm,
   likeButton,
   likeCounter,
+  delBtn,
 };

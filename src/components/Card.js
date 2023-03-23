@@ -5,16 +5,17 @@ export default class Card {
     cardSelector,
     handleImageClick,
     handleLikeClick,
-    ownerId
+    handleDelClick
   ) {
     this._name = data.name;
     this._link = data.link;
     this._likes = data.likes;
     this._cardId = data._id;
     this._userId = userId;
-    this._ownerId = ownerId;
+    // this._ownerId = ownerId;
     this._handleImageClick = handleImageClick;
     this._handleLikeClick = handleLikeClick;
+    this._handleDelClick = handleDelClick;
 
     this._cardSelector = cardSelector;
   }
@@ -30,7 +31,9 @@ export default class Card {
 
   setEventListeners() {
     this._cardImg.addEventListener("click", () => this._handlePreview());
-    this._cardDelBtn.addEventListener("click", () => this._handleDelCard());
+    this._cardDelBtn.addEventListener("click", () =>
+      this._handleDelClick(this._cardId)
+    );
     this._likeBtn.addEventListener("click", () =>
       this._handleLikeClick(this._cardId, this._isLiked())
     );
@@ -62,9 +65,9 @@ export default class Card {
     });
   }
 
-  _checkCardOwner() {
-    return this._userId === this._ownerId;
-  }
+  // _checkCardOwner() {
+  //   return this._userId === this._ownerId;
+  // }
 
   renderCard() {
     this._element = this._getTemplate();
