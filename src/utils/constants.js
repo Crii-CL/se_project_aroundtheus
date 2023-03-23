@@ -49,6 +49,7 @@ const profileAddCardBtn = document.querySelector("#profile-add-card-button");
 const profileImg = document.querySelector(".profile__image");
 /* ------------------------------- AvatarForm ------------------------------- */
 const avatarForm = document.querySelector("#avatar-form");
+const editAvatar = document.querySelector(".profile__edit-avatar");
 /* ------------------------------ Like Counter ------------------------------ */
 const likeButton = document.querySelector(".card__like-button");
 const likeCounter = document.querySelector(".card__like-counter");
@@ -72,4 +73,5 @@ export {
   likeButton,
   likeCounter,
   submitDelBtn,
+  editAvatar,
 };

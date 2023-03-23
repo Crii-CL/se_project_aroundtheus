@@ -13,6 +13,7 @@ import {
   profileImg,
   avatarForm,
   submitDelBtn,
+  editAvatar,
 } from "../utils/constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
@@ -103,13 +104,12 @@ function handleImageClick(name, link) {
 
 function handleDelClick(cardData) {
   delPopup.open();
-  // delPopup.handleSubmit(submitDelCard(cardData._id));
+  console.log(cardData);
 }
 
-function submitDelCard(cardData) {
+function submitDelCard() {
   api.deleteCard();
-  delPopup.handleSubmit(cardData);
-  // delPopup.close();
+  delPopup.close();
 }
 
 // api.getAppInfo().then(([cards, userInfo]) => {});
@@ -152,6 +152,6 @@ profileAddCardBtn.addEventListener("click", () => {
   addFormPopup.open(addCardModal);
 });
 
-profileImg.addEventListener("click", () => {
+editAvatar.addEventListener("click", () => {
   editProfileImg;
 });

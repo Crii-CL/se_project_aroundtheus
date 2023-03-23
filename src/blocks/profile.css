@@ -89,17 +89,18 @@
 }
 
 .profile__edit-avatar {
-  visibility: hidden;
+  opacity: 0%;
   position: absolute;
   border-radius: 50%;
   border: none;
   height: 120px;
   width: 120px;
-  background: rgba(0, 0, 0, 0.8);
 }
 
 .profile__edit-avatar:hover {
-  visibility: visible;
+  /* visibility: visible; */
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 100%;
 }
 
 .profile__edit-avatar-icon {
