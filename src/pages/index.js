@@ -3,7 +3,6 @@ import "./index.css";
 import {
   validationSettings,
   cardListEl,
-  cardEl,
   profileEditButton,
   modalEditProfileForm,
   profileName,
@@ -13,12 +12,10 @@ import {
   profileAddCardBtn,
   profileImg,
   avatarForm,
-  delBtn,
-  delBtnModal,
 } from "../utils/constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
-import Popup from "../components/Popup.js";
+import PopupWithConfirm from "../components/Popup.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
@@ -128,7 +125,7 @@ const userInfo = new UserInfo({
   nameSelector: "#profile-title",
   aboutSelector: "#profile-subtitle",
 });
-const delBtnPopup = new Popup({ popupSelector: "#confirm-del" });
+// const delBtnPopup = new PopupWithConfirm({ popupSelector: "#confirm-del" });
 /* -------------------------------- Listeners ------------------------------- */
 profileEditButton.addEventListener("click", () => {
   openProfileEditForm();
@@ -142,6 +139,6 @@ profileImg.addEventListener("click", () => {
   editProfileImg;
 });
 
-delBtn.addEventListener("click", () => {
-  delBtnPopup.open(delBtnModal);
-});
+//
+
+//create Popup with confirm class;

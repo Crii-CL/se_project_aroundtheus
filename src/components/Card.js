@@ -1,10 +1,18 @@
 export default class Card {
-  constructor(data, userId, cardSelector, handleImageClick, handleLikeClick) {
+  constructor(
+    data,
+    userId,
+    cardSelector,
+    handleImageClick,
+    handleLikeClick,
+    ownerId
+  ) {
     this._name = data.name;
     this._link = data.link;
     this._likes = data.likes;
     this._cardId = data._id;
     this._userId = userId;
+    this._ownerId = ownerId;
     this._handleImageClick = handleImageClick;
     this._handleLikeClick = handleLikeClick;
 
@@ -42,10 +50,6 @@ export default class Card {
     } else {
       this._likeBtn.classList.remove("card__like-button_active");
     }
-    //the res you get back from the server is the new cardData
-    //pass the data you receive to handleLikeBtn
-    //the data that gets passed to me will end up in this method and you can use it to
-    //update this._likes
   };
 
   _handlePreview() {
@@ -59,9 +63,7 @@ export default class Card {
   }
 
   _checkCardOwner() {
-    return this._cardId.some((card) => {
-      return card._id === this._userId;
-    });
+    return this._userId === this._ownerId;
   }
 
   renderCard() {
