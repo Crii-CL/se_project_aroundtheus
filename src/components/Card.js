@@ -65,6 +65,10 @@ export default class Card {
     });
   }
 
+  // _setLiked() {
+
+  // }
+
   // _checkCardOwner() {
   //   return this._userId === this._ownerId;
   // }

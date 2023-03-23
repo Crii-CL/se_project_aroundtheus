@@ -12,7 +12,7 @@ import {
   profileAddCardBtn,
   profileImg,
   avatarForm,
-  delBtn,
+  submitDelBtn,
 } from "../utils/constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
@@ -23,7 +23,6 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/api.js";
 
-let cardSection;
 openProfileEditForm;
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
@@ -39,6 +38,8 @@ api.getUserInfo().then((res) => {
   userId = res._id;
   userInfo.setUserInfo(res);
 });
+
+let cardSection;
 
 api.getInitialCards().then((res) => {
   cardSection = new Section(
@@ -100,13 +101,13 @@ function handleImageClick(name, link) {
   imagePopup.open(name, link);
 }
 
-function handleDelClick(cardId) {
-  console.log(cardId);
-  delBtnPopup.open();
+function handleDelClick() {
+  delPopup.open();
 }
 
 function submitDelCard() {
   api.deleteCard();
+  delPopup.close();
 }
 
 // api.getAppInfo().then(([cards, userInfo]) => {});
@@ -136,9 +137,10 @@ const userInfo = new UserInfo({
   nameSelector: "#profile-title",
   aboutSelector: "#profile-subtitle",
 });
-const delBtnPopup = new PopupWithConfirm({
+const delPopup = new PopupWithConfirm({
   popupSelector: "#confirm-del-modal",
 });
+
 /* -------------------------------- Listeners ------------------------------- */
 profileEditButton.addEventListener("click", () => {
   openProfileEditForm();
@@ -151,3 +153,6 @@ profileAddCardBtn.addEventListener("click", () => {
 profileImg.addEventListener("click", () => {
   editProfileImg;
 });
+
+submitDelBtn.addEventListener("click", submitDelCard);
+d;
