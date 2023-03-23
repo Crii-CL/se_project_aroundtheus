@@ -58,9 +58,19 @@ function renderCard(cardData) {
     userId,
     "#card-template",
     handleImageClick,
-    handleLikeClick
-  ).renderCard();
-  cardListEl.prepend(cardElement);
+    (cardId, isLiked) => {
+      if (!isLiked) {
+        api.addLikes(cardId).then((res) => {
+          cardElement.handleLikeBtn(res);
+        });
+      } else {
+        api.removeLikes(cardId).then((res) => {
+          cardElement.handleLikeBtn(res);
+        });
+      }
+    }
+  );
+  cardListEl.prepend(cardElement.renderCard());
 }
 
 function openProfileEditForm() {
@@ -79,13 +89,6 @@ function submitEditProfile(inputValues) {
   });
 }
 
-// function editProfileImg() {}
-
-// function editProfileImg(e) {
-//   if (e.target.classList.contains(".profile__image")) {
-//   }
-// }
-
 function submitAddCard(inputValues) {
   api.addNewCard(inputValues.name, inputValues.link).then(() => {
     renderCard({ name: inputValues.name, link: inputValues.link }, cardListEl);
@@ -95,10 +98,6 @@ function submitAddCard(inputValues) {
 
 function handleImageClick(name, link) {
   imagePopup.open(name, link);
-}
-
-function handleLikeClick(cardId, isLiked) {
-  api.updateLikes(cardId, isLiked).then((res) => {});
 }
 
 api.getAppInfo().then(([cards, userInfo]) => {});

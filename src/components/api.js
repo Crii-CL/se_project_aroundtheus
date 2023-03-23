@@ -1,7 +1,3 @@
-// Token: "2fee5a13-ea32-4770-a359-bbaf2b3da470"
-// group id: group-12
-// https://around.nomoreparties.co/v1/group-12/
-
 export default class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
@@ -56,14 +52,28 @@ export default class Api {
     return fetch(`${this._baseUrl}/cards`, {
       method: "GET",
       headers: this._token,
-    });
+    }).then((res) => this._checkResponse(res));
   }
 
-  updateLikes(cardId, isliked) {
-    return fetch(`${this._baseUrl}/cards/like${cardId}`, {
-      method: isliked ? "PUT" : "DELETE",
-      headers: this._headers,
-    });
+  addLikes(cardId) {
+    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+      method: "PUT",
+      headers: this._token,
+    }).then((res) => this._checkResponse(res));
+  }
+
+  removeLikes(cardId) {
+    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+      method: "DELETE",
+      headers: this._token,
+    }).then((res) => this._checkResponse(res));
+  }
+
+  deleteCard() {
+    fetch(`${this._baseUrl}/users/cards/cardsId`, {
+      method: "DELETE",
+      headers: this._token,
+    }).then((res) => this._checkResponse(res));
   }
 
   getAppInfo() {
