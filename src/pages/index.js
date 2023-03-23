@@ -155,5 +155,3 @@ profileAddCardBtn.addEventListener("click", () => {
 profileImg.addEventListener("click", () => {
   editProfileImg;
 });
-
-submitDelBtn.addEventListener("click", submitDelCard);
