@@ -13,11 +13,12 @@ import {
   profileAddCardBtn,
   profileImg,
   avatarForm,
-  likeButton,
-  likeCounter,
+  delBtn,
+  delBtnModal,
 } from "../utils/constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
+import Popup from "../components/Popup.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
@@ -100,7 +101,7 @@ function handleImageClick(name, link) {
   imagePopup.open(name, link);
 }
 
-api.getAppInfo().then(([cards, userInfo]) => {});
+// api.getAppInfo().then(([cards, userInfo]) => {});
 
 const editFormValidator = new FormValidator(
   validationSettings,
@@ -127,7 +128,7 @@ const userInfo = new UserInfo({
   nameSelector: "#profile-title",
   aboutSelector: "#profile-subtitle",
 });
-
+const delBtnPopup = new Popup({ popupSelector: "#confirm-del" });
 /* -------------------------------- Listeners ------------------------------- */
 profileEditButton.addEventListener("click", () => {
   openProfileEditForm();
@@ -139,4 +140,8 @@ profileAddCardBtn.addEventListener("click", () => {
 
 profileImg.addEventListener("click", () => {
   editProfileImg;
+});
+
+delBtn.addEventListener("click", () => {
+  delBtnPopup.open(delBtnModal);
 });
