@@ -23,7 +23,6 @@
   margin: 0 0 0 35px;
   width: 373px;
   text-overflow: ellipsis;
-  text-align: center;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -89,8 +88,25 @@
   height: 10px;
 }
 
-.profile__add-image {
+.profile__edit-avatar {
+  visibility: hidden;
+  position: absolute;
+  border-radius: 50%;
+  border: none;
+  height: 120px;
+  width: 120px;
+  background: rgba(0, 0, 0, 0.8);
 }
+
+.profile__edit-avatar:hover {
+  visibility: visible;
+}
+
+.profile__edit-avatar-icon {
+  width: 26px;
+  height: 26px;
+}
+
 @media screen and (max-width: 1279px) {
   .profile {
     padding: 40px 0 51px 0;
@@ -168,5 +184,11 @@
     width: 282px;
     justify-self: center;
     margin-top: 0;
+  }
+
+  .profile__edit-avatar {
+    justify-self: center;
+    width: 127.5px;
+    height: 127.5px;
   }
 }

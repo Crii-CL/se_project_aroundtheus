@@ -155,4 +155,3 @@ profileImg.addEventListener("click", () => {
 });
 
 submitDelBtn.addEventListener("click", submitDelCard);
-d;
