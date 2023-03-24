@@ -103,14 +103,15 @@ function handleImageClick(name, link) {
 }
 
 function handleDelClick(cardId) {
-  console.log(cardId);
+  // console.log(cardId);
   delPopup.open();
 }
 
 function submitDelCard(cardId) {
+  console.log(cardId);
   delPopup.setSubmitAction(() => {
     api.deleteCard(cardId).then(() => {
-      const cardEl = document.querySelector(`#card-${cardId}`);
+      const cardEl = cardId;
       cardEl.remove();
       // call api
       // get the cardId
@@ -147,10 +148,7 @@ const userInfo = new UserInfo({
   nameSelector: "#profile-title",
   aboutSelector: "#profile-subtitle",
 });
-const delPopup = new PopupWithConfirm({
-  popupSelector: "#confirm-del-modal",
-});
-
+const delPopup = new PopupWithConfirm({ popupSelector: "#confirm-del-modal" });
 /* -------------------------------- Listeners ------------------------------- */
 profileEditButton.addEventListener("click", () => {
   openProfileEditForm();
