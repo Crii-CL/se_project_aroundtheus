@@ -39,7 +39,7 @@ export default class Card {
 
   handleDelCard = () => {
     this._element.remove();
-    this._element = null;
+    // this._element = null;
   };
 
   handleLikeBtn = (res) => {
@@ -62,8 +62,6 @@ export default class Card {
       return like._id === this._userId;
     });
   }
-
-  _delFromView() {}
 
   // _setLiked() {
 

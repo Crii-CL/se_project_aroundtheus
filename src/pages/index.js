@@ -1,5 +1,4 @@
 import "./index.css";
-
 import {
   validationSettings,
   cardListEl,
@@ -107,6 +106,8 @@ function submitAddCard(inputValues) {
   });
 }
 
+// function submitAvatar() {}
+
 // function handleImageClick(name, link) {
 //   imagePopup.open(name, link);
 // }
@@ -119,20 +120,6 @@ function submitAddCard(inputValues) {
 //       //call a method from my card class to remove that card from the view.
 //     });
 //   });
-// }
-
-// function submitDelCard(cardId) {
-//   console.log(cardId);
-//   delPopup.setSubmitAction(() => {
-//     api.deleteCard(cardId).then(() => {
-//       const cardEl = cardId;
-//       cardEl.remove();
-//       // call api
-//       // get the cardId
-//       // handle deleting the card
-//     });
-//   });
-//   delPopup.close();
 // }
 
 // api.getAppInfo().then(([cards, userInfo]) => {});
@@ -156,6 +143,7 @@ const editFormPopup = new PopupWithForm(
   "#modal-edit-profile",
   submitEditProfile
 );
+// const avatarForm = new PopupWithForm("#avavtar-form", submitAvatar);
 const addFormPopup = new PopupWithForm("#modal-add-card", submitAddCard);
 const imagePopup = new PopupWithImage({ popupSelector: "#modal-preview" });
 const userInfo = new UserInfo({
@@ -163,7 +151,7 @@ const userInfo = new UserInfo({
   aboutSelector: "#profile-subtitle",
 });
 const delPopup = new PopupWithConfirm({ popupSelector: "#confirm-del-modal" });
-// delPopup.setEventListeners();
+delPopup.setEventListeners();
 
 /* -------------------------------- Listeners ------------------------------- */
 profileEditButton.addEventListener("click", () => {
