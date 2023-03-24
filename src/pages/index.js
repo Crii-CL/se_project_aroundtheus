@@ -103,23 +103,26 @@ function handleImageClick(name, link) {
 }
 
 function handleDelClick(cardId) {
-  // console.log(cardId);
   delPopup.open();
+  delPopup.setSubmitAction(() => {
+    api.deleteCard(cardId).then(() => {});
+    //call a method in my card class to remove that card from the view.
+  });
 }
 
-function submitDelCard(cardId) {
-  console.log(cardId);
-  delPopup.setSubmitAction(() => {
-    api.deleteCard(cardId).then(() => {
-      const cardEl = cardId;
-      cardEl.remove();
-      // call api
-      // get the cardId
-      // handle deleting the card
-    });
-  });
-  delPopup.close();
-}
+// function submitDelCard(cardId) {
+//   console.log(cardId);
+//   delPopup.setSubmitAction(() => {
+//     api.deleteCard(cardId).then(() => {
+//       const cardEl = cardId;
+//       cardEl.remove();
+//       // call api
+//       // get the cardId
+//       // handle deleting the card
+//     });
+//   });
+//   delPopup.close();
+// }
 
 // api.getAppInfo().then(([cards, userInfo]) => {});
 
