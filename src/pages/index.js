@@ -54,7 +54,11 @@ function renderCard(cardData) {
     cardData,
     userId,
     "#card-template",
-    handleImageClick,
+    /* ---------------------------- handleImageCLick ---------------------------- */
+    (name, link) => {
+      imagePopup.open(name, link);
+    },
+    /* ----------------------------- handleLikeClick ---------------------------- */
     (cardId, isLiked) => {
       if (!isLiked) {
         api.addLikes(cardId).then((res) => {
@@ -66,7 +70,16 @@ function renderCard(cardData) {
         });
       }
     },
-    handleDelClick
+    /* ----------------------------- handleDelClick ----------------------------- */
+    (cardId) => {
+      delPopup.open();
+      delPopup.setSubmitAction(() => {
+        api.deleteCard(cardId),
+          then(() => {
+            cardElement.deleteCard();
+          });
+      });
+    }
   );
   cardListEl.prepend(cardElement.renderCard());
 }
@@ -87,15 +100,6 @@ function submitEditProfile(inputValues) {
   });
 }
 
-function submitAvatar(avatar) {
-  avatarForm.open();
-  api.updateAvatar().then((res) => {
-    avatarForm._handleSubmit(avatar);
-  });
-  //open the avatar modal
-  //submit avatar change
-}
-
 function submitAddCard(inputValues) {
   api.addNewCard(inputValues.name, inputValues.link).then(() => {
     renderCard({ name: inputValues.name, link: inputValues.link }, cardListEl);
@@ -103,18 +107,19 @@ function submitAddCard(inputValues) {
   });
 }
 
-function handleImageClick(name, link) {
-  imagePopup.open(name, link);
-}
+// function handleImageClick(name, link) {
+//   imagePopup.open(name, link);
+// }
 
-function handleDelClick(cardId) {
-  delPopup.open();
-  delPopup.setSubmitAction(() => {
-    api.deleteCard(cardId).then(() => {
-      //call a method from my card class to remove that card from the view.
-    });
-  });
-}
+// function handleDelClick(cardId) {
+//   delPopup.open();
+//   delPopup.setSubmitAction(() => {
+//     api.deleteCard(cardId).then(() => {
+//       cardElement.deleteCard();
+//       //call a method from my card class to remove that card from the view.
+//     });
+//   });
+// }
 
 // function submitDelCard(cardId) {
 //   console.log(cardId);
@@ -140,17 +145,17 @@ const addFormValidator = new FormValidator(
   validationSettings,
   modalAddCardForm
 );
-const avatarFormValidator = new FormValidator(validationSettings, avatarForm);
+
+// const avatarFormValidator = new FormValidator(validationSettings, avatarForm);
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
-avatarFormValidator.enableValidation();
+// avatarFormValidator.enableValidation();
 
 const editFormPopup = new PopupWithForm(
   "#modal-edit-profile",
   submitEditProfile
 );
-const avatarForm = new PopupWithForm("#avatar-form", submitAvatar);
 const addFormPopup = new PopupWithForm("#modal-add-card", submitAddCard);
 const imagePopup = new PopupWithImage({ popupSelector: "#modal-preview" });
 const userInfo = new UserInfo({
