@@ -78,8 +78,8 @@ export default class Card {
     this._likeBtn = this._element.querySelector(".card__like-button");
     this._cardImg = this._element.querySelector(".card__image");
     this._cardDelBtn = this._element.querySelector(".card__delete-button");
-    const cardTitle = this._element.querySelector(".card__title");
     this._cardCounter = this._element.querySelector(".card__like-counter");
+    const cardTitle = this._element.querySelector(".card__title");
 
     this._cardImg.src = this._link;
     this._cardImg.alt = `Photo of ${this._name}`;

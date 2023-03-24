@@ -102,13 +102,18 @@ function handleImageClick(name, link) {
   imagePopup.open(name, link);
 }
 
-function handleDelClick(cardData) {
+function handleDelClick(cardId) {
+  console.log("deleting");
   delPopup.open();
-  console.log(cardData);
+  // submitDelCard(cardId);
 }
 
-function submitDelCard() {
-  api.deleteCard();
+function submitDelCard(cardId) {
+  delPopup.setSubmitAction(() => {
+    api.deleteCard(cardId);
+    // call api
+    // handle deleting the card
+  });
   delPopup.close();
 }
 
@@ -152,6 +157,6 @@ profileAddCardBtn.addEventListener("click", () => {
   addFormPopup.open(addCardModal);
 });
 
-editAvatar.addEventListener("click", () => {
-  editProfileImg;
-});
+// editAvatar.addEventListener("click", () => {
+//   editProfileImg;
+// });

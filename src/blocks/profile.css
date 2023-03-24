@@ -95,6 +95,7 @@
   border: none;
   height: 120px;
   width: 120px;
+  transition: ease-in-out 0.2s;
 }
 
 .profile__edit-avatar:hover {
