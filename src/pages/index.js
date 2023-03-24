@@ -110,8 +110,9 @@ function handleDelClick(cardId) {
 
 function submitDelCard(cardId) {
   delPopup.setSubmitAction(() => {
-    api.deleteCard(cardId);
+    api.deleteCard(cardId).then(() => {});
     // call api
+    // get the cardId
     // handle deleting the card
   });
   delPopup.close();

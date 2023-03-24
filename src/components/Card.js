@@ -16,7 +16,6 @@ export default class Card {
     this._handleImageClick = handleImageClick;
     this._handleLikeClick = handleLikeClick;
     this._handleDelClick = handleDelClick;
-
     this._cardSelector = cardSelector;
   }
 
