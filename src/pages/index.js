@@ -74,10 +74,10 @@ function renderCard(cardData) {
     (cardId) => {
       delPopup.open();
       delPopup.setSubmitAction(() => {
-        api.deleteCard(cardId),
-          then(() => {
-            cardElement.deleteCard();
-          });
+        api.deleteCard(cardId).then(() => {
+          cardElement.handleDelCard();
+        });
+        delPopup.close();
       });
     }
   );
@@ -163,6 +163,7 @@ const userInfo = new UserInfo({
   aboutSelector: "#profile-subtitle",
 });
 const delPopup = new PopupWithConfirm({ popupSelector: "#confirm-del-modal" });
+// delPopup.setEventListeners();
 
 /* -------------------------------- Listeners ------------------------------- */
 profileEditButton.addEventListener("click", () => {

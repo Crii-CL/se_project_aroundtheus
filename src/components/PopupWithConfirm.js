@@ -4,12 +4,12 @@ export default class PopupWithConfirm extends Popup {
     this._handleSubmitCallback = action;
   };
 
-  _setEventListeners() {
+  setEventListeners() {
     this._popupElement
       .querySelector("#confirm-del-form")
-      .addEventListner("submit", (e) => {
+      .addEventListener("submit", (e) => {
         e.preventDefault();
-        this._handleSubmitCallback;
+        this._handleSubmitCallback();
       });
   }
 }
