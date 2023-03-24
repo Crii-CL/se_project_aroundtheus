@@ -235,7 +235,7 @@
 }
 
 #avatar-form-link {
-  padding: 0;
+  padding-bottom: 4px;
 }
 
 #avatar-form-submit {
@@ -352,7 +352,7 @@
   }
 
   #avatar-form-submit {
-    margin-top: 70px;
+    margin-top: 65px;
   }
 
   #avatar-form-heading {

@@ -30,6 +30,16 @@ export default class Api {
     }).then((res) => this._checkResponse(res));
   }
 
+  updateAvatar() {
+    return fetch(`${this._baseUrl}/user/me/avatar`, {
+      method: "PATCH",
+      headers: this.token,
+      body: JSON.stringify({
+        avatar,
+      }),
+    });
+  }
+
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       method: "GET",

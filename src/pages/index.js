@@ -10,10 +10,6 @@ import {
   addCardModal,
   modalAddCardForm,
   profileAddCardBtn,
-  profileImg,
-  avatarForm,
-  submitDelBtn,
-  editAvatar,
 } from "../utils/constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
@@ -91,6 +87,15 @@ function submitEditProfile(inputValues) {
   });
 }
 
+function submitAvatar(avatar) {
+  avatarForm.open();
+  api.updateAvatar().then((res) => {
+    avatarForm._handleSubmit(avatar);
+  });
+  //open the avatar modal
+  //submit avatar change
+}
+
 function submitAddCard(inputValues) {
   api.addNewCard(inputValues.name, inputValues.link).then(() => {
     renderCard({ name: inputValues.name, link: inputValues.link }, cardListEl);
@@ -105,8 +110,9 @@ function handleImageClick(name, link) {
 function handleDelClick(cardId) {
   delPopup.open();
   delPopup.setSubmitAction(() => {
-    api.deleteCard(cardId).then(() => {});
-    //call a method in my card class to remove that card from the view.
+    api.deleteCard(cardId).then(() => {
+      //call a method from my card class to remove that card from the view.
+    });
   });
 }
 
@@ -134,7 +140,6 @@ const addFormValidator = new FormValidator(
   validationSettings,
   modalAddCardForm
 );
-
 const avatarFormValidator = new FormValidator(validationSettings, avatarForm);
 
 editFormValidator.enableValidation();
@@ -145,6 +150,7 @@ const editFormPopup = new PopupWithForm(
   "#modal-edit-profile",
   submitEditProfile
 );
+const avatarForm = new PopupWithForm("#avatar-form", submitAvatar);
 const addFormPopup = new PopupWithForm("#modal-add-card", submitAddCard);
 const imagePopup = new PopupWithImage({ popupSelector: "#modal-preview" });
 const userInfo = new UserInfo({
@@ -152,6 +158,7 @@ const userInfo = new UserInfo({
   aboutSelector: "#profile-subtitle",
 });
 const delPopup = new PopupWithConfirm({ popupSelector: "#confirm-del-modal" });
+
 /* -------------------------------- Listeners ------------------------------- */
 profileEditButton.addEventListener("click", () => {
   openProfileEditForm();

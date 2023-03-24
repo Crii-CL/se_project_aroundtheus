@@ -44,16 +44,9 @@ const profileDescription = document.querySelector("#modal-edit-subtitle-input");
 const addCardModal = document.querySelector("#modal-add-card");
 const modalAddCardForm = document.querySelector("#modal-add-card-form");
 const profileAddCardBtn = document.querySelector("#profile-add-card-button");
-/* ---------------------------- Profile Elements ---------------------------- */
-const profileImg = document.querySelector(".profile__image");
-/* ------------------------------- AvatarForm ------------------------------- */
-const avatarForm = document.querySelector("#avatar-form");
-const editAvatar = document.querySelector(".profile__edit-avatar");
 /* ------------------------------ Like Counter ------------------------------ */
 const likeButton = document.querySelector(".card__like-button");
 const likeCounter = document.querySelector(".card__like-counter");
-/* --------------------------------- Delete --------------------------------- */
-const submitDelBtn = document.querySelector("#confirm-del-btn");
 
 export {
   initialCards,
@@ -66,10 +59,6 @@ export {
   addCardModal,
   modalAddCardForm,
   profileAddCardBtn,
-  profileImg,
-  avatarForm,
   likeButton,
   likeCounter,
-  submitDelBtn,
-  editAvatar,
 };

@@ -12,7 +12,6 @@ export default class Card {
     this._likes = data.likes;
     this._cardId = data._id;
     this._userId = userId;
-    // this._ownerId = ownerId;
     this._handleImageClick = handleImageClick;
     this._handleLikeClick = handleLikeClick;
     this._handleDelClick = handleDelClick;
@@ -64,12 +63,10 @@ export default class Card {
     });
   }
 
+  _delFromView() {}
+
   // _setLiked() {
 
-  // }
-
-  // _checkCardOwner() {
-  //   return this._userId === this._ownerId;
   // }
 
   renderCard() {
