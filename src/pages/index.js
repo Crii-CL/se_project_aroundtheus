@@ -103,17 +103,19 @@ function handleImageClick(name, link) {
 }
 
 function handleDelClick(cardId) {
-  console.log("deleting");
+  console.log(cardId);
   delPopup.open();
-  // submitDelCard(cardId);
 }
 
 function submitDelCard(cardId) {
   delPopup.setSubmitAction(() => {
-    api.deleteCard(cardId).then(() => {});
-    // call api
-    // get the cardId
-    // handle deleting the card
+    api.deleteCard(cardId).then(() => {
+      const cardEl = document.querySelector(`#card-${cardId}`);
+      cardEl.remove();
+      // call api
+      // get the cardId
+      // handle deleting the card
+    });
   });
   delPopup.close();
 }
