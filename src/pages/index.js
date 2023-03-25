@@ -107,8 +107,8 @@ function submitEditProfile(inputValues) {
 //   });
 // }
 
-function submitAddCard() {
-  api.addNewCard().then((res) => {
+function submitAddCard(name, link) {
+  api.addNewCard(name, link).then((res) => {
     renderCard(res, cardListEl);
     addFormPopup.close();
   });
