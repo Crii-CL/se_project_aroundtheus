@@ -4,7 +4,7 @@ export default class Popup {
     this.open = this.open.bind(this);
     this.close = this.close.bind(this);
     this._closeBtn = this._popupElement.querySelector(".modal__close");
-    this._editAvatarBtn = document.querySelector(".profile__edit-avatar");
+    this._openEditAvatar = document.querySelector(".profile__edit-avatar");
     this._handleEscClose = this._handleEscClose.bind(this);
     this._handleOverlay = this._handleOverlay.bind(this);
   }

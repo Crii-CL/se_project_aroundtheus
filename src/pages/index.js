@@ -9,7 +9,7 @@ import {
   addCardModal,
   modalAddCardForm,
   profileAddCardBtn,
-  editAvatar,
+  openEditAvatar,
 } from "../utils/constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
@@ -100,13 +100,6 @@ function submitEditProfile(inputValues) {
   });
 }
 
-// function submitAddCard(inputValues) {
-//   api.addNewCard(inputValues.name, inputValues.link).then(() => {
-//     renderCard({ name: inputValues.name, link: inputValues.link }, cardListEl);
-//     addFormPopup.close();
-//   });
-// }
-
 function submitAddCard({ name, link }) {
   api.addNewCard(name, link).then((res) => {
     renderCard(res, cardListEl);
@@ -115,22 +108,6 @@ function submitAddCard({ name, link }) {
 }
 
 function submitAvatar() {}
-
-// function handleImageClick(name, link) {
-//   imagePopup.open(name, link);
-// }
-
-// function handleDelClick(cardId) {
-//   delPopup.open();
-//   delPopup.setSubmitAction(() => {
-//     api.deleteCard(cardId).then(() => {
-//       cardElement.deleteCard();
-//       //call a method from my card class to remove that card from the view.
-//     });
-//   });
-// }
-
-// api.getAppInfo().then(([cards, userInfo]) => {});
 
 const editFormValidator = new FormValidator(
   validationSettings,
@@ -170,6 +147,6 @@ profileAddCardBtn.addEventListener("click", () => {
   addFormPopup.open(addCardModal);
 });
 
-// editAvatar.addEventListener("click", () => {
-//   avatarForm.open();
-// });
+openEditAvatar.addEventListener("click", () => {
+  avatarForm.open("#avatar-form");
+});

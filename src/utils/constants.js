@@ -40,7 +40,7 @@ const profileEditButton = document.querySelector("#profile-edit-button");
 const modalEditProfileForm = document.querySelector("#modal-profile-form");
 const profileName = document.querySelector("#modal-edit-title-input");
 const profileDescription = document.querySelector("#modal-edit-subtitle-input");
-const editAvatar = document.querySelector(".profile__edit-avatar");
+const openEditAvatar = document.querySelector(".profile__edit-avatar");
 /* -------------------------------- Add Card -------------------------------- */
 const addCardModal = document.querySelector("#modal-add-card");
 const modalAddCardForm = document.querySelector("#modal-add-card-form");
@@ -62,5 +62,5 @@ export {
   profileAddCardBtn,
   likeButton,
   likeCounter,
-  editAvatar,
+  openEditAvatar,
 };
