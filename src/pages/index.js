@@ -100,9 +100,16 @@ function submitEditProfile(inputValues) {
   });
 }
 
-function submitAddCard(inputValues) {
-  api.addNewCard(inputValues.name, inputValues.link).then(() => {
-    renderCard({ name: inputValues.name, link: inputValues.link }, cardListEl);
+// function submitAddCard(inputValues) {
+//   api.addNewCard(inputValues.name, inputValues.link).then(() => {
+//     renderCard({ name: inputValues.name, link: inputValues.link }, cardListEl);
+//     addFormPopup.close();
+//   });
+// }
+
+function submitAddCard() {
+  api.addNewCard().then((res) => {
+    renderCard(res, cardListEl);
     addFormPopup.close();
   });
 }
