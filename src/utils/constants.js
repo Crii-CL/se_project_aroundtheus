@@ -41,6 +41,7 @@ const modalEditProfileForm = document.querySelector("#modal-profile-form");
 const profileName = document.querySelector("#modal-edit-title-input");
 const profileDescription = document.querySelector("#modal-edit-subtitle-input");
 const openEditAvatar = document.querySelector(".profile__edit-avatar");
+const modalEditAvatar = document.querySelector("#avatar-form");
 /* -------------------------------- Add Card -------------------------------- */
 const addCardModal = document.querySelector("#modal-add-card");
 const modalAddCardForm = document.querySelector("#modal-add-card-form");
@@ -63,4 +64,5 @@ export {
   likeButton,
   likeCounter,
   openEditAvatar,
+  modalEditAvatar,
 };

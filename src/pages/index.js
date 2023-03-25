@@ -10,6 +10,7 @@ import {
   modalAddCardForm,
   profileAddCardBtn,
   openEditAvatar,
+  modalEditAvatar,
 } from "../utils/constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
@@ -109,21 +110,6 @@ function submitAddCard({ name, link }) {
 
 function submitAvatar() {}
 
-const editFormValidator = new FormValidator(
-  validationSettings,
-  modalEditProfileForm
-);
-const addFormValidator = new FormValidator(
-  validationSettings,
-  modalAddCardForm
-);
-
-// const avatarFormValidator = new FormValidator(validationSettings, avatarForm);
-
-editFormValidator.enableValidation();
-addFormValidator.enableValidation();
-// avatarFormValidator.enableValidation();
-
 const editFormPopup = new PopupWithForm(
   "#modal-edit-profile",
   submitEditProfile
@@ -136,7 +122,23 @@ const userInfo = new UserInfo({
   aboutSelector: "#profile-subtitle",
 });
 const delPopup = new PopupWithConfirm({ popupSelector: "#confirm-del-modal" });
-// delPopup.setEventListeners();
+
+const editFormValidator = new FormValidator(
+  validationSettings,
+  modalEditProfileForm
+);
+const addFormValidator = new FormValidator(
+  validationSettings,
+  modalAddCardForm
+);
+const avatarFormValidator = new FormValidator(
+  validationSettings,
+  modalEditAvatar
+);
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
+avatarFormValidator.enableValidation();
 
 /* -------------------------------- Listeners ------------------------------- */
 profileEditButton.addEventListener("click", () => {

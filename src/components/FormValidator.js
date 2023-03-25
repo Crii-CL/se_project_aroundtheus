@@ -9,7 +9,6 @@ export default class FormValidator {
     this._formElement = formElement;
   }
 
-  // _setEventListeners in the class
   setEventListeners() {
     this._inputList = [
       ...this._formElement.querySelectorAll(this._inputSelector),
