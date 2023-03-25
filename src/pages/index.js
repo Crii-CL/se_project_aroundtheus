@@ -9,6 +9,7 @@ import {
   addCardModal,
   modalAddCardForm,
   profileAddCardBtn,
+  editAvatar,
 } from "../utils/constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
@@ -106,7 +107,7 @@ function submitAddCard(inputValues) {
   });
 }
 
-// function submitAvatar() {}
+function submitAvatar() {}
 
 // function handleImageClick(name, link) {
 //   imagePopup.open(name, link);
@@ -143,7 +144,7 @@ const editFormPopup = new PopupWithForm(
   "#modal-edit-profile",
   submitEditProfile
 );
-// const avatarForm = new PopupWithForm("#avavtar-form", submitAvatar);
+const avatarForm = new PopupWithForm("#avatar-form", submitAvatar);
 const addFormPopup = new PopupWithForm("#modal-add-card", submitAddCard);
 const imagePopup = new PopupWithImage({ popupSelector: "#modal-preview" });
 const userInfo = new UserInfo({
@@ -151,7 +152,7 @@ const userInfo = new UserInfo({
   aboutSelector: "#profile-subtitle",
 });
 const delPopup = new PopupWithConfirm({ popupSelector: "#confirm-del-modal" });
-delPopup.setEventListeners();
+// delPopup.setEventListeners();
 
 /* -------------------------------- Listeners ------------------------------- */
 profileEditButton.addEventListener("click", () => {
@@ -163,5 +164,5 @@ profileAddCardBtn.addEventListener("click", () => {
 });
 
 // editAvatar.addEventListener("click", () => {
-//   editProfileImg;
+//   avatarForm.open();
 // });

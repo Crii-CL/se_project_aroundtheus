@@ -39,7 +39,7 @@ export default class Card {
 
   handleDelCard = () => {
     this._element.remove();
-    // this._element = null;
+    this._element = null;
   };
 
   handleLikeBtn = (res) => {
@@ -53,6 +53,12 @@ export default class Card {
     }
   };
 
+  // _setLiked() {
+  //   if (this._cardId._isLiked()) {
+  //     this._likeBtn.classList.add("card__like-button_active");
+  //   }
+  // }
+
   _handlePreview() {
     this._handleImageClick(this._name, this._link);
   }
@@ -62,10 +68,6 @@ export default class Card {
       return like._id === this._userId;
     });
   }
-
-  // _setLiked() {
-
-  // }
 
   renderCard() {
     this._element = this._getTemplate();

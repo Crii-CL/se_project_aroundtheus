@@ -31,6 +31,7 @@ export default class PopupWithForm extends Popup {
   setEventListeners() {
     super.setEventListeners();
     this._popupForm.addEventListener("submit", this._handleSubmit);
+    this._editAvatar;
   }
 
   removeEventListeners() {
@@ -38,3 +39,6 @@ export default class PopupWithForm extends Popup {
     this._popupForm.removeEventListener("submit", this._handleSubmit);
   }
 }
+
+//set an event listener for the editavatar button
+//make it open the edit avatar modal
