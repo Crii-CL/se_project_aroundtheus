@@ -74,6 +74,13 @@
   transition: 0.2s ease-in-out;
 }
 
+.card__delete-button_show {
+}
+
+.card__delete_button_hide {
+  display: none;
+}
+
 .card__delete_button:hover {
   opacity: 0.6;
 }
