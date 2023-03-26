@@ -20,6 +20,7 @@ export default class Api {
   }
 
   updateProfileInfo(name, about) {
+    ////
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._token,
@@ -30,12 +31,12 @@ export default class Api {
     }).then((res) => this._checkResponse(res));
   }
 
-  updateAvatar(link) {
-    return fetch(`${this._baseUrl}/user/me/avatar`, {
+  updateAvatar(avatar) {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._token,
       body: JSON.stringify({
-        link,
+        avatar,
       }),
     }).then((res) => this._checkResponse(res));
   }
