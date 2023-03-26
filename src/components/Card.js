@@ -1,3 +1,5 @@
+import { data } from "autoprefixer";
+
 export default class Card {
   constructor(
     data,
@@ -7,12 +9,13 @@ export default class Card {
     handleLikeClick,
     handleDelClick
   ) {
+    this._data = data;
     this._name = data.name;
     this._link = data.link;
     this._likes = data.likes;
     this._cardId = data._id;
     this._userId = userId;
-    this._ownerId = data._ownerId;
+    // this._ownerId =;
     this._handleImageClick = handleImageClick;
     this._handleLikeClick = handleLikeClick;
     this._handleDelClick = handleDelClick;
@@ -64,11 +67,11 @@ export default class Card {
     });
   }
 
-  _handleDelBtnRender() {
-    if (!this._userId === this._ownerId) {
-      this._cardDelBtn.classList.add("card__delete-button_hide");
-    }
-  }
+  // _handleDelBtnRender() {
+  //   if (!this._cardId === this._userId) {
+  //     this._cardDelBtn.classList.add("card__delete-button_hide");
+  //   }
+  // }
 
   // renderCard() {
   //   this._element = this._getTemplate();
@@ -101,7 +104,10 @@ export default class Card {
     cardTitle.textContent = this._name;
     this._cardCounter.textContent = this._likes.length;
 
-    this._handleDelBtnRender();
+    if (!this._userId === this._data.owner._id) {
+      this._cardDelBtn.remove();
+    }
+    //owner Id is undefined
 
     this.setEventListeners();
 
