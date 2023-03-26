@@ -40,8 +40,11 @@ const profileEditButton = document.querySelector("#profile-edit-button");
 const modalEditProfileForm = document.querySelector("#modal-profile-form");
 const profileName = document.querySelector("#modal-edit-title-input");
 const profileDescription = document.querySelector("#modal-edit-subtitle-input");
+const profileAvatar = document.querySelector(".profile__image");
 const openEditAvatar = document.querySelector(".profile__edit-avatar");
+const editAvatarIcon = document.querySelector("#edit-avatar-icon");
 const modalEditAvatar = document.querySelector("#avatar-form");
+const avatarLink = document.querySelector("#avatar-form-link");
 /* -------------------------------- Add Card -------------------------------- */
 const addCardModal = document.querySelector("#modal-add-card");
 const modalAddCardForm = document.querySelector("#modal-add-card-form");
@@ -56,6 +59,7 @@ export {
   cardListEl,
   profileEditButton,
   modalEditProfileForm,
+  profileAvatar,
   profileName,
   profileDescription,
   addCardModal,
@@ -65,4 +69,6 @@ export {
   likeCounter,
   openEditAvatar,
   modalEditAvatar,
+  editAvatarIcon,
+  avatarLink,
 };

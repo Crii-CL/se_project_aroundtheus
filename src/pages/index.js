@@ -4,6 +4,9 @@ import {
   cardListEl,
   profileEditButton,
   modalEditProfileForm,
+  profileAvatar,
+  editAvatarIcon,
+  avatarLink,
   profileName,
   profileDescription,
   addCardModal,
@@ -108,7 +111,12 @@ function submitAddCard({ name, link }) {
   });
 }
 
-function submitAvatar() {}
+function submitAvatar(link) {
+  api.updateAvatar(link).then(() => {
+    avatarLink.value = profileAvatar;
+    //input value = profile image
+  });
+}
 
 const editFormPopup = new PopupWithForm(
   "#modal-edit-profile",
