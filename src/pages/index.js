@@ -113,8 +113,8 @@ function submitAddCard({ name, link }) {
 
 function submitAvatar(data) {
   api.updateAvatar(data["profile-image-link"]).then(() => {
-    avatarLink.value = profileAvatar;
-    //input value = profile image
+    profileAvatar.src = avatarLink.value;
+    console.log(profileAvatar);
   });
 }
 
