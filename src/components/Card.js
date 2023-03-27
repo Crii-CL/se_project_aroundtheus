@@ -104,10 +104,9 @@ export default class Card {
     cardTitle.textContent = this._name;
     this._cardCounter.textContent = this._likes.length;
 
-    if (!this._userId === this._data.owner._id) {
+    if (this._userId !== this._data.owner._id) {
       this._cardDelBtn.remove();
     }
-    //owner Id is undefined
 
     this.setEventListeners();
 
