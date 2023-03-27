@@ -213,7 +213,7 @@
   margin: 0;
 }
 
-.modalDel__container {
+.modal__del-container {
   position: relative;
   background-color: #fff;
   margin: auto;
@@ -361,5 +361,10 @@
     width: 230px;
     margin-bottom: 60px;
     margin-left: 25px;
+  }
+
+  .modal__del-container {
+    width: 282px;
+    height: 200px;
   }
 }
