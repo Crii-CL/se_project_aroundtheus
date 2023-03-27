@@ -10,8 +10,9 @@ export default class PopupWithForm extends Popup {
 
   _handleSubmit = (e) => {
     e.preventDefault();
-    this._handleFormSubmit(this._getInputValues());
-    this.close();
+    this._handleFormSubmit(this._getInputValues()).then(() => {
+      this.close();
+    });
   };
 
   _getInputValues() {
@@ -31,9 +32,6 @@ export default class PopupWithForm extends Popup {
   setEventListeners() {
     super.setEventListeners();
     this._popupForm.addEventListener("submit", this._handleSubmit);
-    // this._openEditAvatar.addEventListener("click", () => {
-    //   this.open(this._popupForm);
-    // });
   }
 
   removeEventListeners() {

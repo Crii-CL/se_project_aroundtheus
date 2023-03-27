@@ -5,15 +5,16 @@ import {
   profileEditButton,
   modalEditProfileForm,
   profileAvatar,
-  editAvatarIcon,
-  avatarLink,
   profileName,
   profileDescription,
   addCardModal,
   modalAddCardForm,
-  profileAddCardBtn,
+  modalAddCardBtn,
   openEditAvatar,
   modalEditAvatar,
+  editProfileSubmitBtn,
+  submitAvatarButton,
+  createAddCardBtn,
 } from "../utils/constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
@@ -95,24 +96,30 @@ function openProfileEditForm() {
   editFormPopup.open();
 }
 
-function submitEditProfile(inputValues) {
-  api.updateProfileInfo(inputValues.title, inputValues.subtitle).then(() => {
-    userInfo.setUserInfo({
-      name: inputValues.title,
-      about: inputValues.subtitle,
+async function submitEditProfile(inputValues) {
+  editProfileSubmitBtn.textContent = "Saving...";
+  return api
+    .updateProfileInfo(inputValues.title, inputValues.subtitle)
+    .then(() => {
+      userInfo.setUserInfo({
+        name: inputValues.title,
+        about: inputValues.subtitle,
+      });
+      editProfileSubmitBtn.textContent = "Save";
     });
-  });
 }
 
-function submitAddCard({ name, link }) {
-  api.addNewCard(name, link).then((res) => {
+async function submitAddCard({ name, link }) {
+  createAddCardBtn.textContent = "Saving...";
+  return api.addNewCard(name, link).then((res) => {
     renderCard(res, cardListEl);
     addFormPopup.close();
   });
 }
 
-function submitAvatar(data) {
-  api.updateAvatar(data["profile-image-link"]).then(() => {
+async function submitAvatar(data) {
+  submitAvatarButton.textContent = "Saving...";
+  return api.updateAvatar(data["profile-image-link"]).then(() => {
     profileAvatar.src = data["profile-image-link"];
   });
 }
@@ -152,7 +159,7 @@ profileEditButton.addEventListener("click", () => {
   openProfileEditForm();
 });
 
-profileAddCardBtn.addEventListener("click", () => {
+modalAddCardBtn.addEventListener("click", () => {
   addFormPopup.open(addCardModal);
 });
 

@@ -67,30 +67,6 @@ export default class Card {
     });
   }
 
-  // _handleDelBtnRender() {
-  //   if (!this._cardId === this._userId) {
-  //     this._cardDelBtn.classList.add("card__delete-button_hide");
-  //   }
-  // }
-
-  // renderCard() {
-  //   this._element = this._getTemplate();
-  //   this._likeBtn = this._element.querySelector(".card__like-button");
-  //   this._cardImg = this._element.querySelector(".card__image");
-  //   this._cardDelBtn = this._element.querySelector(".card__delete-button");
-  //   this._cardCounter = this._element.querySelector(".card__like-counter");
-  //   const cardTitle = this._element.querySelector(".card__title");
-
-  //   this._cardImg.src = this._link;
-  //   this._cardImg.alt = `Photo of ${this._name}`;
-  //   cardTitle.textContent = this._name;
-  //   this._cardCounter.textContent = this._likes.length;
-
-  //   this.setEventListeners();
-
-  //   return this._element;
-  // }
-
   renderCard() {
     this._element = this._getTemplate();
     this._likeBtn = this._element.querySelector(".card__like-button");
