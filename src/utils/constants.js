@@ -33,9 +33,7 @@ const validationSettings = {
   errorClass: "modal__error_visible",
 };
 
-/* ------------------------------ Card Elements ----------------------------- */
 const cardListEl = document.querySelector(".cards__list");
-/* ----------------------------- Profile Section ---------------------------- */
 const profileEditButton = document.querySelector("#profile-edit-button");
 const modalEditProfileForm = document.querySelector("#modal-profile-form");
 const profileName = document.querySelector("#modal-edit-title-input");
@@ -43,16 +41,10 @@ const profileDescription = document.querySelector("#modal-edit-subtitle-input");
 const profileAvatar = document.querySelector(".profile__image");
 const openEditAvatar = document.querySelector(".profile__edit-avatar");
 const modalEditAvatar = document.querySelector("#avatar-form");
-/* -------------------------------- Add Card -------------------------------- */
 const addCardModal = document.querySelector("#modal-add-card");
 const modalAddCardForm = document.querySelector("#modal-add-card-form");
 const modalAddCardBtn = document.querySelector("#profile-add-card-button");
-const createAddCardBtn = document.querySelector("#modal-add-card-create");
-/* ------------------------------ Like Counter ------------------------------ */
-/* ------------------------------ Form Elements ------------------------------ */
 const editProfileSubmitBtn = document.querySelector("#submit-edit-profile-btn");
-/* --------------------------------- Avatar --------------------------------- */
-const submitAvatarButton = document.querySelector("#avatar-form-submit");
 
 export {
   initialCards,
@@ -69,6 +61,4 @@ export {
   openEditAvatar,
   modalEditAvatar,
   editProfileSubmitBtn,
-  submitAvatarButton,
-  createAddCardBtn,
 };

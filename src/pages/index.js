@@ -13,8 +13,6 @@ import {
   openEditAvatar,
   modalEditAvatar,
   editProfileSubmitBtn,
-  submitAvatarButton,
-  createAddCardBtn,
 } from "../utils/constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
@@ -25,7 +23,6 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/api.js";
 
-openProfileEditForm;
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
   headers: {
@@ -35,18 +32,15 @@ const api = new Api({
 });
 
 let userId;
-
-api.getUserInfo().then((res) => {
-  userId = res._id;
-  userInfo.setUserInfo(res);
-});
-
 let cardSection;
 
-api.getInitialCards().then((res) => {
+api.getAppInfo().then(([cardsResponse, userResponse]) => {
+  userId = userResponse._id;
+  userInfo.setUserInfo(userResponse);
+
   cardSection = new Section(
     {
-      items: res,
+      items: cardsResponse,
       renderer: renderCard,
     },
     cardListEl
@@ -77,12 +71,19 @@ function renderCard(cardData) {
     },
     /* ----------------------------- handleDelClick ----------------------------- */
     (cardId) => {
+      //work on the catch call
       delPopup.open();
       delPopup.setSubmitAction(() => {
+        PopupWithForm.showLoading();
         api.deleteCard(cardId).then(() => {
           cardElement.handleDelCard();
+          delPopup
+            .close()
+            .catch(() => {})
+            .finally(() => {
+              PopupWithForm.hideLoading();
+            });
         });
-        delPopup.close();
       });
     }
   );
@@ -96,8 +97,8 @@ function openProfileEditForm() {
   editFormPopup.open();
 }
 
-async function submitEditProfile(inputValues) {
-  editProfileSubmitBtn.textContent = "Saving...";
+function submitEditProfile(inputValues) {
+  // editProfileSubmitBtn.textContent = "Saving...";
   return api
     .updateProfileInfo(inputValues.title, inputValues.subtitle)
     .then(() => {
@@ -109,16 +110,16 @@ async function submitEditProfile(inputValues) {
     });
 }
 
-async function submitAddCard({ name, link }) {
-  createAddCardBtn.textContent = "Saving...";
+function submitAddCard({ name, link }) {
+  // createAddCardBtn.textContent = "Saving...";
   return api.addNewCard(name, link).then((res) => {
     renderCard(res, cardListEl);
     addFormPopup.close();
   });
 }
 
-async function submitAvatar(data) {
-  submitAvatarButton.textContent = "Saving...";
+function submitAvatar(data) {
+  // submitAvatarButton.textContent = "Saving...";
   return api.updateAvatar(data["profile-image-link"]).then(() => {
     profileAvatar.src = data["profile-image-link"];
   });

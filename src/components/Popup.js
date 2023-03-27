@@ -15,7 +15,6 @@ export default class Popup {
   }
 
   close() {
-    debugger;
     this._popupElement.classList.remove("modal_opened");
     this.removeEventListeners();
   }
