@@ -36,6 +36,7 @@ let cardSection;
 api.getAppInfo().then(([cardsResponse, userResponse]) => {
   userId = userResponse._id;
   userInfo.setUserInfo(userResponse);
+  userInfo.setAvatar(userResponse);
 
   cardSection = new Section(
     {
@@ -137,12 +138,30 @@ function submitAddCard({ name, link }) {
     });
 }
 
-function submitAvatar(data) {
+// function submitAvatar(data) {
+//   avatarForm.showLoading();
+//   return api
+//     .updateAvatar(data["profile-image-link"])
+//     .then(() => {
+//       profileAvatar.src = data["profile-image-link"];
+//     })
+//     .then(() => {
+//       this.close();
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     })
+//     .finally(() => {
+//       avatarForm.hideLoading();
+//     });
+// }
+
+function submitAvatar({ avatar }) {
   avatarForm.showLoading();
   return api
-    .updateAvatar(data["profile-image-link"])
-    .then(() => {
-      profileAvatar.src = data["profile-image-link"];
+    .updateAvatar(avatar)
+    .then((res) => {
+      userInfo.setAvatar({ avatar: res.avatar });
     })
     .then(() => {
       this.close();
@@ -154,7 +173,6 @@ function submitAvatar(data) {
       avatarForm.hideLoading();
     });
 }
-
 /* -------------------------- Popup Instantiations -------------------------- */
 const avatarForm = new PopupWithForm("#avatar-form", {
   handleFormSubmit: submitAvatar,
@@ -173,6 +191,7 @@ const imagePopup = new PopupWithImage({ popupSelector: "#modal-preview" });
 const userInfo = new UserInfo({
   nameSelector: "#profile-title",
   aboutSelector: "#profile-subtitle",
+  avatarSelector: ".profile__image",
 });
 
 /* ------------------------------- Validators ------------------------------- */
