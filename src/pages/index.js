@@ -74,10 +74,10 @@ function renderCard(cardData) {
     (cardId) => {
       delPopup.open();
       delPopup.setSubmitAction(() => {
-        api
+        delPopupLoad.showLoading();
+        return api
           .deleteCard(cardId)
           .then(() => {
-            delPopupLoad.showLoading();
             cardElement.handleDelCard();
             delPopup.close();
           })
