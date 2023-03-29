@@ -62,23 +62,22 @@ function renderCard(cardData) {
     (cardId, isLiked) => {
       if (!isLiked) {
         api.addLikes(cardId).then((res) => {
-          cardElement.handleLikeBtn(res);
+          cardElement.updateLikes(res.likes);
         });
       } else {
         api.removeLikes(cardId).then((res) => {
-          cardElement.handleLikeBtn(res);
+          cardElement.updateLikes(res.likes);
         });
       }
     },
     /* ----------------------------- handleDelClick ----------------------------- */
     (cardId) => {
-      delPopup.open();
       delPopup.setSubmitAction(() => {
         delPopup.showLoading();
         return api
           .deleteCard(cardId)
           .then(() => {
-            cardElement.handleDelCard();
+            cardElement.removeCard();
             delPopup.close();
           })
           .catch((error) => {
@@ -88,6 +87,7 @@ function renderCard(cardData) {
             delPopup.hideLoading();
           });
       });
+      delPopup.open();
     }
   );
   cardListEl.prepend(cardElement.renderCard());

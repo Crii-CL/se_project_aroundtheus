@@ -9,13 +9,12 @@ export default class Card {
     handleLikeClick,
     handleDelClick
   ) {
-    this._data = data;
     this._name = data.name;
     this._link = data.link;
     this._likes = data.likes;
     this._cardId = data._id;
     this._userId = userId;
-    // this._ownerId =;
+    this._ownerId = data.owner._id;
     this._handleImageClick = handleImageClick;
     this._handleLikeClick = handleLikeClick;
     this._handleDelClick = handleDelClick;
@@ -41,20 +40,9 @@ export default class Card {
     );
   }
 
-  handleDelCard = () => {
+  removeCard = () => {
     this._element.remove();
     this._element = null;
-  };
-
-  handleLikeBtn = (res) => {
-    this._likes = res.likes;
-    this._cardCounter.textContent = this._likes.length;
-
-    if (this._isLiked()) {
-      this._likeBtn.classList.add("card__like-button_active");
-    } else {
-      this._likeBtn.classList.remove("card__like-button_active");
-    }
   };
 
   _handlePreview() {
@@ -65,6 +53,21 @@ export default class Card {
     return this._likes.some((like) => {
       return like._id === this._userId;
     });
+  }
+
+  updateLikes = (likes) => {
+    this._likes = likes;
+    this.renderLikes();
+  };
+
+  renderLikes() {
+    this._cardCounter.textContent = this._likes.length;
+
+    if (this._isLiked()) {
+      this._likeBtn.classList.add("card__like-button_active");
+    } else {
+      this._likeBtn.classList.remove("card__like-button_active");
+    }
   }
 
   renderCard() {
@@ -78,9 +81,10 @@ export default class Card {
     this._cardImg.src = this._link;
     this._cardImg.alt = `Photo of ${this._name}`;
     cardTitle.textContent = this._name;
-    this._cardCounter.textContent = this._likes.length;
+    // this._cardCounter.textContent = this._likes.length;
+    this.renderLikes();
 
-    if (this._userId !== this._data.owner._id) {
+    if (this._userId !== this._ownerId) {
       this._cardDelBtn.remove();
     }
 
