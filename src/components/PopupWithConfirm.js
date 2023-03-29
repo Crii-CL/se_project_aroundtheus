@@ -5,24 +5,24 @@ export default class PopupWithConfirm extends Popup {
     this._loadingButtonText = loadingButtonText;
     this._submitBtn = this._popupElement.querySelector(".modal__form-button");
     this._buttonText = this._submitBtn.textContent;
-    this._handleSubmitCallback = (e) => {
-      e.preventDefault();
-      this._action();
-    };
   }
 
   setSubmitAction = (action) => {
-    this._action = action;
+    this._handleSubmitCallback = action;
   };
 
   setEventListeners() {
     super.setEventListeners();
     this._popupElement
       .querySelector("#confirm-del-form")
-      .addEventListener("submit", this._handleSubmitCallback);
+      .addEventListener("submit", (e) => {
+        e.preventDefault();
+        this._handleSubmitCallback();
+      });
   }
 
   _removeEventListeners() {
+    super.removeEventListeners();
     this._popupElement.removeEventListener(
       "submit",
       this._handleSubmitCallback
@@ -35,10 +35,5 @@ export default class PopupWithConfirm extends Popup {
 
   hideLoading() {
     this._submitBtn.textContent = this._buttonText;
-  }
-
-  close() {
-    super.close();
-    this._removeEventListeners();
   }
 }

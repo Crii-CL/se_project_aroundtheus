@@ -50,7 +50,7 @@ export default class Card {
   }
 
   _isLiked() {
-    this._likes.some((like) => like._id === this._userId);
+    return this._likes.some((like) => like._id === this._userId);
   }
 
   updateLikes = (likes) => {

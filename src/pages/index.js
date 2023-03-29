@@ -33,20 +33,25 @@ const api = new Api({
 let userId;
 let cardSection;
 
-api.getAppInfo().then(([cardsResponse, userResponse]) => {
-  userId = userResponse._id;
-  userInfo.setUserInfo(userResponse);
-  userInfo.setAvatar(userResponse);
+api
+  .getAppInfo()
+  .then(([cardsResponse, userResponse]) => {
+    userId = userResponse._id;
+    userInfo.setUserInfo(userResponse);
+    userInfo.setAvatar(userResponse);
 
-  cardSection = new Section(
-    {
-      items: cardsResponse,
-      renderer: renderCard,
-    },
-    cardListEl
-  );
-  cardSection.renderItems();
-});
+    cardSection = new Section(
+      {
+        items: cardsResponse,
+        renderer: renderCard,
+      },
+      cardListEl
+    );
+    cardSection.renderItems();
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
 function renderCard(cardData) {
   const cardElement = new Card(
@@ -60,9 +65,14 @@ function renderCard(cardData) {
     /* ----------------------------- handleLikeClick ---------------------------- */
     (cardId, isLiked) => {
       if (!isLiked) {
-        api.addLikes(cardId).then((res) => {
-          cardElement.updateLikes(res.likes);
-        });
+        api
+          .addLikes(cardId)
+          .then((res) => {
+            cardElement.updateLikes(res.likes);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       } else {
         api.removeLikes(cardId).then((res) => {
           cardElement.updateLikes(res.likes);
@@ -108,9 +118,7 @@ function submitEditProfile(inputValues) {
         name: inputValues.title,
         about: inputValues.subtitle,
       });
-    })
-    .then(() => {
-      this.close();
+      editFormPopup.close();
     })
     .catch((error) => {
       console.log(error);

@@ -20,7 +20,6 @@ export default class UserInfo {
 
   setAvatar({ avatar }) {
     this._avatarElement.src = avatar;
-    console.log(this._avatarElement);
   }
 
   setUserInfo({ name, about }) {
