@@ -11,10 +11,10 @@ export default class PopupWithConfirm extends Popup {
     this._handleSubmitCallback = action;
   };
 
-  _handleSubmit(e) {
+  _handleSubmit = (e) => {
     e.preventDefault();
     this._handleSubmitCallback();
-  }
+  };
 
   setEventListeners() {
     super.setEventListeners();
@@ -23,7 +23,7 @@ export default class PopupWithConfirm extends Popup {
       .addEventListener("submit", this._handleSubmit);
   }
 
-  removeEventListeners() {
+  _removeEventListeners() {
     super.removeEventListeners();
     this._popupElement.removeEventListener("submit", this._handleSubmit);
   }
