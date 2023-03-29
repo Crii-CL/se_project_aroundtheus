@@ -74,9 +74,14 @@ function renderCard(cardData) {
             console.log(error);
           });
       } else {
-        api.removeLikes(cardId).then((res) => {
-          cardElement.updateLikes(res.likes);
-        });
+        api
+          .removeLikes(cardId)
+          .then((res) => {
+            cardElement.updateLikes(res.likes);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       }
     },
     /* ----------------------------- handleDelClick ----------------------------- */
@@ -145,24 +150,6 @@ function submitAddCard({ name, link }) {
       addFormPopup.hideLoading();
     });
 }
-
-// function submitAvatar(data) {
-//   avatarForm.showLoading();
-//   return api
-//     .updateAvatar(data["profile-image-link"])
-//     .then(() => {
-//       profileAvatar.src = data["profile-image-link"];
-//     })
-//     .then(() => {
-//       this.close();
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     })
-//     .finally(() => {
-//       avatarForm.hideLoading();
-//     });
-// }
 
 function submitAvatar({ avatar }) {
   avatarForm.showLoading();
