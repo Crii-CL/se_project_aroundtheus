@@ -74,7 +74,7 @@ function renderCard(cardData) {
     (cardId) => {
       delPopup.open();
       delPopup.setSubmitAction(() => {
-        delPopupLoad.showLoading();
+        delPopup.showLoading();
         return api
           .deleteCard(cardId)
           .then(() => {
@@ -85,7 +85,7 @@ function renderCard(cardData) {
             console.log(error);
           })
           .finally(() => {
-            delPopupLoad.hideLoading();
+            delPopup.hideLoading();
           });
       });
     }
@@ -101,7 +101,7 @@ function openProfileEditForm() {
 }
 
 function submitEditProfile(inputValues) {
-  editFormLoad.showLoading();
+  editFormPopup.showLoading();
   return api
     .updateProfileInfo(inputValues.title, inputValues.subtitle)
     .then(() => {
@@ -109,18 +109,17 @@ function submitEditProfile(inputValues) {
         name: inputValues.title,
         about: inputValues.subtitle,
       });
-      editProfileSubmitBtn.textContent = "Save";
     })
     .catch((error) => {
       console.log(error);
     })
     .finally(() => {
-      editFormLoad.hideLoading();
+      editFormPopup.hideLoading();
     });
 }
 
 function submitAddCard({ name, link }) {
-  addFormLoad.showLoading();
+  addFormPopup.showLoading();
   return api
     .addNewCard(name, link)
     .then((res) => {
@@ -131,12 +130,12 @@ function submitAddCard({ name, link }) {
       console.log(error);
     })
     .finally(() => {
-      addFormLoad.hideLoading();
+      addFormPopup.hideLoading();
     });
 }
 
 function submitAvatar(data) {
-  avatarFormLoad.showLoading();
+  avatarForm.showLoading();
   return api
     .updateAvatar(data["profile-image-link"])
     .then(() => {
@@ -146,7 +145,7 @@ function submitAvatar(data) {
       console.log(error);
     })
     .finally(() => {
-      avatarFormLoad.hideLoading();
+      avatarForm.hideLoading();
     });
 }
 
@@ -164,36 +163,23 @@ function submitAvatar(data) {
 //   loadingButtonText: "Saving...",
 // });
 
-const avatarForm = new PopupWithForm("#avatar-form", submitAvatar);
-const editFormPopup = new PopupWithForm(
-  "#modal-edit-profile",
-  submitEditProfile
-);
-const addFormPopup = new PopupWithForm("#modal-add-card", submitAddCard);
-
+const avatarForm = new PopupWithForm("#avatar-form", {
+  handleFormSubmit: submitAvatar,
+  loadingButtonText: "Saving...",
+});
+const editFormPopup = new PopupWithForm("#modal-edit-profile", {
+  handleFormSubmit: submitEditProfile,
+  loadingButtonText: "Saving...",
+});
+const addFormPopup = new PopupWithForm("#modal-add-card", {
+  handleFormSubmit: submitAddCard,
+  loadingButtonText: "Saving...",
+});
+const delPopup = new PopupWithConfirm("#confirm-del-modal", "Saving...");
 const imagePopup = new PopupWithImage({ popupSelector: "#modal-preview" });
 const userInfo = new UserInfo({
   nameSelector: "#profile-title",
   aboutSelector: "#profile-subtitle",
-});
-const delPopup = new PopupWithConfirm({ popupSelector: "#confirm-del-modal" });
-
-/* ---------------------------------- Load ---------------------------------- */
-const avatarFormLoad = new Popup({
-  popupSelector: "#avatar-form",
-  loadingButtonText: "Saving...",
-});
-const editFormLoad = new Popup({
-  popupSelector: "#modal-edit-profile",
-  loadingButtonText: "Saving...",
-});
-const addFormLoad = new Popup({
-  popupSelector: "#modal-add-card",
-  loadingButtonText: "Saving...",
-});
-const delPopupLoad = new Popup({
-  popupSelector: "#confirm-del-modal",
-  loadingButtonText: "Saving...",
 });
 
 /* ------------------------------- Validators ------------------------------- */
