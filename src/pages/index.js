@@ -22,6 +22,7 @@ import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/api.js";
+import Popup from "../components/Popup.js";
 
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
@@ -71,19 +72,21 @@ function renderCard(cardData) {
     },
     /* ----------------------------- handleDelClick ----------------------------- */
     (cardId) => {
-      //work on the catch call
       delPopup.open();
       delPopup.setSubmitAction(() => {
-        PopupWithForm.showLoading();
-        api.deleteCard(cardId).then(() => {
-          cardElement.handleDelCard();
-          delPopup
-            .close()
-            .catch(() => {})
-            .finally(() => {
-              PopupWithForm.hideLoading();
-            });
-        });
+        api
+          .deleteCard(cardId)
+          .then(() => {
+            delPopupLoad.showLoading();
+            cardElement.handleDelCard();
+            delPopup.close();
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+          .finally(() => {
+            delPopupLoad.hideLoading();
+          });
       });
     }
   );
@@ -98,7 +101,7 @@ function openProfileEditForm() {
 }
 
 function submitEditProfile(inputValues) {
-  // editProfileSubmitBtn.textContent = "Saving...";
+  editFormLoad.showLoading();
   return api
     .updateProfileInfo(inputValues.title, inputValues.subtitle)
     .then(() => {
@@ -107,30 +110,67 @@ function submitEditProfile(inputValues) {
         about: inputValues.subtitle,
       });
       editProfileSubmitBtn.textContent = "Save";
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    .finally(() => {
+      editFormLoad.hideLoading();
     });
 }
 
 function submitAddCard({ name, link }) {
-  // createAddCardBtn.textContent = "Saving...";
-  return api.addNewCard(name, link).then((res) => {
-    renderCard(res, cardListEl);
-    addFormPopup.close();
-  });
+  addFormLoad.showLoading();
+  return api
+    .addNewCard(name, link)
+    .then((res) => {
+      renderCard(res, cardListEl);
+      addFormPopup.close();
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    .finally(() => {
+      addFormLoad.hideLoading();
+    });
 }
 
 function submitAvatar(data) {
-  // submitAvatarButton.textContent = "Saving...";
-  return api.updateAvatar(data["profile-image-link"]).then(() => {
-    profileAvatar.src = data["profile-image-link"];
-  });
+  avatarFormLoad.showLoading();
+  return api
+    .updateAvatar(data["profile-image-link"])
+    .then(() => {
+      profileAvatar.src = data["profile-image-link"];
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    .finally(() => {
+      avatarFormLoad.hideLoading();
+    });
 }
 
+/* -------------------------- Popup Instantiations -------------------------- */
+// const avatarForm = new PopupWithForm("#avatar-form", {
+//   handleFormSubmit: submitAvatar,
+//   loadingButtonText: "Saving...",
+// });
+// const editFormPopup = new PopupWithForm(
+//   "#modal-edit-profile",
+//   {handleFormSubmit: submitEditProfile, loadingButtonText: "}
+// );
+// const addFormPopup = new PopupWithForm("#modal-add-card", {
+//   handleFormSubmit: submitAddCard,
+//   loadingButtonText: "Saving...",
+// });
+
+const avatarForm = new PopupWithForm("#avatar-form", submitAvatar);
 const editFormPopup = new PopupWithForm(
   "#modal-edit-profile",
   submitEditProfile
 );
-const avatarForm = new PopupWithForm("#avatar-form", submitAvatar);
 const addFormPopup = new PopupWithForm("#modal-add-card", submitAddCard);
+
 const imagePopup = new PopupWithImage({ popupSelector: "#modal-preview" });
 const userInfo = new UserInfo({
   nameSelector: "#profile-title",
@@ -138,6 +178,25 @@ const userInfo = new UserInfo({
 });
 const delPopup = new PopupWithConfirm({ popupSelector: "#confirm-del-modal" });
 
+/* ---------------------------------- Load ---------------------------------- */
+const avatarFormLoad = new Popup({
+  popupSelector: "#avatar-form",
+  loadingButtonText: "Saving...",
+});
+const editFormLoad = new Popup({
+  popupSelector: "#modal-edit-profile",
+  loadingButtonText: "Saving...",
+});
+const addFormLoad = new Popup({
+  popupSelector: "#modal-add-card",
+  loadingButtonText: "Saving...",
+});
+const delPopupLoad = new Popup({
+  popupSelector: "#confirm-del-modal",
+  loadingButtonText: "Saving...",
+});
+
+/* ------------------------------- Validators ------------------------------- */
 const editFormValidator = new FormValidator(
   validationSettings,
   modalEditProfileForm
