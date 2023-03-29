@@ -44,7 +44,6 @@ const modalEditAvatar = document.querySelector("#avatar-form");
 const addCardModal = document.querySelector("#modal-add-card");
 const modalAddCardForm = document.querySelector("#modal-add-card-form");
 const modalAddCardBtn = document.querySelector("#profile-add-card-button");
-const editProfileSubmitBtn = document.querySelector("#submit-edit-profile-btn");
 
 export {
   initialCards,
@@ -60,5 +59,4 @@ export {
   modalAddCardBtn,
   openEditAvatar,
   modalEditAvatar,
-  editProfileSubmitBtn,
 };

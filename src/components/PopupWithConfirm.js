@@ -5,13 +5,14 @@ export default class PopupWithConfirm extends Popup {
     this._loadingButtonText = loadingButtonText;
     this._submitBtn = this._popupElement.querySelector(".modal__form-button");
     this._buttonText = this._submitBtn.textContent;
+    this._handleSubmitCallback = (e) => {
+      e.preventDefault();
+      this._action();
+    };
   }
 
   setSubmitAction = (action) => {
-    this._handleSubmitCallback = (e) => {
-      e.preventDefault();
-      action();
-    };
+    this._action = action;
   };
 
   setEventListeners() {
@@ -19,7 +20,6 @@ export default class PopupWithConfirm extends Popup {
     this._popupElement
       .querySelector("#confirm-del-form")
       .addEventListener("submit", this._handleSubmitCallback);
-    console.log("seteventlisteners in confirm popup");
   }
 
   _removeEventListeners() {

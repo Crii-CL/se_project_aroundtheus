@@ -12,7 +12,6 @@ import {
   modalAddCardBtn,
   openEditAvatar,
   modalEditAvatar,
-  editProfileSubmitBtn,
 } from "../utils/constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
@@ -21,8 +20,7 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
-import Api from "../components/api.js";
-import Popup from "../components/Popup.js";
+import Api from "../utils/api.js";
 
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
@@ -110,6 +108,9 @@ function submitEditProfile(inputValues) {
         about: inputValues.subtitle,
       });
     })
+    .then(() => {
+      this.close();
+    })
     .catch((error) => {
       console.log(error);
     })
@@ -124,7 +125,9 @@ function submitAddCard({ name, link }) {
     .addNewCard(name, link)
     .then((res) => {
       renderCard(res, cardListEl);
-      addFormPopup.close();
+    })
+    .then(() => {
+      this.close();
     })
     .catch((error) => {
       console.log(error);
@@ -141,6 +144,9 @@ function submitAvatar(data) {
     .then(() => {
       profileAvatar.src = data["profile-image-link"];
     })
+    .then(() => {
+      this.close();
+    })
     .catch((error) => {
       console.log(error);
     })
@@ -150,19 +156,6 @@ function submitAvatar(data) {
 }
 
 /* -------------------------- Popup Instantiations -------------------------- */
-// const avatarForm = new PopupWithForm("#avatar-form", {
-//   handleFormSubmit: submitAvatar,
-//   loadingButtonText: "Saving...",
-// });
-// const editFormPopup = new PopupWithForm(
-//   "#modal-edit-profile",
-//   {handleFormSubmit: submitEditProfile, loadingButtonText: "}
-// );
-// const addFormPopup = new PopupWithForm("#modal-add-card", {
-//   handleFormSubmit: submitAddCard,
-//   loadingButtonText: "Saving...",
-// });
-
 const avatarForm = new PopupWithForm("#avatar-form", {
   handleFormSubmit: submitAvatar,
   loadingButtonText: "Saving...",
