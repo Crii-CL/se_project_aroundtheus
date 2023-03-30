@@ -23,7 +23,7 @@ export default class PopupWithConfirm extends Popup {
       .addEventListener("submit", this._handleSubmit);
   }
 
-  _removeEventListeners() {
+  removeEventListeners() {
     super.removeEventListeners();
     this._popupElement.removeEventListener("submit", this._handleSubmit);
   }
