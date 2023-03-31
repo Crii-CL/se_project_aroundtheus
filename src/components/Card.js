@@ -77,7 +77,6 @@ export default class Card {
     this._cardImg.src = this._link;
     this._cardImg.alt = `Photo of ${this._name}`;
     cardTitle.textContent = this._name;
-    // this._cardCounter.textContent = this._likes.length;
     this.renderLikes();
 
     if (this._userId !== this._ownerId) {
